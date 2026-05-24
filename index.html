@@ -4,11 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Estancia Parrillera - Auténticos Sabores</title>
+    <!-- Importamos tipografías profesionales para un estilo rústico y potente -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@700&family=Open+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
     <style>
-        /* --- ESTILOS GENERALES Y PALETA RÚSTICA --- */
         :root {
-            --carbon: #121212;
-            --pizarra: #1c1a19;
+            --carbon: #0f0e0e;
+            --pizarra: #181615;
             --oro-viejo: #c5a059;
             --blanco-hueso: #f4f1ea;
             --fuego: #ff4500;
@@ -19,140 +23,153 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
             background-color: var(--carbon);
             color: var(--blanco-hueso);
-            background-image: linear-gradient(rgba(18, 18, 18, 0.95), rgba(18, 18, 18, 0.95)), 
-                              url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=1000'); /* Textura de fondo sutil */
+            font-family: 'Open Sans', sans-serif;
+            background-image: linear-gradient(rgba(15, 14, 14, 0.96), rgba(15, 14, 14, 0.96)), 
+                              url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=1000');
             background-size: cover;
             background-attachment: fixed;
         }
 
-        /* --- ENCABEZADO Y LOGO --- */
+        /* --- ENCABEZADO Y LOGO CORREGIDO --- */
         header {
-            background-color: rgba(28, 26, 25, 0.95);
-            border-bottom: 2px solid var(--oro-viejo);
-            padding: 2rem 1rem;
+            background-color: rgba(24, 22, 21, 0.98);
+            border-bottom: 3px solid var(--oro-viejo);
+            padding: 2.5rem 1rem;
             text-align: center;
-            position: relative;
-            overflow: hidden;
         }
 
         .logo-contenedor {
             display: inline-block;
-            margin-bottom: 0.5rem;
+            text-align: center;
         }
 
-        /* Estructura del Logo basada en tu identidad real */
         .logo-texto {
-            font-family: 'Impact', 'Arial Black', sans-serif;
-            font-size: 3rem;
+            font-family: 'Antonio', sans-serif;
             text-transform: uppercase;
-            letter-spacing: 2px;
             color: var(--blanco-hueso);
-            line-height: 0.9;
+            line-height: 0.85;
             margin: 0;
+        }
+
+        .logo-texto .linea-1 {
+            font-size: 2.2rem;
+            letter-spacing: 6px;
+            font-weight: 700;
+            display: block;
             position: relative;
         }
 
-        .logo-texto span {
-            display: block;
-            font-size: 3.5rem;
-            font-weight: 900;
-            letter-spacing: 1px;
+        /* Icono de llama integrado de manera elegante */
+        .logo-texto .linea-1::after {
+            content: "🔥";
+            font-size: 1.2rem;
+            position: absolute;
+            top: -8px;
+            margin-left: 4px;
+            animation: parpadeo-fuego 0.8s infinite alternate;
         }
 
-        /* Icono de llama sobre la tipografía */
-        .logo-texto::after {
-            content: "🔥";
-            font-size: 1.5rem;
-            position: absolute;
-            top: -15px;
-            right: 25%;
-            animation: parpadeo-fuego 1s infinite alternate;
+        .logo-texto .linea-2 {
+            font-size: 4.5rem;
+            letter-spacing: 2px;
+            font-weight: 700;
+            display: block;
         }
 
         .eslogan {
             font-family: 'Georgia', serif;
             font-style: italic;
             color: var(--oro-viejo);
-            font-size: 1.2rem;
-            margin-top: 0.5rem;
-            letter-spacing: 3px;
+            font-size: 1.25rem;
+            margin-top: 0.8rem;
+            letter-spacing: 4px;
         }
 
-        /* --- EFECTO FLAMEANTE (ANIMACIONES) --- */
+        /* --- ANIMACIONES FLAMEANTES --- */
         .texto-flameante {
-            color: var(--blanco-hueso);
             text-shadow: 0 0 4px #fff, 
-                         0 -5px 10px var(--fuego-brillo), 
-                         0 -10px 20px var(--fuego), 
-                         0 -18px 40px #ff0000;
-            animation: quemar 1.5s infinite alternate;
+                         0 -4px 10px var(--fuego-brillo), 
+                         0 -8px 20px var(--fuego);
+            animation: quemar 1.2s infinite alternate;
         }
 
         @keyframes quemar {
-            0% { text-shadow: 0 0 4px #fff, 0 -5px 10px var(--fuego-brillo), 0 -10px 20px var(--fuego), 0 -18px 35px #ff0000; }
-            100% { text-shadow: 0 0 6px #fff, 0 -8px 14px var(--fuego-brillo), 0 -14px 26px var(--fuego), 0 -22px 45px #ff3300; }
+            0% { text-shadow: 0 0 4px #fff, 0 -4px 10px var(--fuego-brillo), 0 -8px 20px var(--fuego); }
+            100% { text-shadow: 0 0 6px #fff, 0 -6px 14px var(--fuego-brillo), 0 -12px 25px var(--fuego); }
         }
 
         @keyframes parpadeo-fuego {
-            0% { transform: scale(1) rotate(-2deg); opacity: 0.8; }
+            0% { transform: scale(1) rotate(-3deg); opacity: 0.8; }
             100% { transform: scale(1.15) rotate(3deg); opacity: 1; }
         }
 
-        /* --- CONTENEDOR PRINCIPAL Y MENÚ --- */
+        /* --- ESTRUCTURA DEL CONTENIDO --- */
         .contenedor {
-            max-width: 1000px;
+            max-width: 1050px;
             margin: 3rem auto;
             padding: 0 1.5rem;
         }
 
         .seccion-titulo {
+            font-family: 'Antonio', sans-serif;
             text-align: center;
-            font-size: 2rem;
+            font-size: 2.2rem;
             text-transform: uppercase;
             color: var(--oro-viejo);
-            border-bottom: 1px solid var(--oro-viejo);
+            border-bottom: 2px solid rgba(197, 160, 89, 0.4);
             padding-bottom: 0.5rem;
-            margin-bottom: 2rem;
-            letter-spacing: 2px;
+            margin-bottom: 2.5rem;
+            letter-spacing: 3px;
         }
 
         .menu-categoria {
-            background: rgba(28, 26, 25, 0.85);
-            border: 1px solid rgba(197, 160, 89, 0.2);
-            border-radius: 4px;
-            padding: 2rem;
-            margin-bottom: 3rem;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+            background: rgba(24, 22, 21, 0.92);
+            border: 1px solid rgba(197, 160, 89, 0.15);
+            border-radius: 6px;
+            padding: 2.5rem;
+            margin-bottom: 3.5rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+        }
+
+        .subcategoria-titulo {
+            font-family: 'Antonio', sans-serif;
+            font-size: 1.4rem;
+            color: var(--oro-viejo);
+            text-transform: uppercase;
+            margin: 1.5rem 0 1rem 0;
+            letter-spacing: 1px;
+            border-left: 3px solid var(--oro-viejo);
+            padding-left: 10px;
         }
 
         .menu-item {
-            margin-bottom: 1.8rem;
+            margin-bottom: 1.6rem;
+            page-break-inside: avoid;
         }
 
         .item-encabezado {
             display: flex;
             justify-content: space-between;
             align-items: baseline;
-            margin-bottom: 0.3rem;
+            margin-bottom: 0.2rem;
         }
 
         .item-nombre {
-            font-size: 1.25rem;
-            font-weight: bold;
+            font-family: 'Antonio', sans-serif;
+            font-size: 1.3rem;
             text-transform: uppercase;
             color: var(--blanco-hueso);
             letter-spacing: 0.5px;
         }
 
         .item-precio {
-            font-size: 1.25rem;
-            font-weight: bold;
+            font-family: 'Antonio', sans-serif;
+            font-size: 1.3rem;
             color: var(--oro-viejo);
             white-space: nowrap;
             padding-left: 1rem;
@@ -160,27 +177,60 @@
 
         .item-descripcion {
             font-size: 0.95rem;
-            color: #a09c94;
+            color: #b0aca2;
             font-style: italic;
             line-height: 1.4;
         }
 
-        /* --- PIE DE PÁGINA (CONTRA PORTADA) --- */
+        /* --- ESTILOS DE TABLAS PARA GUARNICIONES --- */
+        .tabla-guarniciones {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .tabla-guarniciones th, .tabla-guarniciones td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(244, 241, 234, 0.1);
+        }
+
+        .tabla-guarniciones th {
+            font-family: 'Antonio', sans-serif;
+            color: var(--oro-viejo);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .tabla-guarniciones td strong {
+            font-family: 'Antonio', sans-serif;
+            color: var(--blanco-hueso);
+            text-transform: uppercase;
+        }
+
+        .precio-celda {
+            color: var(--oro-viejo);
+            font-weight: bold;
+        }
+
+        /* --- PIE DE PÁGINA / CONTRA PORTADA --- */
         footer {
             background-color: var(--pizarra);
-            border-top: 1px solid var(--oro-viejo);
+            border-top: 2px solid var(--oro-viejo);
             text-align: center;
-            padding: 3rem 1rem;
-            margin-top: 5rem;
+            padding: 4rem 1rem;
+            margin-top: 6rem;
         }
 
         .contacto-info {
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            font-size: 1.15rem;
+            letter-spacing: 0.5px;
         }
 
         .contacto-info p {
-            margin: 0.5rem 0;
+            margin: 0.6rem 0;
         }
 
         .btn-whatsapp {
@@ -188,38 +238,41 @@
             background-color: #25d366;
             color: #fff;
             text-decoration: none;
-            padding: 0.8rem 2rem;
+            padding: 1rem 2.5rem;
             border-radius: 50px;
             font-weight: bold;
             text-transform: uppercase;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             letter-spacing: 1px;
             transition: transform 0.2s, box-shadow 0.2s;
             box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
         }
 
         .btn-whatsapp:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 22px rgba(37, 211, 102, 0.5);
         }
 
         /* --- RESPONSIVE --- */
         @media (max-width: 600px) {
-            .logo-texto { font-size: 2.2rem; }
-            .logo-texto span { font-size: 2.6rem; }
+            .logo-texto .linea-1 { font-size: 1.5rem; letter-spacing: 4px; }
+            .logo-texto .linea-2 { font-size: 2.8rem; }
             .item-encabezado { flex-direction: column; }
-            .item-precio { padding-left: 0; margin-top: 0.2rem; }
-            .menu-categoria { padding: 1.2rem; }
+            .item-precio { padding-left: 0; margin-top: 0.1rem; }
+            .menu-categoria { padding: 1.5rem; }
+            .tabla-guarniciones { font-size: 0.85rem; }
+            .tabla-guarniciones th, .tabla-guarniciones td { padding: 0.4rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- ENCABEZADO CON LOGO Y ESLEGAN ORIGINAL -->
+    <!-- ENCABEZADO CON LOGO CORREGIDO -->
     <header>
         <div class="logo-contenedor">
             <h1 class="logo-texto">
-                Estancia <span>parrillera</span>
+                <span class="linea-1">Estancia</span>
+                <span class="linea-2">Parrillera</span>
             </h1>
             <p class="eslogan">Auténticos sabores...</p>
         </div>
@@ -227,95 +280,274 @@
 
     <div class="contenedor">
 
-        <!-- CATEGORÍA 1: LAS BRASAS -->
+        <!-- SECCIÓN 1: NUESTRAS BRASAS -->
         <div class="menu-categoria">
             <h2 class="seccion-titulo texto-flameante">Nuestras Brasas</h2>
             
+            <div class="subcategoria-titulo">Parrillas Personales</div>
             <div class="menu-item">
-                <div class="item-encabezado">
-                    <span class="item-nombre">Lomo Fino Seleccionado</span>
-                    <span class="item-precio">S/. 55.00</span>
-                </div>
-                <p class="item-descripcion">El corte más tierno y exclusivo de la casa, sellado a la perfección en nuestras brasas. Servido con papas fritas y ensalada fresca.</p>
+                <div class="item-encabezado"><span class="item-nombre">Lomo Fino</span><span class="item-precio">S/. 55.00</span></div>
+                <p class="item-descripcion">Acompañado de papas fritas y ensalada.</p>
+            </div>
+            <div class="menu-item">
+                <div class="item-encabezado"><span class="item-nombre">Tira de Res</span><span class="item-precio">S/. 30.00</span></div>
+                <p class="item-descripcion">Acompañado de papas fritas y ensalada.</p>
+            </div>
+            <div class="menu-item">
+                <div class="item-encabezado"><span class="item-nombre">Churrasco</span><span class="item-precio">S/. 30.00</span></div>
+                <p class="item-descripcion">Acompañado de papas fritas y ensalada.</p>
+            </div>
+            <div class="menu-item">
+                <div class="item-encabezado"><span class="item-nombre">Tira de Cerdo</span><span class="item-precio">S/. 30.00</span></div>
+                <p class="item-descripcion">Acompañado de papas fritas y ensalada.</p>
+            </div>
+            <div class="menu-item">
+                <div class="item-encabezado"><span class="item-nombre">Chuleta de Cerdo</span><span class="item-precio">S/. 30.00</span></div>
+                <p class="item-descripcion">Acompañado de papas fritas y ensalada.</p>
+            </div>
+            <div class="menu-item">
+                <div class="item-encabezado"><span class="item-nombre">¼ Pollo</span><span class="item-precio">S/. 25.00</span></div>
+                <p class="item-descripcion">Acompañado de papas fritas y ensalada.</p>
+            </div>
+            <div class="menu-item">
+                <div class="item-encabezado"><span class="item-nombre">⅛ Pollo</span><span class="item-precio">S/. 15.00</span></div>
+                <p class="item-descripcion">Acompañado de papas fritas y ensalada.</p>
             </div>
 
+            <div class="subcategoria-titulo">Parrillas Mixtas y Familiares</div>
             <div class="menu-item">
-                <div class="item-encabezado">
-                    <span class="item-nombre">Tira de Res Premium</span>
-                    <span class="item-precio">S/. 30.00</span>
-                </div>
-                <p class="item-descripcion">Jugosa, crujiente por fuera y con el balance perfecto de grasa y sabor al carbón.</p>
+                <div class="item-encabezado"><span class="item-nombre">Para Cuatro</span><span class="item-precio">S/. 100.00</span></div>
+                <p class="item-descripcion">½ Pollo + 1 Churrasco + 1 Tira de Cerdo + 2 Chorizos + 2 Anticuchos. Acompañado de papas fritas y ensalada.</p>
+            </div>
+            <div class="menu-item">
+                <div class="item-encabezado"><span class="item-nombre">Para Seis</span><span class="item-precio">S/. 130.00</span></div>
+                <p class="item-descripcion">½ Pollo + 1 Chuleta + 1 Churrasco + 1 Tira de Res + 1 Tira de Cerdo + 2 Chorizos + 2 Anticuchos. Acompañado de papas fritas y ensalada.</p>
+            </div>
+            <div class="menu-item">
+                <div class="item-encabezado"><span class="item-nombre">1 Pollo</span><span class="item-precio">S/. 85.00</span></div>
+                <p class="item-descripcion">Acompañado de papas fritas y ensalada.</p>
+            </div>
+            <div class="menu-item">
+                <div class="item-encabezado"><span class="item-nombre">½ Pollo</span><span class="item-precio">S/. 45.00</span></div>
+                <p class="item-descripcion">Acompañado de papas fritas y ensalada.</p>
             </div>
 
+            <div class="subcategoria-titulo">Anticuchos (Con papas fritas y ensalada)</div>
             <div class="menu-item">
-                <div class="item-encabezado">
-                    <span class="item-nombre">Parrilla para Cuatro (Mixta)</span>
-                    <span class="item-precio">S/. 100.00</span>
-                </div>
-                <p class="item-descripcion">½ Pollo + 1 Churrasco + 1 Tira de Cerdo + 2 Chorizos Artesanales + 2 Anticuchos. Servido con abundante porción de papas y ensalada.</p>
+                <div class="item-encabezado"><span class="item-nombre">Pollo</span><span class="item-precio">S/. 16.00</span></div>
+            </div>
+            <div class="menu-item">
+                <div class="item-encabezado"><span class="item-nombre">Corazón de Res</span><span class="item-precio">S/. 16.00</span></div>
+            </div>
+            <div class="menu-item">
+                <div class="item-encabezado"><span class="item-nombre">Cerdo</span><span class="item-precio">S/. 16.00</span></div>
+            </div>
+            <div class="menu-item">
+                <div class="item-encabezado"><span class="item-nombre">Mollejas</span><span class="item-precio">S/. 16.00</span></div>
             </div>
 
+            <div class="subcategoria-titulo">Alitas (Con papas fritas y ensalada)</div>
             <div class="menu-item">
-                <div class="item-encabezado">
-                    <span class="item-nombre">Parrilla para Seis (Familiar)</span>
-                    <span class="item-precio">S/. 130.00</span>
-                </div>
-                <p class="item-descripcion">½ Pollo + 1 Chuleta + 1 Churrasco + 1 Tira de Res + 1 Tira de Cerdo + 2 Chorizos Artesanales + 2 Anticuchos.</p>
+                <div class="item-encabezado"><span class="item-nombre">Broaster</span><span class="item-precio">S/. 20.00</span></div>
+            </div>
+            <div class="menu-item">
+                <div class="item-encabezado"><span class="item-nombre">Acevichadas</span><span class="item-precio">S/. 20.00</span></div>
+            </div>
+            <div class="menu-item">
+                <div class="item-encabezado"><span class="item-nombre">BBQ</span><span class="item-precio">S/. 20.00</span></div>
+            </div>
+            <div class="menu-item">
+                <div class="item-encabezado"><span class="item-nombre">Mixto</span><span class="item-precio">S/. 25.00</span></div>
             </div>
         </div>
 
-        <!-- CATEGORÍA 2: PLATOS A LA CARTA -->
+        <!-- SECCIÓN 2: PLATOS A LA CARTA Y GUARNICIONES -->
         <div class="menu-categoria">
-            <h2 class="seccion-titulo">Especialidades al Wok</h2>
-            
+            <h2 class="seccion-titulo">Platos a la Carta</h2>
             <div class="menu-item">
-                <div class="item-encabezado">
-                    <span class="item-nombre">Lomo Saltado Criollo</span>
-                    <span class="item-precio">S/. 28.00</span>
-                </div>
-                <p class="item-descripcion">Jugosos bastones de carne salteados a fuego vivo con cebolla, tomate, un toque de pisco y crujientes papas fritas.</p>
+                <div class="item-encabezado"><span class="item-nombre">Lomo Saltado</span><span class="item-precio">S/. 28.00</span></div>
+            </div>
+            <div class="menu-item">
+                <div class="item-encabezado"><span class="item-nombre">Arroz Chaufa de Carne</span><span class="item-precio">S/. 30.00</span></div>
+            </div>
+            <div class="menu-item">
+                <div class="item-encabezado"><span class="item-nombre">Arroz Chaufa Especial</span><span class="item-precio">S/. 25.00</span></div>
+            </div>
+            <div class="menu-item">
+                <div class="item-encabezado"><span class="item-nombre">Arroz Chaufa de Pollo</span><span class="item-precio">S/. 18.00</span></div>
             </div>
 
-            <div class="menu-item">
-                <div class="item-encabezado">
-                    <span class="item-nombre">Arroz Chaufa Especial</span>
-                    <span class="item-precio">S/. 25.00</span>
-                </div>
-                <p class="item-descripcion">Fusión perfecta al wok con una selección premium de las carnes ahumadas de la casa.</p>
-            </div>
+            <div class="subcategoria-titulo">Guarniciones Adicionales</div>
+            <table class="tabla-guarniciones">
+                <thead>
+                    <tr>
+                        <th>Acompañamiento</th>
+                        <th>Pequeño</th>
+                        <th>Grande</th>
+                        <th>Extra</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Papas Fritas</strong></td>
+                        <td class="precio-celda">S/. 6.00</td>
+                        <td class="precio-celda">S/. 10.00</td>
+                        <td class="precio-celda">S/. 13.00</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ensalada</strong></td>
+                        <td class="precio-celda">S/. 6.00</td>
+                        <td class="precio-celda">S/. 10.00</td>
+                        <td class="precio-celda">S/. 13.00</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Arroz Chaufa</strong></td>
+                        <td class="precio-celda">S/. 6.00</td>
+                        <td class="precio-celda">S/. 10.00</td>
+                        <td class="precio-celda">S/. 15.00</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Arroz Blanco</strong></td>
+                        <td class="precio-celda">S/. 5.00</td>
+                        <td class="precio-celda">S/. 8.00</td>
+                        <td class="precio-celda">S/. 13.00</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Chorizo</strong></td>
+                        <td colspan="2"> Porción Individual</td>
+                        <td class="precio-celda">S/. 8.00</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
 
-        <!-- CATEGORÍA 3: BEBIDAS -->
+        <!-- SECCIÓN 3: BEBIDAS SIN ALCOHOL -->
         <div class="menu-categoria">
             <h2 class="seccion-titulo">Bebidas Refrescantes</h2>
-            
             <div class="menu-item">
-                <div class="item-encabezado">
-                    <span class="item-nombre">Chicha de Maracuyá (Jarra 1L)</span>
-                    <span class="item-precio">S/. 18.00</span>
-                </div>
-                <p class="item-descripcion">Preparada de pura fruta seleccionada, disponible en versión helada o frozen.</p>
+                <div class="item-encabezado"><span class="item-nombre">Maracuyá (Helada / Frozen)</span><span class="item-precio">Jarra 1L: S/. 18.00 | Vaso ½ L: S/. 10.00</span></div>
+            </div>
+            <div class="menu-item">
+                <div class="item-encabezado"><span class="item-nombre">Limonada (Helada / Frozen)</span><span class="item-precio">Jarra 1L: S/. 18.00 | Vaso ½ L: S/. 10.00</span></div>
+            </div>
+            <div class="menu-item">
+                <div class="item-encabezado"><span class="item-nombre">Limonada Eléctrica (Helada / Frozen)</span><span class="item-precio">Jarra 1L: S/. 18.00 | Vaso ½ L: S/. 10.00</span></div>
+            </div>
+            <div class="menu-item">
+                <div class="item-encabezado"><span class="item-nombre">Infusión (Té / Manzanilla / Anís)</span><span class="item-precio">Taza: S/. 4.00</span></div>
+            </div>
+            <div class="menu-item">
+                <div class="item-encabezado"><span class="item-nombre">Café</span><span class="item-precio">Taza: S/. 4.00</span></div>
+            </div>
+            <div class="menu-item">
+                <div class="item-encabezado"><span class="item-nombre">Agua San Luis (Sin gas / Con gas)</span><span class="item-precio">Botella Personal: S/. 4.00</span></div>
             </div>
 
+            <div class="subcategoria-titulo">Gaseosas</div>
             <div class="menu-item">
-                <div class="item-encabezado">
-                    <span class="item-nombre">Sangría Estancia (Jarra)</span>
-                    <span class="item-precio">S/. 45.00</span>
-                </div>
-                <p class="item-descripcion">Nuestra receta especial de la casa, balanceada y perfecta para maridar con carnes rojas.</p>
+                <div class="item-encabezado"><span class="item-nombre">Inca Kola / Coca Cola</span><span class="item-precio">3 L: S/. 17.00 | 1.5 L: S/. 12.00 | 1 L: S/. 10.00</span></div>
+                <p class="item-descripcion">También disponibles en formato Gordita (S/. 7.00), 600 ML (S/. 5.00) y 500 ML (S/. 4.00).</p>
+            </div>
+
+            <div class="subcategoria-titulo">Cervezas</div>
+            <div class="menu-item">
+                <div class="item-encabezado"><span class="item-nombre">Cusqueña 620 ml (Negra / Trigo)</span><span class="item-precio">S/. 12.00</span></div>
+            </div>
+            <div class="menu-item">
+                <div class="item-encabezado"><span class="item-nombre">Pilsen 620 ml (Trujillo / Callao)</span><span class="item-precio">S/. 10.00</span></div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN 4: BODEGA, LICORES Y CÓCTELES -->
+        <div class="menu-categoria">
+            <h2 class="seccion-titulo">Nuestra Bodega y Destilados</h2>
+            
+            <div class="subcategoria-titulo">Espumantes</div>
+            <div class="menu-item">
+                <div class="item-encabezado"><span class="item-nombre">Tabernero (Brut / Demi Sec)</span><span class="item-precio">Botella: S/. 50.00 | Copa 5oz: S/. 15.00</span></div>
+            </div>
+            <div class="menu-item">
+                <div class="item-encabezado"><span class="item-nombre">Santiago Queirolo (Primado)</span><span class="item-precio">Botella: S/. 45.00 | Copa 5oz: S/. 14.00</span></div>
+            </div>
+            <div class="menu-item">
+                <div class="item-encabezado"><span class="item-nombre">Tabernero (Semi Seco Especial)</span><span class="item-precio">Botella: S/. 40.00 | Copa 5oz: S/. 13.00</span></div>
+            </div>
+
+            <div class="subcategoria-titulo">Whiskys (750 ml / 700 ml)</div>
+            <div class="menu-item">
+                <div class="item-encabezado"><span class="item-nombre">Jack Daniel's</span><span class="item-precio">Botella: S/. 160.00 | Vaso 2oz: S/. 18.00</span></div>
+            </div>
+            <div class="menu-item">
+                <div class="item-encabezado"><span class="item-nombre">Old Parr 12 años</span><span class="item-precio">Botella: S/. 150.00 | Vaso 2oz: S/. 17.00</span></div>
+            </div>
+            <div class="menu-item">
+                <div class="item-encabezado"><span class="item-nombre">Ballantine's</span><span class="item-precio">Botella: S/. 105.00 | Vaso 2oz: S/. 15.00</span></div>
+            </div>
+
+            <div class="subcategoria-titulo">Ron Cartavio 750 ml</div>
+            <div class="menu-item">
+                <div class="item-encabezado"><span class="item-nombre">Solera</span><span class="item-precio">Botella: S/. 100.00 | Vaso: S/. 16.00</span></div>
+            </div>
+            <div class="menu-item">
+                <div class="item-encabezado"><span class="item-nombre">Reserva</span><span class="item-precio">Botella: S/. 70.00 | Vaso: S/. 15.00</span></div>
+            </div>
+            <div class="menu-item">
+                <div class="item-encabezado"><span class="item-nombre">Selecto</span><span class="item-precio">Botella: S/. 65.00 | Vaso: S/. 12.00</span></div>
+            </div>
+
+            <div class="subcategoria-titulo">Cava Seleccionada y Especialidades</div>
+            <div class="menu-item">
+                <div class="item-encabezado"><span class="item-nombre">Sangría Estancia (Especialidad)</span><span class="item-precio">Jarra: S/. 45.00 | Copa: S/. 15.00</span></div>
+            </div>
+            <div class="menu-item">
+                <div class="item-encabezado"><span class="item-nombre">Casillero del Diablo (Chile) - Malbec / Cabernet / Merlot</span><span class="item-precio">Botella: S/. 75.00 | Copa: S/. 18.00</span></div>
+            </div>
+            <div class="menu-item">
+                <div class="item-encabezado"><span class="item-nombre">Navarro Correas (Argentina) - Malbec</span><span class="item-precio">Botella: S/. 80.00 | Copa: S/. 20.00</span></div>
+            </div>
+            <div class="menu-item">
+                <div class="item-encabezado"><span class="item-nombre">Concha y Toro Reservado / Astica / Intipalka / Queirolo (Tannat/Malbec)</span><span class="item-precio">Botella: S/. 40.00 | Copa: S/. 13.00</span></div>
+            </div>
+            <div class="menu-item">
+                <div class="item-encabezado"><span class="item-nombre">Tabernero / Queirolo (Borgoña / Rosé)</span><span class="item-precio">Botella: S/. 30.00 | Copa: S/. 10.00</span></div>
+            </div>
+
+            <div class="subcategoria-titulo">Nuestros Cócteles</div>
+            <div class="menu-item">
+                <div class="item-encabezado"><span class="item-nombre">Algarrobina (Pisco, algarrobina, leche)</span><span class="item-precio">S/. 18.00</span></div>
+            </div>
+            <div class="menu-item">
+                <div class="item-encabezado"><span class="item-nombre">Machu Picchu (Pisco, granadina, etc)</span><span class="item-precio">S/. 15.00</span></div>
+            </div>
+            <div class="menu-item">
+                <div class="item-encabezado"><span class="item-nombre">Mojito (Fresa / Mango / Clásico) / Arcoíris</span><span class="item-precio">S/. 17.00 c/u</span></div>
+            </div>
+            <div class="menu-item">
+                <div class="item-encabezado"><span class="item-nombre">Daiquiri (Mango / Fresa) / Piña Colada / Chilcano / Pisco Sour / Cuba Libre</span><span class="item-precio">S/. 15.00 c/u</span></div>
+            </div>
+            <div class="menu-item">
+                <div class="item-encabezado"><span class="item-nombre">Perú Libre</span><span class="item-precio">S/. 14.00</span></div>
+            </div>
+            <div class="menu-item">
+                <div class="item-encabezado"><span class="item-nombre">Caipirinha / Caipiroska</span><span class="item-precio">S/. 13.00 c/u</span></div>
+            </div>
+            <div class="menu-item">
+                <div class="item-encabezado"><span class="item-nombre">Primavera</span><span class="item-precio">S/. 12.00</span></div>
+            </div>
+            <div class="menu-item">
+                <div class="item-encabezado"><span class="item-nombre">Mimosa</span><span class="item-precio">S/. 10.00</span></div>
             </div>
         </div>
 
     </div>
 
-    <!-- PIE DE PÁGINA CON ENLACE DE PEDIDO -->
+    <!-- PIE DE PÁGINA COMERCIAL -->
     <footer>
         <div class="contacto-info">
             <p>📍 Encuéntranos en Virú</p>
             <p>📱 Pedidos y Reservas: <strong>916267368</strong></p>
         </div>
-        <!-- Enlace automatizado a tu WhatsApp Business real -->
-        <a href="https://wa.me/51916267368?text=Hola%20Estancia%20Parrillera,%20quiero%20hacer%20un%20pedido" class="btn-whatsapp" target="_blank">
+        <a href="https://wa.me/51916267368?text=Hola%20Estancia%20Parrillera,%20deseo%20realizar%20un%20pedido%20de%20la%20carta" class="btn-whatsapp" target="_blank">
             💬 Hacer pedido por WhatsApp
         </a>
     </footer>
