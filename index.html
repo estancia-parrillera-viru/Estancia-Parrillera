@@ -3,185 +3,321 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estancia Parrillera | Sabores Auténticos</title>
+    <title>Estancia Parrillera - Auténticos Sabores</title>
     <style>
+        /* --- ESTILOS GENERALES Y PALETA RÚSTICA --- */
         :root {
-            --color-oscuro: #1a1a1a;
-            --color-claro: #f4f4f4;
-            --color-naranja: #ff7300;
-            --color-blanco: #ffffff;
-            --color-gris: #333333;
+            --carbon: #121212;
+            --pizarra: #1c1a19;
+            --oro-viejo: #c5a059;
+            --blanco-hueso: #f4f1ea;
+            --fuego: #ff4500;
+            --fuego-brillo: #ff8c00;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--color-claro);
-            color: var(--color-oscuro);
-            line-height: 1.6;
+            background-color: var(--carbon);
+            color: var(--blanco-hueso);
+            background-image: linear-gradient(rgba(18, 18, 18, 0.95), rgba(18, 18, 18, 0.95)), 
+                              url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=1000'); /* Textura de fondo sutil */
+            background-size: cover;
+            background-attachment: fixed;
         }
 
+        /* --- ENCABEZADO Y LOGO --- */
         header {
-            background-color: var(--color-oscuro);
-            color: var(--color-blanco);
-            padding: 20px;
+            background-color: rgba(28, 26, 25, 0.95);
+            border-bottom: 2px solid var(--oro-viejo);
+            padding: 2rem 1rem;
             text-align: center;
-            border-bottom: 4px solid var(--color-naranja);
+            position: relative;
+            overflow: hidden;
         }
 
-        header h1 {
+        .logo-contenedor {
+            display: inline-block;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Estructura del Logo basada en tu identidad real */
+        .logo-texto {
+            font-family: 'Impact', 'Arial Black', sans-serif;
+            font-size: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--blanco-hueso);
+            line-height: 0.9;
             margin: 0;
-            font-size: 2.5rem;
+            position: relative;
+        }
+
+        .logo-texto span {
+            display: block;
+            font-size: 3.5rem;
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+
+        /* Icono de llama sobre la tipografía */
+        .logo-texto::after {
+            content: "🔥";
+            font-size: 1.5rem;
+            position: absolute;
+            top: -15px;
+            right: 25%;
+            animation: parpadeo-fuego 1s infinite alternate;
+        }
+
+        .eslogan {
+            font-family: 'Georgia', serif;
+            font-style: italic;
+            color: var(--oro-viejo);
+            font-size: 1.2rem;
+            margin-top: 0.5rem;
+            letter-spacing: 3px;
+        }
+
+        /* --- EFECTO FLAMEANTE (ANIMACIONES) --- */
+        .texto-flameante {
+            color: var(--blanco-hueso);
+            text-shadow: 0 0 4px #fff, 
+                         0 -5px 10px var(--fuego-brillo), 
+                         0 -10px 20px var(--fuego), 
+                         0 -18px 40px #ff0000;
+            animation: quemar 1.5s infinite alternate;
+        }
+
+        @keyframes quemar {
+            0% { text-shadow: 0 0 4px #fff, 0 -5px 10px var(--fuego-brillo), 0 -10px 20px var(--fuego), 0 -18px 35px #ff0000; }
+            100% { text-shadow: 0 0 6px #fff, 0 -8px 14px var(--fuego-brillo), 0 -14px 26px var(--fuego), 0 -22px 45px #ff3300; }
+        }
+
+        @keyframes parpadeo-fuego {
+            0% { transform: scale(1) rotate(-2deg); opacity: 0.8; }
+            100% { transform: scale(1.15) rotate(3deg); opacity: 1; }
+        }
+
+        /* --- CONTENEDOR PRINCIPAL Y MENÚ --- */
+        .contenedor {
+            max-width: 1000px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .seccion-titulo {
+            text-align: center;
+            font-size: 2rem;
+            text-transform: uppercase;
+            color: var(--oro-viejo);
+            border-bottom: 1px solid var(--oro-viejo);
+            padding-bottom: 0.5rem;
+            margin-bottom: 2rem;
             letter-spacing: 2px;
         }
 
-        header p {
-            margin: 5px 0 0 0;
-            color: var(--color-naranja);
-            font-weight: bold;
+        .menu-categoria {
+            background: rgba(28, 26, 25, 0.85);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            border-radius: 4px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.5);
         }
 
-        .container {
-            max-width: 800px;
-            margin: 30px auto;
-            padding: 20px;
-            background: var(--color-blanco);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            border-radius: 8px;
+        .menu-item {
+            margin-bottom: 1.8rem;
         }
 
-        .bienvenida {
-            text-align: center;
-            margin-bottom: 4px;
-        }
-
-        .bienvenida h2 {
-            color: var(--color-naranja);
-            font-size: 1.8rem;
-        }
-
-        .menu-seccion {
-            margin-top: 30px;
-        }
-
-        .menu-seccion h3 {
-            border-left: 5px solid var(--color-naranja);
-            padding-left: 10px;
-            color: var(--color-oscuro);
-            font-size: 1.4rem;
-            margin-bottom: 15px;
-        }
-
-        .item {
+        .item-encabezado {
             display: flex;
             justify-content: space-between;
             align-items: baseline;
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 1px dashed #ccc;
+            margin-bottom: 0.3rem;
         }
 
         .item-nombre {
+            font-size: 1.25rem;
             font-weight: bold;
-            color: var(--color-oscuro);
+            text-transform: uppercase;
+            color: var(--blanco-hueso);
+            letter-spacing: 0.5px;
         }
 
         .item-precio {
-            color: var(--color-naranja);
+            font-size: 1.25rem;
             font-weight: bold;
-            font-size: 1.1rem;
+            color: var(--oro-viejo);
+            white-space: nowrap;
+            padding-left: 1rem;
         }
 
         .item-descripcion {
-            font-size: 0.9rem;
-            color: var(--color-gris);
-            margin-top: -8px;
-            margin-bottom: 10px;
+            font-size: 0.95rem;
+            color: #a09c94;
+            font-style: italic;
+            line-height: 1.4;
         }
 
+        /* --- PIE DE PÁGINA (CONTRA PORTADA) --- */
         footer {
-            background-color: var(--color-oscuro);
-            color: var(--color-blanco);
+            background-color: var(--pizarra);
+            border-top: 1px solid var(--oro-viejo);
             text-align: center;
-            padding: 15px;
-            margin-top: 4px;
-            font-size: 0.9rem;
+            padding: 3rem 1rem;
+            margin-top: 5rem;
         }
 
-        footer p {
-            margin: 5px 0;
+        .contacto-info {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
         }
 
-        .btn-contacto {
+        .contacto-info p {
+            margin: 0.5rem 0;
+        }
+
+        .btn-whatsapp {
             display: inline-block;
-            background-color: var(--color-naranja);
-            color: var(--color-blanco);
-            padding: 10px 20px;
-            text-transform: uppercase;
+            background-color: #25d366;
+            color: #fff;
             text-decoration: none;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
             font-weight: bold;
-            border-radius: 5px;
-            margin-top: 15px;
-            transition: background 0.3s;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
         }
 
-        .btn-contacto:hover {
-            background-color: #e06600;
+        .btn-whatsapp:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 600px) {
+            .logo-texto { font-size: 2.2rem; }
+            .logo-texto span { font-size: 2.6rem; }
+            .item-encabezado { flex-direction: column; }
+            .item-precio { padding-left: 0; margin-top: 0.2rem; }
+            .menu-categoria { padding: 1.2rem; }
         }
     </style>
 </head>
 <body>
 
+    <!-- ENCABEZADO CON LOGO Y ESLEGAN ORIGINAL -->
     <header>
-        <h1>Estancia Parrillera</h1>
-        <p>Los mejores cortes y el auténtico sabor a la brasa</p>
+        <div class="logo-contenedor">
+            <h1 class="logo-texto">
+                Estancia <span>parrillera</span>
+            </h1>
+            <p class="eslogan">Auténticos sabores...</p>
+        </div>
     </header>
 
-    <div class="container">
-        <div class="bienvenida">
-            <h2>¡Bienvenidos a nuestra mesa!</h2>
-            <p>Disfruta de la mejor experiencia gastronómica con carnes seleccionadas y un servicio excepcional hecho para compartir en familia.</p>
-        </div>
+    <div class="contenedor">
 
-        <div class="menu-seccion">
-            <h3>Nuestras Parrillas</h3>
+        <!-- CATEGORÍA 1: LAS BRASAS -->
+        <div class="menu-categoria">
+            <h2 class="seccion-titulo texto-flameante">Nuestras Brasas</h2>
             
-            <div class="item-grupo">
-                <div class="item">
-                    <span class="item-nombre">Parrilla Familiar Estancia</span>
-                    <span class="item-precio">S/ 85.00</span>
+            <div class="menu-item">
+                <div class="item-encabezado">
+                    <span class="item-nombre">Lomo Fino Seleccionado</span>
+                    <span class="item-precio">S/. 55.00</span>
                 </div>
-                <div class="item-descripcion">Combinación de bife, chuleta de cerdo, anticuchos, pollo a la parilla, chorizo y papas nativas fritas.</div>
+                <p class="item-descripcion">El corte más tierno y exclusivo de la casa, sellado a la perfección en nuestras brasas. Servido con papas fritas y ensalada fresca.</p>
             </div>
 
-            <div class="item-grupo">
-                <div class="item">
-                    <span class="item-nombre">Bife Ancho Premium</span>
-                    <span class="item-precio">S/ 45.00</span>
+            <div class="menu-item">
+                <div class="item-encabezado">
+                    <span class="item-nombre">Tira de Res Premium</span>
+                    <span class="item-precio">S/. 30.00</span>
                 </div>
-                <div class="item-descripcion">300g de jugoso corte de res Angus, cocido al término de su preferencia, acompañado de ensalada fresca.</div>
+                <p class="item-descripcion">Jugosa, crujiente por fuera y con el balance perfecto de grasa y sabor al carbón.</p>
             </div>
 
-            <div class="item-grupo">
-                <div class="item">
-                    <span class="item-nombre">Anticuchos Tradicionales</span>
-                    <span class="item-precio">S/ 24.00</span>
+            <div class="menu-item">
+                <div class="item-encabezado">
+                    <span class="item-nombre">Parrilla para Cuatro (Mixta)</span>
+                    <span class="item-precio">S/. 100.00</span>
                 </div>
-                <div class="item-descripcion">Tres palitos de corazón de res tiernos y marinados en ají panca, acompañados de choclo y papa dorada.</div>
+                <p class="item-descripcion">½ Pollo + 1 Churrasco + 1 Tira de Cerdo + 2 Chorizos Artesanales + 2 Anticuchos. Servido con abundante porción de papas y ensalada.</p>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-encabezado">
+                    <span class="item-nombre">Parrilla para Seis (Familiar)</span>
+                    <span class="item-precio">S/. 130.00</span>
+                </div>
+                <p class="item-descripcion">½ Pollo + 1 Chuleta + 1 Churrasco + 1 Tira de Res + 1 Tira de Cerdo + 2 Chorizos Artesanales + 2 Anticuchos.</p>
             </div>
         </div>
 
-        <div class="menu-seccion" style="text-align: center;">
-            <h3>¿Hacemos un pedido?</h3>
-            <p>Atendemos entregas a domicilio y reservas para momentos especiales.</p>
-            <a href="#" class="btn-contacto">Escríbenos por WhatsApp</a>
+        <!-- CATEGORÍA 2: PLATOS A LA CARTA -->
+        <div class="menu-categoria">
+            <h2 class="seccion-titulo">Especialidades al Wok</h2>
+            
+            <div class="menu-item">
+                <div class="item-encabezado">
+                    <span class="item-nombre">Lomo Saltado Criollo</span>
+                    <span class="item-precio">S/. 28.00</span>
+                </div>
+                <p class="item-descripcion">Jugosos bastones de carne salteados a fuego vivo con cebolla, tomate, un toque de pisco y crujientes papas fritas.</p>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-encabezado">
+                    <span class="item-nombre">Arroz Chaufa Especial</span>
+                    <span class="item-precio">S/. 25.00</span>
+                </div>
+                <p class="item-descripcion">Fusión perfecta al wok con una selección premium de las carnes ahumadas de la casa.</p>
+            </div>
         </div>
+
+        <!-- CATEGORÍA 3: BEBIDAS -->
+        <div class="menu-categoria">
+            <h2 class="seccion-titulo">Bebidas Refrescantes</h2>
+            
+            <div class="menu-item">
+                <div class="item-encabezado">
+                    <span class="item-nombre">Chicha de Maracuyá (Jarra 1L)</span>
+                    <span class="item-precio">S/. 18.00</span>
+                </div>
+                <p class="item-descripcion">Preparada de pura fruta seleccionada, disponible en versión helada o frozen.</p>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-encabezado">
+                    <span class="item-nombre">Sangría Estancia (Jarra)</span>
+                    <span class="item-precio">S/. 45.00</span>
+                </div>
+                <p class="item-descripcion">Nuestra receta especial de la casa, balanceada y perfecta para maridar con carnes rojas.</p>
+            </div>
+        </div>
+
     </div>
 
+    <!-- PIE DE PÁGINA CON ENLACE DE PEDIDO -->
     <footer>
-        <p>&copy; 2026 Estancia Parrillera. Todos los derechos reservados.</p>
-        <p>Virú, La Libertad - Perú</p>
+        <div class="contacto-info">
+            <p>📍 Encuéntranos en Virú</p>
+            <p>📱 Pedidos y Reservas: <strong>916267368</strong></p>
+        </div>
+        <!-- Enlace automatizado a tu WhatsApp Business real -->
+        <a href="https://wa.me/51916267368?text=Hola%20Estancia%20Parrillera,%20quiero%20hacer%20un%20pedido" class="btn-whatsapp" target="_blank">
+            💬 Hacer pedido por WhatsApp
+        </a>
     </footer>
 
 </body>
