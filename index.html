@@ -97,16 +97,11 @@
         }
 
         /* --- ANIMACIONES FLAMEANTES --- */
-        .texto-flameante {
-            text-shadow: 0 0 4px #fff, 
-                         0 -4px 10px var(--fuego-brillo), 
-                         0 -8px 20px var(--fuego);
-            animation: quemar 1.2s infinite alternate;
-        }
-
-        @keyframes quemar {
-            0% { text-shadow: 0 0 4px #fff, 0 -4px 10px var(--fuego-brillo), 0 -8px 20px var(--fuego); }
-            100% { text-shadow: 0 0 6px #fff, 0 -6px 14px var(--fuego-brillo), 0 -12px 25px var(--fuego); }
+       .texto-flameante {
+            color: #ffffff; /* Letras blancas para máximo contraste */
+            text-shadow: 2px 2px 0px #000000, 
+                         4px 4px 0px var(--fuego); /* Sombra sólida de alta definición */
+            letter-spacing: 4px;
         }
 
         @keyframes parpadeo-fuego {
@@ -277,7 +272,6 @@
 <header>
         <div class="logo-contenedor">
             <img src="LogoEstancia.png" alt="Estancia Parrillera" class="logo-imagen">
-            <p class="eslogan">Auténticos sabores...</p>
         </div>
     </header>
 
