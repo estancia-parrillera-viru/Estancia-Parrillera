@@ -1,280 +1,188 @@
-{\rtf1\ansi\ansicpg1252\cocoartf2709
-\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
-{\colortbl;\red255\green255\blue255;}
-{\*\expandedcolortbl;;}
-\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estancia Parrillera | Sabores Auténticos</title>
+    <style>
+        :root {
+            --color-oscuro: #1a1a1a;
+            --color-claro: #f4f4f4;
+            --color-naranja: #ff7300;
+            --color-blanco: #ffffff;
+            --color-gris: #333333;
+        }
 
-\f0\fs24 \cf0 <!DOCTYPE html>\
-<html lang="es">\
-<head>\
-    <meta charset="UTF-8">\
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">\
-    <title>Estancia Parrillera | Aut\'e9nticos Sabores</title>\
-    <style>\
-        /* Estilos Generales basados en la identidad del restaurante */\
-        :root \{\
-            --color-oscuro: #1a1a1a;\
-            --color-claro: #f4f4f4;\
-            --color-naranja: #ff7300;\
-            --color-blanco: #ffffff;\
-            --color-gris: #333333;\
-        \}\
-\
-        body \{\
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;\
-            margin: 0;\
-            padding: 0;\
-            background-color: var(--color-claro);\
-            color: var(--color-gris);\
-            line-height: 1.6;\
-        \}\
-\
-        /* Navbar */\
-        header \{\
-            background-color: var(--color-oscuro);\
-            padding: 15px 20px;\
-            position: sticky;\
-            top: 0;\
-            z-index: 1000;\
-            box-shadow: 0 4px 6px rgba(0,0,0,0.3);\
-        \}\
-\
-        .nav-container \{\
-            max-width: 1200px;\
-            margin: 0 auto;\
-            display: flex;\
-            justify-content: space-between;\
-            align-items: center;\
-        \}\
-\
-        .logo \{\
-            color: var(--color-blanco);\
-            font-size: 24px;\
-            font-weight: bold;\
-            text-decoration: none;\
-            text-transform: uppercase;\
-            letter-spacing: 1px;\
-        \}\
-\
-        .logo span \{\
-            color: var(--color-naranja);\
-        \}\
-\
-        nav a \{\
-            color: var(--color-blanco);\
-            text-decoration: none;\
-            margin-left: 20px;\
-            font-weight: 500;\
-            transition: color 0.3s;\
-        \}\
-\
-        nav a:hover \{\
-            color: var(--color-naranja);\
-        \}\
-\
-        /* Secci\'f3n Hero (Inicio) */\
-        .hero \{\
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1200') no-repeat center center/cover;\
-            height: 70vh;\
-            display: flex;\
-            flex-direction: column;\
-            justify-content: center;\
-            align-items: center;\
-            text-align: center;\
-            color: var(--color-blanco);\
-            padding: 0 20px;\
-        \}\
-\
-        .hero h1 \{\
-            font-size: 48px;\
-            margin-bottom: 10px;\
-            text-transform: uppercase;\
-        \}\
-\
-        .hero p \{\
-            font-size: 20px;\
-            font-style: italic;\
-            color: var(--color-naranja);\
-            margin-bottom: 30px;\
-        \}\
-\
-        .btn-whatsapp \{\
-            background-color: #25d366;\
-            color: white;\
-            padding: 12px 30px;\
-            text-decoration: none;\
-            font-size: 18px;\
-            font-weight: bold;\
-            border-radius: 25px;\
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);\
-            transition: transform 0.3s, background-color 0.3s;\
-        \}\
-\
-        .btn-whatsapp:hover \{\
-            transform: scale(1.05);\
-            background-color: #1ebd58;\
-        \}\
-\
-        /* Secciones Comunes */\
-        .container \{\
-            max-width: 1200px;\
-            margin: 0 auto;\
-            padding: 60px 20px;\
-        \}\
-\
-        .section-title \{\
-            text-align: center;\
-            font-size: 32px;\
-            margin-bottom: 40px;\
-            position: relative;\
-            text-transform: uppercase;\
-        \}\
-\
-        .section-title::after \{\
-            content: '';\
-            display: block;\
-            width: 60px;\
-            height: 3px;\
-            background-color: var(--color-naranja);\
-            margin: 10px auto 0;\
-        \}\
-\
-        /* Sobre Nosotros */\
-        .about-content \{\
-            display: flex;\
-            align-items: center;\
-            gap: 40px;\
-            flex-wrap: wrap;\
-        \}\
-\
-        .about-text \{\
-            flex: 1;\
-            min-width: 300px;\
-            font-size: 18px;\
-        \}\
-\
-        /* Men\'fa Destacado */\
-        .menu-grid \{\
-            display: grid;\
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));\
-            gap: 20px;\
-        \}\
-\
-        .menu-item \{\
-            background-color: var(--color-blanco);\
-            padding: 20px;\
-            border-radius: 8px;\
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);\
-            text-align: center;\
-            border-top: 4px solid var(--color-oscuro);\
-        \}\
-\
-        .menu-item h3 \{\
-            margin-top: 0;\
-            color: var(--color-oscuro);\
-        \}\
-\
-        .menu-item .price \{\
-            font-size: 20px;\
-            font-weight: bold;\
-            color: var(--color-naranja);\
-        \}\
-\
-        /* Contacto y Horarios */\
-        .contact-info \{\
-            text-align: center;\
-            font-size: 18px;\
-        \}\
-\
-        /* Footer */\
-        footer \{\
-            background-color: var(--color-oscuro);\
-            color: var(--color-blanco);\
-            text-align: center;\
-            padding: 20px;\
-            font-size: 14px;\
-        \}\
-\
-        /* Responsive */\
-        @media (max-width: 768px) \{\
-            .hero h1 \{ font-size: 36px; \}\
-            .nav-container \{ flex-direction: column; gap: 10px; \}\
-            nav a \{ margin: 0 10px; \}\
-        \}\
-    </style>\
-</head>\
-<body>\
-\
-    <!-- BARRA DE NAVEGACI\'d3N -->\
-    <header>\
-        <div class="nav-container">\
-            <a href="#" class="logo">Estancia <span>Parrillera</span></a>\
-            <nav>\
-                <a href="#inicio">Inicio</a>\
-                <a href="#nosotros">Nosotros</a>\
-                <a href="#menu">Men\'fa</a>\
-                <a href="#contacto">Contacto</a>\
-            </nav>\
-        </div>\
-    </header>\
-\
-    <!-- SECCI\'d3N INICIO (HERO) -->\
-    <section id="inicio" class="hero">\
-        <h1>Estancia Parrillera</h1>\
-        <p>Aut\'e9nticos sabores...</p>\
-        <!-- Enlace directo a tu WhatsApp con mensaje predeterminado -->\
-        <a href="https://wa.me/51916267368?text=Hola!%20Quiero%20hacer%20una%20reserva%20o%20pedido" class="btn-whatsapp" target="_blank">\
-            \uc0\u55357 \u56561  Reserva por WhatsApp\
-        </a>\
-    </section>\
-\
-    <!-- SECCI\'d3N SOBRE NOSOTROS -->\
-    <section id="nosotros" class="container">\
-        <h2 class="section-title">Nuestra Estancia</h2>\
-        <div class="about-content">\
-            <div class="about-text">\
-                <p>En <strong>Estancia Parrillera</strong>, nos apasiona el arte de las brasas. Ofrecemos una experiencia gastron\'f3mica \'fanica combinando los mejores cortes de carne con un ambiente acogedor, moderno e ideal para compartir en familia o con amigos.</p>\
-                <p>Nuestro comprometido equipo de cocina y sal\'f3n trabaja diariamente para asegurar que cada bocado tenga el aut\'e9ntico sabor parrillero que nos caracteriza.</p>\
-            </div>\
-        </div>\
-    </section>\
-\
-    <!-- SECCI\'d3N MEN\'da DESTACADO -->\
-    <section id="menu" style="background-color: #ededed;">\
-        <div class="container">\
-            <h2 class="section-title">Nuestras Especialidades</h2>\
-            <div class="menu-grid">\
-                <div class="menu-item">\
-                    <h3>Parrillada de la Casa</h3>\
-                    <p>Una selecci\'f3n premium de nuestros mejores cortes, asados a la perfecci\'f3n en nuestras brasas.</p>\
-                </div>\
-                <div class="menu-item">\
-                    <h3>Parrillada Mixta</h3>\
-                    <p>La combinaci\'f3n perfecta de carnes, embutidos artesanales y guarniciones tradicionales.</p>\
-                </div>\
-                <div class="menu-item">\
-                    <h3>Anticuchos y Brochetas</h3>\
-                    <p>Sabor tradicional con el toque secreto y ahumado de nuestra cocina.</p>\
-                </div>\
-            </div>\
-        </div>\
-    </section>\
-\
-    <!-- SECCI\'d3N CONTACTO -->\
-    <section id="contacto" class="container">\
-        <h2 class="section-title">Ubicaci\'f3n y Horarios</h2>\
-        <div class="contact-info">\
-            <p>\uc0\u55357 \u56525  <strong>Direcci\'f3n:</strong> Vir\'fa, La Libertad, Per\'fa</p>\
-            <p>\uc0\u9200  <strong>Horario de Atenci\'f3n:</strong> Martes a Domingo desde el almuerzo hasta la cena.</p>\
-            <p>\uc0\u55357 \u56542  <strong>Tel\'e9fono de contacto:</strong> +51 916 267 368</p>\
-        </div>\
-    </section>\
-\
-    <!-- FOOTER -->\
-    <footer>\
-        <p>&copy; 2026 Estancia Parrillera. Todos los derechos reservados.</p>\
-    </footer>\
-\
-</body>\
-</html>}
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--color-claro);
+            color: var(--color-oscuro);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--color-oscuro);
+            color: var(--color-blanco);
+            padding: 20px;
+            text-align: center;
+            border-bottom: 4px solid var(--color-naranja);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            letter-spacing: 2px;
+        }
+
+        header p {
+            margin: 5px 0 0 0;
+            color: var(--color-naranja);
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+            background: var(--color-blanco);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        .bienvenida {
+            text-align: center;
+            margin-bottom: 4px;
+        }
+
+        .bienvenida h2 {
+            color: var(--color-naranja);
+            font-size: 1.8rem;
+        }
+
+        .menu-seccion {
+            margin-top: 30px;
+        }
+
+        .menu-seccion h3 {
+            border-left: 5px solid var(--color-naranja);
+            padding-left: 10px;
+            color: var(--color-oscuro);
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+
+        .item {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed #ccc;
+        }
+
+        .item-nombre {
+            font-weight: bold;
+            color: var(--color-oscuro);
+        }
+
+        .item-precio {
+            color: var(--color-naranja);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .item-descripcion {
+            font-size: 0.9rem;
+            color: var(--color-gris);
+            margin-top: -8px;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background-color: var(--color-oscuro);
+            color: var(--color-blanco);
+            text-align: center;
+            padding: 15px;
+            margin-top: 4px;
+            font-size: 0.9rem;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        .btn-contacto {
+            display: inline-block;
+            background-color: var(--color-naranja);
+            color: var(--color-blanco);
+            padding: 10px 20px;
+            text-transform: uppercase;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            margin-top: 15px;
+            transition: background 0.3s;
+        }
+
+        .btn-contacto:hover {
+            background-color: #e06600;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Estancia Parrillera</h1>
+        <p>Los mejores cortes y el auténtico sabor a la brasa</p>
+    </header>
+
+    <div class="container">
+        <div class="bienvenida">
+            <h2>¡Bienvenidos a nuestra mesa!</h2>
+            <p>Disfruta de la mejor experiencia gastronómica con carnes seleccionadas y un servicio excepcional hecho para compartir en familia.</p>
+        </div>
+
+        <div class="menu-seccion">
+            <h3>Nuestras Parrillas</h3>
+            
+            <div class="item-grupo">
+                <div class="item">
+                    <span class="item-nombre">Parrilla Familiar Estancia</span>
+                    <span class="item-precio">S/ 85.00</span>
+                </div>
+                <div class="item-descripcion">Combinación de bife, chuleta de cerdo, anticuchos, pollo a la parilla, chorizo y papas nativas fritas.</div>
+            </div>
+
+            <div class="item-grupo">
+                <div class="item">
+                    <span class="item-nombre">Bife Ancho Premium</span>
+                    <span class="item-precio">S/ 45.00</span>
+                </div>
+                <div class="item-descripcion">300g de jugoso corte de res Angus, cocido al término de su preferencia, acompañado de ensalada fresca.</div>
+            </div>
+
+            <div class="item-grupo">
+                <div class="item">
+                    <span class="item-nombre">Anticuchos Tradicionales</span>
+                    <span class="item-precio">S/ 24.00</span>
+                </div>
+                <div class="item-descripcion">Tres palitos de corazón de res tiernos y marinados en ají panca, acompañados de choclo y papa dorada.</div>
+            </div>
+        </div>
+
+        <div class="menu-seccion" style="text-align: center;">
+            <h3>¿Hacemos un pedido?</h3>
+            <p>Atendemos entregas a domicilio y reservas para momentos especiales.</p>
+            <a href="#" class="btn-contacto">Escríbenos por WhatsApp</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Estancia Parrillera. Todos los derechos reservados.</p>
+        <p>Virú, La Libertad - Perú</p>
+    </footer>
+
+</body>
+</html>
