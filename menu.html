@@ -1,614 +1,166 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estancia Parrillera - Menú Premium</title>
-    
-    <!-- Fuentes -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@700&family=Open+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-
-    <style>
-        :root {
-            --carbon: #0f0e0e;
-            --pizarra: #181615;
-            --oro-viejo: #c5a059;
-            --blanco-hueso: #f4f1ea;
+{
+  "restaurante": "Estancia Parrillera",
+  "menu": {
+    "NUESTROS PARRILLAS": {
+      "PARRILLAS PERSONALES": [
+        {
+          "plato": "LOMO FINO",
+          "descripcion": "Acompañado de papas fritas y ensalada.",
+          "precio": 55.00
+        },
+        {
+          "plato": "TIRA DE RES",
+          "descripcion": "Acompañado de papas fritas y ensalada.",
+          "precio": 30.00
+        },
+        {
+          "plato": "CHURRASCO",
+          "descripcion": "Acompañado de papas fritas y ensalada.",
+          "precio": 30.00
+        },
+        {
+          "plato": "TIRA DE CERDO",
+          "descripcion": "Acompañado de papas fritas y ensalada.",
+          "precio": 30.00
+        },
+        {
+          "plato": "CHULETA DE CERDO",
+          "descripcion": "Acompañado de papas fritas y ensalada.",
+          "precio": 30.00
+        },
+        {
+          "plato": "1/4 POLLO",
+          "descripcion": "Acompañado de papas fritas y ensalada.",
+          "precio": 25.00
+        },
+        {
+          "plato": "1/8 POLLO",
+          "descripcion": "Acompañado de papas fritas y ensalada.",
+          "precio": 15.00
         }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Open Sans', sans-serif;
+      ],
+      "PARRILLAS MIXTAS Y FAMILIARES": [
+        {
+          "plato": "PARA CUATRO",
+          "descripcion": "½ Pollo + 1 Churrasco + 1 Tira de Cerdo + 2 Chorizos + 2 Anticuchos. Acompañado de papas fritas y ensalada.",
+          "precio": 100.00
+        },
+        {
+          "plato": "PARA SEIS",
+          "descripcion": "½ Pollo + 1 Chuleta + 1 Churrasco + 1 Tira de Res + 1 Tira de Cerdo + 2 Chorizos + 2 Anticuchos. Acompañado de papas fritas y ensalada.",
+          "precio": 130.00
+        },
+        {
+          "plato": "1 POLLO",
+          "descripcion": "Acompañado de papas fritas y ensalada.",
+          "precio": 85.00
+        },
+        {
+          "plato": "1/2 POLLO",
+          "descripcion": "Acompañado de papas fritas y ensalada.",
+          "precio": 45.00
         }
-
-        body {
-            background-color: var(--carbon);
-            color: var(--blanco-hueso);
-            overflow-x: hidden;
-        }
-
-        /* --- PANTALLA DE CARGA --- */
-        #loader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background-color: #000000;
-            z-index: 9999;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: opacity 0.5s ease, visibility 0.5s ease;
-        }
-        #loader img {
-            width: 160px;
-            animation: pulse 1.5s infinite ease-in-out;
-        }
-        @keyframes pulse {
-            0% { transform: scale(0.95); opacity: 0.6; }
-            50% { transform: scale(1.05); opacity: 1; }
-            100% { transform: scale(0.95); opacity: 0.6; }
-        }
-
-        /* --- NAVBAR --- */
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 80px;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.9), rgba(0,0,0,0));
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 1.5rem;
-            z-index: 1000;
-            transition: background 0.3s ease;
-        }
-        .navbar.scrolled {
-            background: rgba(15, 14, 14, 0.98);
-            border-bottom: 1px solid rgba(197, 160, 89, 0.2);
-        }
-        .nav-logo img {
-            height: 50px;
-            cursor: pointer;
-        }
-        .nav-actions {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-        .btn-reserva {
-            background-color: var(--oro-viejo);
-            color: #000000;
-            text-transform: uppercase;
-            font-weight: 700;
-            font-size: 0.8rem;
-            padding: 0.6rem 1.2rem;
-            border-radius: 4px;
-            text-decoration: none;
-            letter-spacing: 0.5px;
-            transition: transform 0.2s;
-        }
-        .menu-toggle {
-            background: none;
-            border: none;
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-            padding: 0.5rem;
-        }
-        .menu-toggle span {
-            width: 28px;
-            height: 3px;
-            background-color: var(--blanco-hueso);
-            transition: 0.3s;
-        }
-
-        /* --- SIDEBAR --- */
-        .sidebar {
-            position: fixed;
-            top: 0;
-            right: -100%;
-            width: 100%;
-            max-width: 360px;
-            height: 100vh;
-            background-color: #000000;
-            z-index: 2000;
-            padding: 2.5rem 2rem;
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-            transition: right 0.4s cubic-bezier(0.1, 0.9, 0.2, 1);
-            border-left: 1px solid rgba(197, 160, 89, 0.15);
-        }
-        .sidebar.active {
-            right: 0;
-        }
-        .sidebar-close {
-            align-self: flex-end;
-            background: none;
-            border: none;
-            color: var(--blanco-hueso);
-            font-size: 2.2rem;
-            cursor: pointer;
-            line-height: 1;
-        }
-        .sidebar-logo {
-            width: 110px;
-            margin: 0 auto;
-            display: block;
-        }
-        .sidebar-links {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            margin-top: 1rem;
-        }
-        .sidebar-links li a {
-            display: block;
-            padding: 1.2rem 0;
-            color: var(--blanco-hueso);
-            text-decoration: none;
-            font-size: 1rem;
-            text-transform: uppercase;
-            font-weight: 600;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            transition: color 0.2s;
-        }
-        .sidebar-links li a:hover {
-            color: var(--oro-viejo);
-        }
-
-        /* --- SECCIONES PRINCIPALES --- */
-        .page-section {
-            display: none;
-            padding-top: 80px;
-            min-height: 100vh;
-        }
-        .page-section.active-section {
-            display: block;
-        }
-
-        /* --- HERO CON TRANSICIÓN DE VIDEOS DE FONDO --- */
-        .hero-video-container {
-            position: relative;
-            height: 90vh;
-            width: 100%;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-        .bg-video {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transform: translate(-50%, -50%);
-            z-index: 1;
-            opacity: 0;
-            transition: opacity 1.2s ease-in-out;
-        }
-        .bg-video.visible {
-            opacity: 0.45; /* Controla la intensidad del fondo */
-        }
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(15,14,14,1));
-            z-index: 2;
-        }
-        .hero-content {
-            position: relative;
-            z-index: 3;
-            padding: 0 1.5rem;
-        }
-        .hero-content h1 {
-            font-size: 2.8rem;
-            font-family: 'Antonio', sans-serif;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            margin-bottom: 0.5rem;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
-        }
-        .hero-content p {
-            font-size: 1.3rem;
-            color: var(--oro-viejo);
-            font-style: italic;
-            text-shadow: 0 2px 5px rgba(0,0,0,0.8);
-        }
-
-        /* --- TABS NAVEGACIÓN DE LA CARTA --- */
-        .tabs-contenedor {
-            background-color: var(--pizarra);
-            position: sticky;
-            top: 80px;
-            z-index: 900;
-            border-bottom: 1px solid rgba(197, 160, 89, 0.2);
-            overflow-x: auto;
-            white-space: nowrap;
-            display: flex;
-            justify-content: flex-start;
-            padding: 0.2rem 1rem;
-        }
-        .tabs-contenedor::-webkit-scrollbar {
-            display: none;
-        }
-        .tab-boton {
-            background: none;
-            border: none;
-            color: #a3a3a3;
-            padding: 1rem 1.2rem;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            font-weight: 700;
-            cursor: pointer;
-            transition: color 0.3s;
-        }
-        .tab-boton.active {
-            color: var(--oro-viejo);
-            border-bottom: 3px solid var(--oro-viejo);
-        }
-
-        /* --- DISEÑO DE PLATOS --- */
-        .categoria-contenido {
-            display: none;
-            max-width: 600px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-        }
-        .categoria-contenido.active {
-            display: block;
-        }
-        .subcat-titulo {
-            color: var(--oro-viejo);
-            font-family: 'Antonio', sans-serif;
-            font-size: 1.4rem;
-            text-transform: uppercase;
-            margin: 1.8rem 0 1rem 0;
-            border-bottom: 1px dashed rgba(197, 160, 89, 0.3);
-            padding-bottom: 0.3rem;
-        }
-        .menu-item {
-            background-color: var(--pizarra);
-            padding: 1.2rem;
-            border-radius: 6px;
-            margin-bottom: 0.8rem;
-            border-left: 3px solid var(--oro-viejo);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-        }
-        .item-encabezado {
-            display: flex;
-            justify-content: space-between;
-            font-weight: 700;
-            font-size: 1rem;
-        }
-        .item-nombre {
-            color: var(--blanco-hueso);
-        }
-        .item-precio {
-            color: var(--oro-viejo);
-        }
-        .item-descripcion {
-            margin-top: 0.4rem;
-            font-size: 0.85rem;
-            color: #b3b3b3;
-            line-height: 1.4;
-        }
-
-        /* --- COMPROMISO AMBIENTAL --- */
-        .seccion-eco {
-            max-width: 650px;
-            margin: 2rem auto;
-            padding: 0 1.5rem;
-        }
-        .eco-titulo {
-            font-family: 'Antonio', sans-serif;
-            color: var(--oro-viejo);
-            font-size: 1.8rem;
-            text-align: center;
-            text-transform: uppercase;
-            margin-bottom: 1.5rem;
-        }
-        .eco-parrafo {
-            font-size: 0.95rem;
-            line-height: 1.6;
-            color: #d1d1d1;
-            margin-bottom: 1.5rem;
-            text-align: justify;
-        }
-        .eco-compromisos {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 1.2rem;
-        }
-        .eco-compromisos li {
-            background-color: var(--pizarra);
-            padding: 1.2rem;
-            border-radius: 6px;
-            border-left: 3px solid #4f7942;
-            font-size: 0.9rem;
-        }
-        .eco-compromisos strong {
-            color: var(--oro-viejo);
-            display: block;
-            margin-bottom: 0.3rem;
-        }
-
-        /* --- CONTÁCTENOS --- */
-        .contacto-container {
-            max-width: 500px;
-            margin: 2rem auto;
-            padding: 0 1.5rem;
-            text-align: center;
-        }
-        .contacto-container h2 {
-            font-family: 'Antonio', sans-serif;
-            font-size: 2rem;
-            text-transform: uppercase;
-            margin-bottom: 0.5rem;
-        }
-        .form-grupo {
-            margin-bottom: 1.2rem;
-            text-align: left;
-        }
-        .form-grupo label {
-            font-size: 0.85rem;
-            color: var(--oro-viejo);
-            text-transform: uppercase;
-        }
-        .form-grupo input, .form-grupo textarea {
-            width: 100%;
-            padding: 0.8rem;
-            background-color: var(--pizarra);
-            border: 1px solid rgba(197, 160, 89, 0.2);
-            color: var(--blanco-hueso);
-            border-radius: 4px;
-            margin-top: 0.4rem;
-        }
-        .btn-enviar {
-            background-color: var(--oro-viejo);
-            color: #000000;
-            border: none;
-            padding: 0.9rem;
-            font-weight: 700;
-            cursor: pointer;
-            text-transform: uppercase;
-            border-radius: 4px;
-            width: 100%;
-        }
-    </style>
-</head>
-<body>
-
-    <!-- 1. PANTALLA DE CARGA -->
-    <div id="loader">
-        <img src="LogoEstancia.png" alt="Cargando...">
-    </div>
-
-    <!-- 2. NAVBAR -->
-    <nav class="navbar">
-        <div class="nav-logo" onclick="navegarA('inicio')">
-            <img src="LogoEstancia.png" alt="Logo">
-        </div>
-        <div class="nav-actions">
-            <a href="https://wa.me/51959181658?text=Hola,%20deseo%20realizar%20una%20reserva" target="_blank" class="btn-reserva">Reservar</a>
-            <button class="menu-toggle" onclick="toggleSidebar()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-    </nav>
-
-    <!-- 3. SIDEBAR -->
-    <div class="sidebar" id="sidebarMenu">
-        <button class="sidebar-close" onclick="toggleSidebar()">&times;</button>
-        <img src="LogoEstancia.png" class="sidebar-logo" alt="Logo">
-        <ul class="sidebar-links">
-            <li><a href="#" onclick="navegarA('inicio')">✦ Inicio</a></li>
-            <li><a href="#" onclick="navegarA('carta')">✦ Nuestra Carta</a></li>
-            <li><a href="#" onclick="navegarA('compromiso')">✦ Compromiso Ambiental</a></li>
-            <li><a href="#" onclick="navegarA('contacto')">✦ Contáctenos</a></li>
-        </ul>
-    </div>
-
-    <!-- ================= SECCIONES MODULARES ================= -->
-
-    <!-- SECCIÓN: INICIO (CON TRANSICIÓN INVISIBLES DE FONDO) -->
-    <section id="inicio" class="page-section active-section">
-        <div class="hero-video-container">
-            <!-- Videos de Fondo (Rotarán de forma automática mediante JS) -->
-            <video id="vid0" class="bg-video visible" autoplay loop muted playsinline><source src="PARRILLA MIXTA2.mp4" type="video/mp4"></video>
-            <video id="vid1" class="bg-video" autoplay loop muted playsinline><source src="salon nuevo chao.mp4" type="video/mp4"></video>
-            <video id="vid2" class="bg-video" autoplay loop muted playsinline><source src="LIMONADA ELECTRICA.mp4" type="video/mp4"></video>
-            <video id="vid3" class="bg-video" autoplay loop muted playsinline><source src="salon victor raul haya de la torre.mp4" type="video/mp4"></video>
-            <video id="vid4" class="bg-video" autoplay loop muted playsinline><source src="PARRILLA MIXTA (2).mp4" type="video/mp4"></video>
-            <video id="vid5" class="bg-video" autoplay loop muted playsinline><source src="MACHU PICHU.mp4" type="video/mp4"></video>
-            <video id="vid6" class="bg-video" autoplay loop muted playsinline><source src="TRES.mp4" type="video/mp4"></video>
-
-            <div class="hero-overlay"></div>
-            
-            <div class="hero-content">
-                <h1>Saborea las Mejores Parrillas</h1>
-                <p>Tradición y sabor en Virú</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECCIÓN: NUESTRA CARTA COMPLETA -->
-    <section id="carta" class="page-section">
-        <div class="tabs-contenedor">
-            <button class="tab-boton active" onclick="cambiarTab('personales')">Parrillas Personales</button>
-            <button class="tab-boton" onclick="cambiarTab('mixtas')">Parrillas Mixtas</button>
-            <button class="tab-boton" onclick="cambiarTab('bebidas')">Bebidas y Cócteles</button>
-        </div>
-
-        <!-- CATEGORÍA: PARRILLAS PERSONALES -->
-        <div id="personales" class="categoria-contenido active">
-            <div class="subcat-titulo">Cortes Individuales</div>
-            <div class="menu-item">
-                <div class="item-encabezado"><span class="item-nombre">Lomo Fino</span><span class="item-precio">S/. 38.00</span></div>
-                <p class="item-descripcion">Jugoso corte de lomo fino seleccionado a la parrilla, servido con crujientes papas fritas y ensalada fresca.</p>
-            </div>
-            <div class="menu-item">
-                <div class="item-encabezado"><span class="item-nombre">Churrasco</span><span class="item-precio">S/. 28.00</span></div>
-                <p class="item-descripcion">Tradicional corte de carne tierno y con el punto exacto de sal de parrilla.</p>
-            </div>
-            <div class="menu-item">
-                <div class="item-encabezado"><span class="item-nombre">Asado de Tira</span><span class="item-precio">S/. 32.00</span></div>
-                <p class="item-descripcion">Corte con hueso que concentra el máximo sabor del asado parrillero.</p>
-            </div>
-            <div class="menu-item">
-                <div class="item-encabezado"><span class="item-nombre">Chuleta de Cerdo</span><span class="item-precio">S/. 25.00</span></div>
-                <p class="item-descripcion">Tierna chuleta dorada a las brasas aromáticas.</p>
-            </div>
-            <div class="menu-item">
-                <div class="item-encabezado"><span class="item-nombre">Pechuga de Pollo</span><span class="item-precio">S/. 24.00</span></div>
-                <p class="item-descripcion">Filete de pechuga marinado con la receta especial de la casa.</p>
-            </div>
-            <div class="menu-item">
-                <div class="item-encabezado"><span class="item-nombre">Anticuchos (Porción)</span><span class="item-precio">S/. 22.00</span></div>
-                <p class="item-descripcion">Corazón seleccionado marinado en ají panca y especias peruanas.</p>
-            </div>
-        </div>
-
-        <!-- CATEGORÍA: PARRILLAS MIXTAS -->
-        <div id="mixtas" class="categoria-contenido">
-            <div class="subcat-titulo">Para Compartir</div>
-            <div class="menu-item">
-                <div class="item-encabezado"><span class="item-nombre">Parrilla Estancia (2 Pers.)</span><span class="item-precio">S/. 65.00</span></div>
-                <p class="item-descripcion">1 Churrasco + 1 Chuleta de Cerdo + 1 Recorte de Parrilla + 1 Chorizo + 1 Anticucho.</p>
-            </div>
-            <div class="menu-item">
-                <div class="item-encabezado"><span class="item-nombre">Para Cuatro</span><span class="item-precio">S/. 100.00</span></div>
-                <p class="item-descripcion">½ Pollo + 1 Churrasco + 1 Tira de Cerdo + 2 Chorizos + 2 Anticuchos.</p>
-            </div>
-            <div class="menu-item">
-                <div class="item-encabezado"><span class="item-nombre">Para Seis</span><span class="item-precio">S/. 130.00</span></div>
-                <p class="item-descripcion">½ Pollo + 1 Chuleta + 1 Churrasco + 1 Tira de Res + 1 Tira de Cerdo + 2 Chorizos + 2 Anticuchos.</p>
-            </div>
-        </div>
-
-        <!-- CATEGORÍA: BEBIDAS -->
-        <div id="bebidas" class="categoria-contenido">
-            <div class="subcat-titulo">Bebidas del Bar</div>
-            <div class="menu-item">
-                <div class="item-encabezado"><span class="item-nombre">Limonada Eléctrica (Frozen)</span><span class="item-precio">Vaso: S/. 10.00 / Jarra: S/. 18.00</span></div>
-            </div>
-            <div class="menu-item">
-                <div class="item-encabezado"><span class="item-nombre">Machu Picchu</span><span class="item-precio">S/. 15.00</span></div>
-            </div>
-            <div class="menu-item">
-                <div class="item-encabezado"><span class="item-nombre">Chicha Morada Natural</span><span class="item-precio">Vaso: S/. 6.00 / Jarra: S/. 15.00</span></div>
-            </div>
-            <div class="menu-item">
-                <div class="item-encabezado"><span class="item-nombre">Maracuyá</span><span class="item-precio">Vaso: S/. 6.00 / Jarra: S/. 15.00</span></div>
-            </div>
-            <div class="menu-item">
-                <div class="item-encabezado"><span class="item-nombre">Gaseosas (Inca Kola / Coca Cola)</span><span class="item-precio">S/. 5.00</span></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECCIÓN: COMPROMISO AMBIENTAL -->
-    <section id="compromiso" class="page-section">
-        <div class="seccion-eco">
-            <h2 class="eco-titulo">Nuestro Compromiso Ambiental</h2>
-            <p class="eco-parrafo">
-                En <strong>Estancia Parrillera</strong> creemos que el sabor tradicional nace del respeto a nuestra tierra. Por ello, implementamos prácticas honestas de economía circular y buscamos soluciones sustentables para cada residuo:
-            </p>
-            <ul class="eco-compromisos">
-                <li><strong>Segunda Vida al Aceite:</strong> Recolectamos el aceite usado de cocina para transformarlo industrialmente en biocombustibles ecológicos.</li>
-                <li><strong>Reciclaje de Plásticos:</strong> Clasificamos envases para entregárselos directamente a los recicladores de la comunidad.</li>
-                <li><strong>Destino Orgánico:</strong> Buscamos alianzas locales para destinar descartes vegetales al compostaje agrícola.</li>
-                <li><strong>Desafíos de Vidrio y Cartón:</strong> Trabajamos activamente en superar las limitaciones de acopio locales para asegurar su correcto reciclaje.</li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- SECCIÓN: CONTÁCTENOS -->
-    <section id="contacto" class="page-section">
-        <div class="contacto-container">
-            <h2>Envíanos un Mensaje</h2>
-            <p style="color: var(--oro-viejo); margin-bottom: 2rem; font-size: 0.9rem;">Atención al instante - Estancia Parrillera</p>
-            <form onsubmit="event.preventDefault();">
-                <div class="form-grupo"><label>Nombre</label><input type="text" placeholder="Tu nombre"></div>
-                <div class="form-grupo"><label>Correo</label><input type="email" placeholder="ejemplo@correo.com"></div>
-                <div class="form-grupo"><label>Mensaje</label><textarea rows="4" placeholder="¿Qué consulta tienes?"></textarea></div>
-                <button type="submit" class="btn-enviar">Enviar Mensaje</button>
-            </form>
-        </div>
-    </section>
-
-    <!-- SCRIPT DE INTERACTIVIDAD -->
-    <script>
-        // Transición de videos automática en el fondo del Inicio
-        let videoActual = 0;
-        const totalVideos = 7; // Tus 7 videos listados en el HTML
-
-        setInterval(() => {
-            document.getElementById(`vid${videoActual}`).classList.remove('visible');
-            videoActual = (videoActual + 1) % totalVideos;
-            document.getElementById(`vid${videoActual}`).classList.add('visible');
-        }, 5000); // Cambia de video fluidamente cada 5 segundos
-
-        // Loader
-        window.addEventListener('load', () => {
-            const loader = document.getElementById('loader');
-            setTimeout(() => {
-                loader.style.opacity = '0';
-                loader.style.visibility = 'hidden';
-            }, 500);
-        });
-
-        function toggleSidebar() {
-            document.getElementById('sidebarMenu').classList.toggle('active');
-        }
-
-        function navegarA(idSeccion) {
-            const loader = document.getElementById('loader');
-            loader.style.opacity = '1';
-            loader.style.visibility = 'visible';
-
-            setTimeout(() => {
-                document.querySelectorAll('.page-section').forEach(sec => sec.classList.remove('active-section'));
-                document.getElementById(idSeccion).classList.add('active-section');
-                document.getElementById('sidebarMenu').classList.remove('active');
-                window.scrollTo(0, 0);
-                loader.style.opacity = '0';
-                loader.style.visibility = 'hidden';
-            }, 300);
-        }
-
-        function cambiarTab(idCategoria) {
-            document.querySelectorAll('#carta .tab-boton').forEach(btn => btn.classList.remove('active'));
-            document.querySelectorAll('#carta .categoria-contenido').forEach(cont => cont.classList.remove('active'));
-            event.currentTarget.classList.add('active');
-            document.getElementById(idCategoria).classList.add('active');
-        }
-
-        window.addEventListener('scroll', () => {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 40) navbar.classList.add('scrolled');
-            else navbar.classList.remove('scrolled');
-        });
-    </script>
-</body>
-</html>
+      ],
+      "ANTICUCHOS (CON PAPAS FRITAS Y ENSALADA)": [
+        { "plato": "POLLO", "precio": 16.00 },
+        { "plato": "CORAZÓN DE RES", "precio": 16.00 },
+        { "plato": "CERDO", "precio": 16.00 },
+        { "plato": "MOLLEJAS", "precio": 16.00 }
+      ],
+      "ALITAS (CON PAPAS FRITAS Y ENSALADA)": [
+        { "plato": "BROASTER", "precio": 20.00 },
+        { "plato": "ACEVICHADAS", "precio": 20.00 },
+        { "plato": "BBQ", "precio": 20.00 },
+        { "plato": "MIXTO", "precio": 25.00 }
+      ]
+    },
+    "PLATOS A LA CARTA": [
+      { "plato": "LOMO SALTADO", "precio": 28.00 },
+      { "plato": "ARROZ CHAUFA DE CARNE", "precio": 30.00 },
+      { "plato": "ARROZ CHAUFA ESPECIAL", "precio": 25.00 },
+      { "plato": "ARROZ CHAUFA DE POLLO", "precio": 18.00 }
+    ],
+    "GUARNICIONES ADICIONALES": [
+      {
+        "acompanamiento": "PAPAS FRITAS",
+        "precios": { "pequeno": 6.00, "grande": 10.00, "extra": 13.00 }
+      },
+      {
+        "acompanamiento": "ENSALADA",
+        "precios": { "pequeno": 6.00, "grande": 10.00, "extra": 13.00 }
+      },
+      {
+        "acompanamiento": "ARROZ CHAUFA",
+        "precios": { "pequeno": 6.00, "grande": 10.00, "extra": 15.00 }
+      },
+      {
+        "acompanamiento": "ARROZ BLANCO",
+        "precios": { "pequeno": 5.00, "grande": 8.00, "extra": 13.00 }
+      },
+      {
+        "acompanamiento": "CHORIZO",
+        "precios": { "porcion_individual": null, "grande": null, "extra": 8.00 },
+        "nota": "Porción Individual Extra"
+      }
+    ],
+    "BEBIDAS REFRESCANTES": [
+      { "bebida": "MARACUYÁ (HELADA / FROZEN)", "precios": { "jarra_1l": 18.00, "vaso_1_2l": 10.00 } },
+      { "bebida": "LIMONADA (HELADA / FROZEN)", "precios": { "jarra_1l": 18.00, "vaso_1_2l": 10.00 } },
+      { "bebida": "LIMONADA ELÉCTRICA (HELADA / FROZEN)", "precios": { "jarra_1l": 18.00, "vaso_1_2l": 10.00 } },
+      { "bebida": "INFUSIÓN (TÉ / MANZANILLA / ANÍS)", "precios": { "taza": 4.00 } },
+      { "bebida": "CAFÉ", "precios": { "taza": 4.00 } },
+      { "bebida": "AGUA SAN LUIS (SIN GAS / CON GAS)", "precios": { "botella_personal": 4.00 } },
+      {
+        "categoria": "GASEOSAS",
+        "opciones": [
+          {
+            "bebida": "INCA KOLA / COCA COLA",
+            "precios": { "3_l": 17.00, "1_5_l": 12.00, "1_l": 10.00 },
+            "nota": "También disponibles en formato Gordita (S/. 7.00), 600 ML (S/. 5.00) y 500 ML (S/. 4.00)."
+          }
+        ]
+      },
+      {
+        "categoria": "CERVEZAS",
+        "opciones": [
+          { "bebida": "CUSQUEÑA 620 ML (NEGRA / TRIGO)", "precio": 12.00 },
+          { "bebida": "PILSEN 620 ML (TRUJILLO / CALLAO)", "precio": 10.00 }
+        ]
+      }
+    ],
+    "NUESTRA BODEGA Y DESTILADOS": {
+      "ESPUMANTES": [
+        { "producto": "TABERNERO (BRUT / DEMI SEC)", "precios": { "botella": 50.00, "copa_5oz": 15.00 } },
+        { "producto": "SANTIAGO QUEIROLO (PRIMADO)", "precios": { "botella": 45.00, "copa_5oz": 14.00 } },
+        { "producto": "TABERNERO (SEMI SECO ESPECIAL)", "precios": { "botella": 40.00, "copa_5oz": 13.00 } }
+      ],
+      "WHISKYS (750 ML / 700 ML)": [
+        { "producto": "JACK DANIEL'S", "precios": { "botella": 160.00, "vaso_2oz": 18.00 } },
+        { "producto": "OLD PARR 12 AÑOS", "precios": { "botella": 150.00, "vaso_2oz": 17.00 } },
+        { "producto": "BALLANTINE'S", "precios": { "botella": 105.00, "vaso_2oz": 15.00 } }
+      ],
+      "RON CARTAVIO 750 ML": [
+        { "producto": "SOLERA", "precios": { "botella": 100.00, "vaso": 16.00 } },
+        { "producto": "RESERVA", "precios": { "botella": 70.00, "vaso": 15.00 } },
+        { "producto": "SELECTO", "precios": { "botella": 65.00, "vaso": 12.00 } }
+      ],
+      "CAVA SELECCIONADA Y ESPECIALIDADES": [
+        { "producto": "SANGRÍA ESTANCIA (ESPECIALIDAD)", "precios": { "jarra": 45.00, "copa": 15.00 } },
+        { "producto": "CASILLERO DEL DIABLO (CHILE) - MALBEC / CABERNET / MERLOT", "precios": { "botella": 75.00, "copa": 18.00 } },
+        { "producto": "NAVARRO CORREAS (ARGENTINA) - MALBEC", "precios": { "botella": 80.00, "copa": 20.00 } },
+        { "producto": "CONCHA Y TORO RESERVADO / ASTICA / INTIPALKA / QUEIROLO (TANNAT/MALBEC)", "precios": { "botella": 40.00, "copa": 13.00 } },
+        { "producto": "TABERNERO / QUEIROLO (BORGOÑA / ROSÉ)", "precios": { "botella": 30.00, "copa": 10.00 } }
+      ],
+      "NUESTROS CÓCTELES": [
+        { "producto": "ALGARROBINA (PISCO, ALGARROBINA, LECHE)", "precio": 18.00 },
+        { "producto": "MACHU PICCHU (PISCO, GRANADINA, ETC)", "precio": 15.00 },
+        { "producto": "MOJITO (FRESA / MANGO / CLÁSICO) / ARCOÍRIS", "precio": 17.00, "nota": "Precio c/u" },
+        { "producto": "DAIQUIRI (MANGO / FRESA) / PIÑA COLADA / CHILCANO / PISCO SOUR / CUBA LIBRE", "precio": 15.00, "nota": "Precio c/u" },
+        { "producto": "PERÚ LIBRE", "precio": 14.00 },
+        { "producto": "CAIPIRINHA / CAIPIROSKA", "precio": 13.00, "nota": "Precio c/u" },
+        { "producto": "PRIMAVERA", "precio": 12.00 },
+        { "producto": "MIMOSA", "precio": 10.00 }
+      ]
+    }
+  }
+}
