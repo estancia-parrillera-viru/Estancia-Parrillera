@@ -554,69 +554,65 @@
                 </div>
             </div>
 
-<!-- === ESTRUCTURA COMPLETA DE LA CARTA (CARNES) === -->
-<div id="contenido-home-carnes" style="display: block; color: #ffffff;">
+<!-- === CARTA INTERACTIVA CON CARRITO === -->
+<section id="carta-interactiva" style="background: #0b0b0b; padding: 4rem 1rem; color: #fff;">
+    <div style="max-width: 800px; margin: 0 auto;">
+        
+        <!-- Selector de Sucursal -->
+        <div style="text-align: center; margin-bottom: 2rem;">
+            <h3 style="color: #cda45e;">SELECCIONA TU SUCURSAL PARA EL PEDIDO:</h3>
+            <select id="sucursal-select" style="padding: 0.5rem; width: 100%; max-width: 300px; background: #161616; color: #fff; border: 1px solid #cda45e;">
+                <option value="https://wa.me/TU_NUMERO_VICTOR_RAUL">Víctor Raúl</option>
+                <option value="https://wa.me/TU_NUMERO_NUEVO_CHAO">Nuevo Chao</option>
+            </select>
+        </div>
 
-    <!-- 1. PARRILLAS PERSONALES -->
-    <h3 style="color: #cda45e; border-bottom: 1px solid #333; padding-bottom: 0.5rem; margin-top: 2rem;">PARRILLAS PERSONALES</h3>
-    <div style="background: #161616; padding: 1rem; margin-bottom: 1rem;">
-        <div style="display: flex; justify-content: space-between; padding: 0.5rem 0;"><span>Lomo Fino</span> <span>S/. 55.00</span></div>
-        <div style="display: flex; justify-content: space-between; padding: 0.5rem 0;"><span>Tira de Res</span> <span>S/. 30.00</span></div>
-        <div style="display: flex; justify-content: space-between; padding: 0.5rem 0;"><span>Churrasco</span> <span>S/. 30.00</span></div>
-        <div style="display: flex; justify-content: space-between; padding: 0.5rem 0;"><span>Tira de Cerdo</span> <span>S/. 30.00</span></div>
-        <div style="display: flex; justify-content: space-between; padding: 0.5rem 0;"><span>Chuleta de Cerdo</span> <span>S/. 30.00</span></div>
-        <div style="display: flex; justify-content: space-between; padding: 0.5rem 0;"><span>1/4 Pollo</span> <span>S/. 25.00</span></div>
-        <div style="display: flex; justify-content: space-between; padding: 0.5rem 0;"><span>1/8 Pollo</span> <span>S/. 15.00</span></div>
+        <!-- Lista de Platos con botón agregar -->
+        <div id="lista-productos">
+            <h3 style="color: #cda45e;">PARRILLAS PERSONALES</h3>
+            <div style="display: flex; justify-content: space-between; padding: 0.5rem; border-bottom: 1px solid #333;">
+                <span>Lomo Fino - S/. 55.00</span>
+                <button onclick="agregarAlCarrito('Lomo Fino', 55)" style="background: #cda45e; border: none; cursor: pointer; padding: 2px 10px;">+</button>
+            </div>
+            <div style="display: flex; justify-content: space-between; padding: 0.5rem; border-bottom: 1px solid #333;">
+                <span>Churrasco - S/. 30.00</span>
+                <button onclick="agregarAlCarrito('Churrasco', 30)" style="background: #cda45e; border: none; cursor: pointer; padding: 2px 10px;">+</button>
+            </div>
+            <!-- Puedes seguir añadiendo tus otros platos aquí siguiendo este formato -->
+        </div>
+
+        <!-- Carrito -->
+        <div style="margin-top: 3rem; background: #161616; padding: 1rem; border: 1px solid #cda45e;">
+            <h3 style="color: #cda45e;">TU PEDIDO</h3>
+            <ul id="carrito-lista" style="list-style: none; padding: 0;"></ul>
+            <p>Total: S/. <span id="total-precio">0</span></p>
+            <button onclick="enviarPedido()" style="width: 100%; padding: 1rem; background: #25d366; color: white; border: none; font-weight: bold; cursor: pointer;">ENVIAR PEDIDO POR WHATSAPP</button>
+        </div>
     </div>
+</section>
 
-    <!-- 2. PARRILLAS MIXTAS Y FAMILIARES -->
-    <h3 style="color: #cda45e; border-bottom: 1px solid #333; padding-bottom: 0.5rem; margin-top: 2rem;">PARRILLAS MIXTAS Y FAMILIARES</h3>
-    <div style="background: #161616; padding: 1rem; margin-bottom: 1rem;">
-        <div style="display: flex; justify-content: space-between; padding: 0.5rem 0;"><span>Para Cuatro</span> <span>S/. 100.00</span></div>
-        <div style="display: flex; justify-content: space-between; padding: 0.5rem 0;"><span>Para Seis</span> <span>S/. 130.00</span></div>
-        <div style="display: flex; justify-content: space-between; padding: 0.5rem 0;"><span>1 Pollo</span> <span>S/. 85.00</span></div>
-        <div style="display: flex; justify-content: space-between; padding: 0.5rem 0;"><span>1/2 Pollo</span> <span>S/. 45.00</span></div>
-    </div>
+<script>
+    let carrito = [];
+    let total = 0;
 
-    <!-- 3. ANTICUCHOS -->
-    <h3 style="color: #cda45e; border-bottom: 1px solid #333; padding-bottom: 0.5rem; margin-top: 2rem;">ANTICUCHOS</h3>
-    <div style="background: #161616; padding: 1rem; margin-bottom: 1rem;">
-        <div style="display: flex; justify-content: space-between; padding: 0.5rem 0;"><span>Pollo</span> <span>S/. 16.00</span></div>
-        <div style="display: flex; justify-content: space-between; padding: 0.5rem 0;"><span>Corazón de Res</span> <span>S/. 16.00</span></div>
-        <div style="display: flex; justify-content: space-between; padding: 0.5rem 0;"><span>Cerdo</span> <span>S/. 16.00</span></div>
-        <div style="display: flex; justify-content: space-between; padding: 0.5rem 0;"><span>Mollejas</span> <span>S/. 16.00</span></div>
-    </div>
+    function agregarAlCarrito(nombre, precio) {
+        carrito.push({nombre, precio});
+        total += precio;
+        actualizarCarrito();
+    }
 
-    <!-- 4. ALITAS -->
-    <h3 style="color: #cda45e; border-bottom: 1px solid #333; padding-bottom: 0.5rem; margin-top: 2rem;">ALITAS</h3>
-    <div style="background: #161616; padding: 1rem; margin-bottom: 1rem;">
-        <div style="display: flex; justify-content: space-between; padding: 0.5rem 0;"><span>Broaster</span> <span>S/. 20.00</span></div>
-        <div style="display: flex; justify-content: space-between; padding: 0.5rem 0;"><span>Acevichadas</span> <span>S/. 20.00</span></div>
-        <div style="display: flex; justify-content: space-between; padding: 0.5rem 0;"><span>BBQ</span> <span>S/. 20.00</span></div>
-        <div style="display: flex; justify-content: space-between; padding: 0.5rem 0;"><span>Mixto</span> <span>S/. 25.00</span></div>
-    </div>
+    function actualizarCarrito() {
+        const lista = document.getElementById('carrito-lista');
+        lista.innerHTML = carrito.map(item => `<li>${item.nombre} - S/. ${item.precio}</li>`).join('');
+        document.getElementById('total-precio').innerText = total;
+    }
 
-    <!-- 5. PLATOS A LA CARTA -->
-    <h3 style="color: #cda45e; border-bottom: 1px solid #333; padding-bottom: 0.5rem; margin-top: 2rem;">PLATOS A LA CARTA</h3>
-    <div style="background: #161616; padding: 1rem; margin-bottom: 1rem;">
-        <div style="display: flex; justify-content: space-between; padding: 0.5rem 0;"><span>Lomo Saltado</span> <span>S/. 28.00</span></div>
-        <div style="display: flex; justify-content: space-between; padding: 0.5rem 0;"><span>Arroz Chaufa de Carne</span> <span>S/. 30.00</span></div>
-        <div style="display: flex; justify-content: space-between; padding: 0.5rem 0;"><span>Arroz Chaufa Especial</span> <span>S/. 25.00</span></div>
-        <div style="display: flex; justify-content: space-between; padding: 0.5rem 0;"><span>Arroz Chaufa de Pollo</span> <span>S/. 18.00</span></div>
-    </div>
-
-    <!-- 6. GUARNICIONES -->
-    <h3 style="color: #cda45e; border-bottom: 1px solid #333; padding-bottom: 0.5rem; margin-top: 2rem;">GUARNICIONES</h3>
-    <div style="background: #161616; padding: 1rem; margin-bottom: 1rem;">
-        <div style="display: flex; justify-content: space-between; padding: 0.5rem 0;"><span>Papas Fritas (Pequeño/Grande/Extra)</span> <span>S/. 6 / 10 / 13</span></div>
-        <div style="display: flex; justify-content: space-between; padding: 0.5rem 0;"><span>Ensalada (Pequeño/Grande/Extra)</span> <span>S/. 6 / 10 / 13</span></div>
-        <div style="display: flex; justify-content: space-between; padding: 0.5rem 0;"><span>Arroz Chaufa (Pequeño/Grande/Extra)</span> <span>S/. 6 / 10 / 15</span></div>
-        <div style="display: flex; justify-content: space-between; padding: 0.5rem 0;"><span>Arroz Blanco (Pequeño/Grande/Extra)</span> <span>S/. 5 / 8 / 13</span></div>
-        <div style="display: flex; justify-content: space-between; padding: 0.5rem 0;"><span>Chorizo (Porción Individual)</span> <span>S/. 8.00</span></div>
-    </div>
-
-</div>
-
+    function enviarPedido() {
+        const sucursal = document.getElementById('sucursal-select').value;
+        const texto = `Hola, quiero realizar este pedido: ${carrito.map(i => i.nombre).join(', ')}. Total a pagar: S/. ${total}`;
+        window.open(`${sucursal}?text=${encodeURIComponent(texto)}`, '_blank');
+    }
+</script>
                 <div id="contenido-home-bebidas" style="display: none;">
                     <div style="background: #161616; border-left: 3px solid #cda45e; padding: 1.2rem; margin-bottom: 1rem;">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
