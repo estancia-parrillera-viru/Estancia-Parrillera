@@ -111,7 +111,7 @@
             transition: 0.3s;
         }
 
-        /* --- SIDEBAR --- */
+        /* --- SIDEBAR DESPLEGABLE (ESTILO MUCHIK) --- */
         .sidebar {
             position: fixed;
             top: 0;
@@ -121,12 +121,13 @@
             height: 100vh;
             background-color: #000000;
             z-index: 2000;
-            padding: 2.5rem 2rem;
+            padding: 2.5rem 1.5rem;
             display: flex;
             flex-direction: column;
-            gap: 2rem;
+            gap: 1.5rem;
             transition: right 0.4s cubic-bezier(0.1, 0.9, 0.2, 1);
             border-left: 1px solid rgba(197, 160, 89, 0.15);
+            overflow-y: auto;
         }
         .sidebar.active {
             right: 0;
@@ -150,20 +151,64 @@
             display: flex;
             flex-direction: column;
             border-top: 1px solid rgba(255,255,255,0.1);
-            margin-top: 1rem;
+            margin-top: 0.5rem;
         }
-        .sidebar-links li a {
-            display: block;
-            padding: 1.2rem 0;
+        .sidebar-links li {
+            width: 100%;
+        }
+        .sidebar-links li a, .submenu-trigger {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 1.1rem 0;
             color: var(--blanco-hueso);
             text-decoration: none;
-            font-size: 1rem;
+            font-size: 0.9rem;
             text-transform: uppercase;
             font-weight: 600;
             border-bottom: 1px solid rgba(255,255,255,0.1);
+            background: none;
+            border-left: none;
+            border-right: none;
+            border-top: none;
+            cursor: pointer;
+            text-align: left;
             transition: color 0.2s;
         }
-        .sidebar-links li a:hover {
+        .sidebar-links li a:hover, .submenu-trigger:hover {
+            color: var(--oro-viejo);
+        }
+        
+        /* Flechas del menú interactivo */
+        .submenu-trigger::after {
+            content: '▼';
+            font-size: 0.65rem;
+            transition: transform 0.3s;
+            color: rgba(255,255,255,0.5);
+        }
+        .submenu-trigger.open::after {
+            transform: rotate(-180deg);
+            color: var(--oro-viejo);
+        }
+
+        /* Contenedor oculto de subcategorías */
+        .submenu-items {
+            max-height: 0;
+            overflow: hidden;
+            list-style: none;
+            background-color: rgba(24, 22, 21, 0.5);
+            transition: max-height 0.3s ease-out;
+        }
+        .submenu-items li a {
+            padding: 0.9rem 1rem;
+            font-size: 0.8rem;
+            color: #ccc;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            text-transform: uppercase;
+        }
+        .submenu-items li a:hover {
+            background-color: rgba(197, 160, 89, 0.05);
             color: var(--oro-viejo);
         }
 
@@ -444,13 +489,27 @@
         </div>
     </nav>
 
-    <!-- 3. SIDEBAR -->
+    <!-- 3. SIDEBAR CON MENÚ DESPLEGABLE INTERACTIVO (ESTILO MUCHIK) -->
     <div class="sidebar" id="sidebarMenu">
         <button class="sidebar-close" onclick="toggleSidebar()">&times;</button>
         <img src="LogoEstancia.png" class="sidebar-logo" alt="Logo">
         <ul class="sidebar-links">
             <li><a href="#" onclick="navegarA('inicio')">✦ Inicio</a></li>
-            <li><a href="#" onclick="navegarA('carta')">✦ Nuestra Carta</a></li>
+            
+            <!-- Botón Desplegable para la Carta -->
+            <li>
+                <button class="submenu-trigger" onclick="toggleSubmenu(this)">✦ Nuestra Carta</button>
+                <ul class="submenu-items" id="cartaSubmenu">
+                    <li><a href="#" onclick="navegarACategoria('carta', 'parrillas')">» Parrillas Personales</a></li>
+                    <li><a href="#" onclick="navegarACategoria('carta', 'parrillas')">» Parrillas Mixtas</a></li>
+                    <li><a href="#" onclick="navegarACategoria('carta', 'parrillas')">» Nuestros Anticuchos</a></li>
+                    <li><a href="#" onclick="navegarACategoria('carta', 'parrillas')">» Alitas a la Parrilla</a></li>
+                    <li><a href="#" onclick="navegarACategoria('carta', 'al-carta')">» Platos a la Carta</a></li>
+                    <li><a href="#" onclick="navegarACategoria('carta', 'guarniciones')">» Guarniciones</a></li>
+                    <li><a href="#" onclick="navegarACategoria('carta', 'bebidas')">» Bar y Bebidas</a></li>
+                </ul>
+            </li>
+            
             <li><a href="#" onclick="navegarA('compromiso')">✦ Compromiso Ambiental</a></li>
             <li><a href="#" onclick="navegarA('contacto')">✦ Contáctenos</a></li>
         </ul>
@@ -458,7 +517,7 @@
 
     <!-- ================= SECCIONES MODULARES ================= -->
 
-    <!-- SECCIÓN: INICIO (CON VIDEOS ROTATIVOS DE TU LOCAL Y PLATOS) -->
+    <!-- SECCIÓN: INICIO -->
     <section id="inicio" class="page-section active-section">
         <div class="hero-video-container">
             <video id="vid0" class="bg-video visible" autoplay loop muted playsinline><source src="PARRILLA MIXTA2.mp4" type="video/mp4"></video>
@@ -481,10 +540,10 @@
     <!-- SECCIÓN: NUESTRA CARTA -->
     <section id="carta" class="page-section">
         <div class="tabs-contenedor">
-            <button class="tab-boton active" onclick="cambiarTab('parrillas')">Nuestras Parrillas</button>
-            <button class="tab-boton" onclick="cambiarTab('al-carta')">Platos a la Carta</button>
-            <button class="tab-boton" onclick="cambiarTab('guarniciones')">Guarniciones</button>
-            <button class="tab-boton" onclick="cambiarTab('bebidas')">Bebidas y Bar</button>
+            <button class="tab-boton active" id="btn-parrillas" onclick="cambiarTab('parrillas')">Nuestras Parrillas</button>
+            <button class="tab-boton" id="btn-al-carta" onclick="cambiarTab('al-carta')">Platos a la Carta</button>
+            <button class="tab-boton" id="btn-guarniciones" onclick="cambiarTab('guarniciones')">Guarniciones</button>
+            <button class="tab-boton" id="btn-bebidas" onclick="cambiarTab('bebidas')">Bebidas y Bar</button>
         </div>
 
         <!-- TAB: NUESTRAS PARRILLAS -->
@@ -665,7 +724,7 @@
         </div>
     </section>
 
-    <!-- SCRIPT DE INTERACTIVIDAD -->
+    <!-- SCRIPT DE INTERACTIVIDAD DESPLEGABLE -->
     <script>
         // Transición automática de tus 7 videos de fondo
         let videoActual = 0;
@@ -694,6 +753,18 @@
             document.getElementById('sidebarMenu').classList.toggle('active');
         }
 
+        // Función para abrir/cerrar las subcategorías (Efecto Acordeón Muchik)
+        function toggleSubmenu(button) {
+            button.classList.toggle('open');
+            const submenu = document.getElementById('cartaSubmenu');
+            if (submenu.style.maxHeight && submenu.style.maxHeight !== '0px') {
+                submenu.style.maxHeight = '0px';
+            } else {
+                submenu.style.maxHeight = submenu.scrollHeight + 'px';
+            }
+        }
+
+        // Navegación general de páginas
         function navegarA(idSeccion) {
             const loader = document.getElementById('loader');
             loader.style.opacity = '1';
@@ -709,11 +780,40 @@
             }, 300);
         }
 
+        // Nueva función: Te lleva a la sección Carta e inmediatamente activa la pestaña que presionaste
+        function navegarACategoria(idSeccion, idTabTarget) {
+            const loader = document.getElementById('loader');
+            loader.style.opacity = '1';
+            loader.style.visibility = 'visible';
+
+            setTimeout(() => {
+                // Activar la vista general de la carta
+                document.querySelectorAll('.page-section').forEach(sec => sec.classList.remove('active-section'));
+                document.getElementById(idSeccion).classList.add('active-section');
+                
+                // Activar la pestaña interna exacta (Parrillas, Carta, Guarnición o Bar)
+                document.querySelectorAll('#carta .tab-boton').forEach(btn => btn.classList.remove('active'));
+                document.querySelectorAll('#carta .categoria-contenido').forEach(cont => cont.classList.remove('active'));
+                
+                document.getElementById(`btn-${idTabTarget}`).classList.add('active');
+                document.getElementById(idTabTarget).classList.add('active');
+
+                // Cerrar el menú lateral
+                document.getElementById('sidebarMenu').classList.remove('active');
+                
+                // Hacer scroll suave directo al inicio de la pestaña de platos
+                document.querySelector('.tabs-contenedor').scrollIntoView({ behavior: 'smooth' });
+                
+                loader.style.opacity = '0';
+                loader.style.visibility = 'hidden';
+            }, 300);
+        }
+
         function cambiarTab(idCategoria) {
             document.querySelectorAll('#carta .tab-boton').forEach(btn => btn.classList.remove('active'));
             document.querySelectorAll('#carta .categoria-contenido').forEach(cont => cont.classList.remove('active'));
             
-            event.currentTarget.classList.add('active');
+            document.getElementById(`btn-${idCategoria}`).classList.add('active');
             document.getElementById(idCategoria).classList.add('active');
         }
 
