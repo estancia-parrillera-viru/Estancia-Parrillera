@@ -293,9 +293,10 @@
 
     <!-- ENCABEZADO CON LOGO CORREGIDO -->
 <header>
-    <div class="logo-contenedor">
-        <img src="LogoEstancia.png" alt="Estancia Parrillera" class="logo-imagen">
-    </div>
+        <div class="logo-contenedor">
+            <img src="LogoEstancia.png" alt="Estancia Parrillera" class="logo-imagen">
+        </div>
+    </header>
     
     <div class="sedes-contenedor">
         <p class="selecciona-texto">¿Dónde harás tu pedido hoy?</p>
@@ -570,15 +571,108 @@
     </div>
 
     <!-- PIE DE PÁGINA COMERCIAL -->
-    <footer>
-        <div class="contacto-info">
-            <p>📍 Encuéntranos en Virú</p>
-            <p>📱 Pedidos y Reservas: <strong>916267368</strong></p>
+  <!-- SECCIÓN DE CONTACTO POR SEDES -->
+    <div class="contacto-sedes-seccion">
+        <!-- Selector de Sedes Moderno -->
+        <div class="selector-sedes-abajo">
+            <button class="btn-sede-abajo active" onclick="mostrarSede('viru')">📍 Sede Virú</button>
+            <button class="btn-sede-abajo" onclick="mostrarSede('chao')">📍 Sede Nuevo Chao</button>
         </div>
-        <a href="https://wa.me/51916267368?text=Hola%20Estancia%20Parrillera,%20deseo%20realizar%20un%20pedido%20de%20la%20carta" class="btn-whatsapp" target="_blank">
-            💬 Hacer pedido por WhatsApp
-        </a>
-    </footer>
+
+        <!-- Contenido Dinámico de Sede Virú -->
+        <div id="info-viru" class="info-sede-bloque">
+            <p class="ubicacion-texto">📍 Encuéntranos en Virú (Víctor Raúl Haya de la Torre)</p>
+            <p class="telefono-texto">📱 Pedidos y Reservas: <strong>916267368</strong></p>
+            <a href="https://wa.me/51916267368" class="btn-whatsapp-sede" target="_blank">
+                💬 HACER PEDIDO POR WHATSAPP (VIRÚ)
+            </a>
+        </div>
+
+        <!-- Contenido Dinámico de Sede Nuevo Chao -->
+        <div id="info-chao" class="info-sede-bloque" style="display: none;">
+            <p class="ubicacion-texto">📍 Encuéntranos en Virú - Nuevo Chao</p>
+            <p class="telefono-texto">📱 Pedidos y Reservas: <strong>948794306</strong></p>
+            <a href="https://wa.me/51948794306" class="btn-whatsapp-sede" target="_blank">
+                💬 HACER PEDIDO POR WHATSAPP (CHAO)
+            </a>
+        </div>
+    </div>
+    /* --- ESTILOS PIE DE PÁGINA INTERACTIVO --- */
+        .contacto-sedes-seccion {
+            text-align: center;
+            padding: 2rem 1rem;
+            background-color: rgba(24, 22, 21, 0.98);
+            border-top: 1px solid var(--oro-viejo);
+            margin-top: 3rem;
+        }
+        .selector-sedes-abajo {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 2rem;
+        }
+        .btn-sede-abajo {
+            background-color: transparent;
+            color: var(--oro-viejo);
+            border: 1px solid var(--oro-viejo);
+            padding: 8px 16px;
+            font-family: 'Antonio', sans-serif;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+        .btn-sede-abajo.active {
+            background-color: var(--oro-viejo);
+            color: #181615;
+            font-weight: bold;
+        }
+        .info-sede-bloque {
+            animation: fadeInSede 0.5s ease;
+        }
+        .ubicacion-texto, .telefono-texto {
+            color: #ffffff;
+            font-size: 1.1rem;
+            margin: 0.5rem 0;
+        }
+        .btn-whatsapp-sede {
+            display: inline-block;
+            background-color: #25d366;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 1rem;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            transition: transform 0.2s;
+        }
+        .btn-whatsapp-sede:hover {
+            transform: scale(1.05);
+        }
+        @keyframes fadeInSede {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    <script>
+        function mostrarSede(sede) {
+            // Ocultar ambos bloques de información
+            document.getElementById('info-viru').style.display = 'none';
+            document.getElementById('info-chao').style.display = 'none';
+            
+            // Quitar clase activa a los botones
+            const botones = document.querySelectorAll('.btn-sede-abajo');
+            botones.forEach(btn => btn.classList.remove('active'));
+            
+            // Mostrar la sede elegida y activar su botón
+            if (sede === 'viru') {
+                document.getElementById('info-viru').style.display = 'block';
+                botones[0].classList.add('active');
+            } else if (sede === 'chao') {
+                document.getElementById('info-chao').style.display = 'block';
+                botones[1].classList.add('active');
+            }
+        }
+    </script>
 
 </body>
 </html>
