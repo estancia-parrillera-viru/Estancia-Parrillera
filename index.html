@@ -572,107 +572,27 @@
 
     <!-- PIE DE PÁGINA COMERCIAL -->
   <!-- SECCIÓN DE CONTACTO POR SEDES -->
-    <div class="contacto-sedes-seccion">
-        <!-- Selector de Sedes Moderno -->
-        <div class="selector-sedes-abajo">
-            <button class="btn-sede-abajo active" onclick="mostrarSede('viru')">📍 Sede Virú</button>
-            <button class="btn-sede-abajo" onclick="mostrarSede('chao')">📍 Sede Nuevo Chao</button>
-        </div>
-
-        <!-- Contenido Dinámico de Sede Virú -->
-        <div id="info-viru" class="info-sede-bloque">
-            <p class="ubicacion-texto">📍 Encuéntranos en Virú (Víctor Raúl Haya de la Torre)</p>
-            <p class="telefono-texto">📱 Pedidos y Reservas: <strong>916267368</strong></p>
-            <a href="https://wa.me/51916267368" class="btn-whatsapp-sede" target="_blank">
-                💬 HACER PEDIDO POR WHATSAPP (VIRÚ)
+    <div style="text-align: center; padding: 3rem 1rem; margin-top: 3rem; background-color: rgba(24, 22, 21, 0.98); border-top: 1px solid var(--oro-viejo);">
+        
+        <div style="margin-bottom: 2.5rem;">
+            <p style="color: #ffffff; font-size: 1.2rem; margin: 0.5rem 0; font-family: 'Antonio', sans-serif; letter-spacing: 1px;">📍 Encuéntranos en Virú (Víctor Raúl)</p>
+            <p style="color: #ffffff; font-size: 1.1rem; margin: 0.5rem 0;">📱 Pedidos y Reservas: <strong>916267368</strong></p>
+            <a href="https://wa.me/51916267368" class="btn-whatsapp" target="_blank" style="margin-top: 0.8rem;">
+                HACER PEDIDO POR WHATSAPP (VIRÚ)
             </a>
         </div>
 
-        <!-- Contenido Dinámico de Sede Nuevo Chao -->
-        <div id="info-chao" class="info-sede-bloque" style="display: none;">
-            <p class="ubicacion-texto">📍 Encuéntranos en Virú - Nuevo Chao</p>
-            <p class="telefono-texto">📱 Pedidos y Reservas: <strong>948794306</strong></p>
-            <a href="https://wa.me/51948794306" class="btn-whatsapp-sede" target="_blank">
-                💬 HACER PEDIDO POR WHATSAPP (CHAO)
+        <hr style="border: 0; border-top: 1px solid var(--oro-viejo); width: 40%; margin: 2.5rem auto; opacity: 0.5;">
+
+        <div style="margin-bottom: 1rem;">
+            <p style="color: #ffffff; font-size: 1.2rem; margin: 0.5rem 0; font-family: 'Antonio', sans-serif; letter-spacing: 1px;">📍 Encuéntranos en Virú (Nuevo Chao)</p>
+            <p style="color: #ffffff; font-size: 1.1rem; margin: 0.5rem 0;">📱 Pedidos y Reservas: <strong>948794306</strong></p>
+            <a href="https://wa.me/51948794306" class="btn-whatsapp" target="_blank" style="margin-top: 0.8rem;">
+                HACER PEDIDO POR WHATSAPP (CHAO)
             </a>
         </div>
+
     </div>
-    /* --- ESTILOS PIE DE PÁGINA INTERACTIVO --- */
-        .contacto-sedes-seccion {
-            text-align: center;
-            padding: 2rem 1rem;
-            background-color: rgba(24, 22, 21, 0.98);
-            border-top: 1px solid var(--oro-viejo);
-            margin-top: 3rem;
-        }
-        .selector-sedes-abajo {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 2rem;
-        }
-        .btn-sede-abajo {
-            background-color: transparent;
-            color: var(--oro-viejo);
-            border: 1px solid var(--oro-viejo);
-            padding: 8px 16px;
-            font-family: 'Antonio', sans-serif;
-            cursor: pointer;
-            text-transform: uppercase;
-            transition: all 0.3s ease;
-        }
-        .btn-sede-abajo.active {
-            background-color: var(--oro-viejo);
-            color: #181615;
-            font-weight: bold;
-        }
-        .info-sede-bloque {
-            animation: fadeInSede 0.5s ease;
-        }
-        .ubicacion-texto, .telefono-texto {
-            color: #ffffff;
-            font-size: 1.1rem;
-            margin: 0.5rem 0;
-        }
-        .btn-whatsapp-sede {
-            display: inline-block;
-            background-color: #25d366;
-            color: white;
-            padding: 12px 24px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: bold;
-            margin-top: 1rem;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
-            transition: transform 0.2s;
-        }
-        .btn-whatsapp-sede:hover {
-            transform: scale(1.05);
-        }
-        @keyframes fadeInSede {
-            from { opacity: 0; transform: translateY(5px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-    <script>
-        function mostrarSede(sede) {
-            // Ocultar ambos bloques de información
-            document.getElementById('info-viru').style.display = 'none';
-            document.getElementById('info-chao').style.display = 'none';
-            
-            // Quitar clase activa a los botones
-            const botones = document.querySelectorAll('.btn-sede-abajo');
-            botones.forEach(btn => btn.classList.remove('active'));
-            
-            // Mostrar la sede elegida y activar su botón
-            if (sede === 'viru') {
-                document.getElementById('info-viru').style.display = 'block';
-                botones[0].classList.add('active');
-            } else if (sede === 'chao') {
-                document.getElementById('info-chao').style.display = 'block';
-                botones[1].classList.add('active');
-            }
-        }
-    </script>
-
+    
 </body>
 </html>
