@@ -111,7 +111,7 @@
             transition: 0.3s;
         }
 
-        /* --- SIDEBAR DESPLEGABLE (ESTILO MUCHIK) --- */
+        /* --- SIDEBAR DESPLEGABLE --- */
         .sidebar {
             position: fixed;
             top: 0;
@@ -554,23 +554,68 @@
                 </div>
             </div>
 
-            <div>
-                <div id="contenido-home-carnes" style="display: block;">
-                    <div style="background: #161616; border-left: 3px solid #cda45e; padding: 1.2rem; margin-bottom: 1rem;">
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <h4 style="font-family: 'Antonio', sans-serif; margin: 0; font-size: 1.3rem;">LOMO SALTADO CRIOLLO</h4>
-                            <span style="color: #cda45e; font-weight: bold; font-size: 1.1rem;">S/. 38.00</span>
-                        </div>
-                        <p style="color: #a5a5a5; font-size: 0.85rem; margin: 0.5rem 0 0 0;">Finas tiras de lomo fino salteadas al wok con cebolla, tomate, ají amarillo, papas fritas y arroz.</p>
-                    </div>
-                    <div style="background: #161616; border-left: 3px solid #cda45e; padding: 1.2rem; margin-bottom: 1rem;">
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <h4 style="font-family: 'Antonio', sans-serif; margin: 0; font-size: 1.3rem;">PARRILLA PARA CUATRO</h4>
-                            <span style="color: #cda45e; font-weight: bold; font-size: 1.1rem;">S/. 100.00</span>
-                        </div>
-                        <p style="color: #a5a5a5; font-size: 0.85rem; margin: 0.5rem 0 0 0;">½ Pollo + 1 Churrasco + 1 Tira de Cerdo + 2 Chorizos + 2 Anticuchos. Acompañado de papas fritas y ensalada.</p>
-                    </div>
-                </div>
+<!-- === ESTRUCTURA COMPLETA DE LA CARTA (CARNES) === -->
+<div id="contenido-home-carnes" style="display: block; color: #ffffff;">
+
+    <!-- 1. PARRILLAS PERSONALES -->
+    <h3 style="color: #cda45e; border-bottom: 1px solid #333; padding-bottom: 0.5rem; margin-top: 2rem;">PARRILLAS PERSONALES</h3>
+    <div style="background: #161616; padding: 1rem; margin-bottom: 1rem;">
+        <div style="display: flex; justify-content: space-between; padding: 0.5rem 0;"><span>Lomo Fino</span> <span>S/. 55.00</span></div>
+        <div style="display: flex; justify-content: space-between; padding: 0.5rem 0;"><span>Tira de Res</span> <span>S/. 30.00</span></div>
+        <div style="display: flex; justify-content: space-between; padding: 0.5rem 0;"><span>Churrasco</span> <span>S/. 30.00</span></div>
+        <div style="display: flex; justify-content: space-between; padding: 0.5rem 0;"><span>Tira de Cerdo</span> <span>S/. 30.00</span></div>
+        <div style="display: flex; justify-content: space-between; padding: 0.5rem 0;"><span>Chuleta de Cerdo</span> <span>S/. 30.00</span></div>
+        <div style="display: flex; justify-content: space-between; padding: 0.5rem 0;"><span>1/4 Pollo</span> <span>S/. 25.00</span></div>
+        <div style="display: flex; justify-content: space-between; padding: 0.5rem 0;"><span>1/8 Pollo</span> <span>S/. 15.00</span></div>
+    </div>
+
+    <!-- 2. PARRILLAS MIXTAS Y FAMILIARES -->
+    <h3 style="color: #cda45e; border-bottom: 1px solid #333; padding-bottom: 0.5rem; margin-top: 2rem;">PARRILLAS MIXTAS Y FAMILIARES</h3>
+    <div style="background: #161616; padding: 1rem; margin-bottom: 1rem;">
+        <div style="display: flex; justify-content: space-between; padding: 0.5rem 0;"><span>Para Cuatro</span> <span>S/. 100.00</span></div>
+        <div style="display: flex; justify-content: space-between; padding: 0.5rem 0;"><span>Para Seis</span> <span>S/. 130.00</span></div>
+        <div style="display: flex; justify-content: space-between; padding: 0.5rem 0;"><span>1 Pollo</span> <span>S/. 85.00</span></div>
+        <div style="display: flex; justify-content: space-between; padding: 0.5rem 0;"><span>1/2 Pollo</span> <span>S/. 45.00</span></div>
+    </div>
+
+    <!-- 3. ANTICUCHOS -->
+    <h3 style="color: #cda45e; border-bottom: 1px solid #333; padding-bottom: 0.5rem; margin-top: 2rem;">ANTICUCHOS</h3>
+    <div style="background: #161616; padding: 1rem; margin-bottom: 1rem;">
+        <div style="display: flex; justify-content: space-between; padding: 0.5rem 0;"><span>Pollo</span> <span>S/. 16.00</span></div>
+        <div style="display: flex; justify-content: space-between; padding: 0.5rem 0;"><span>Corazón de Res</span> <span>S/. 16.00</span></div>
+        <div style="display: flex; justify-content: space-between; padding: 0.5rem 0;"><span>Cerdo</span> <span>S/. 16.00</span></div>
+        <div style="display: flex; justify-content: space-between; padding: 0.5rem 0;"><span>Mollejas</span> <span>S/. 16.00</span></div>
+    </div>
+
+    <!-- 4. ALITAS -->
+    <h3 style="color: #cda45e; border-bottom: 1px solid #333; padding-bottom: 0.5rem; margin-top: 2rem;">ALITAS</h3>
+    <div style="background: #161616; padding: 1rem; margin-bottom: 1rem;">
+        <div style="display: flex; justify-content: space-between; padding: 0.5rem 0;"><span>Broaster</span> <span>S/. 20.00</span></div>
+        <div style="display: flex; justify-content: space-between; padding: 0.5rem 0;"><span>Acevichadas</span> <span>S/. 20.00</span></div>
+        <div style="display: flex; justify-content: space-between; padding: 0.5rem 0;"><span>BBQ</span> <span>S/. 20.00</span></div>
+        <div style="display: flex; justify-content: space-between; padding: 0.5rem 0;"><span>Mixto</span> <span>S/. 25.00</span></div>
+    </div>
+
+    <!-- 5. PLATOS A LA CARTA -->
+    <h3 style="color: #cda45e; border-bottom: 1px solid #333; padding-bottom: 0.5rem; margin-top: 2rem;">PLATOS A LA CARTA</h3>
+    <div style="background: #161616; padding: 1rem; margin-bottom: 1rem;">
+        <div style="display: flex; justify-content: space-between; padding: 0.5rem 0;"><span>Lomo Saltado</span> <span>S/. 28.00</span></div>
+        <div style="display: flex; justify-content: space-between; padding: 0.5rem 0;"><span>Arroz Chaufa de Carne</span> <span>S/. 30.00</span></div>
+        <div style="display: flex; justify-content: space-between; padding: 0.5rem 0;"><span>Arroz Chaufa Especial</span> <span>S/. 25.00</span></div>
+        <div style="display: flex; justify-content: space-between; padding: 0.5rem 0;"><span>Arroz Chaufa de Pollo</span> <span>S/. 18.00</span></div>
+    </div>
+
+    <!-- 6. GUARNICIONES -->
+    <h3 style="color: #cda45e; border-bottom: 1px solid #333; padding-bottom: 0.5rem; margin-top: 2rem;">GUARNICIONES</h3>
+    <div style="background: #161616; padding: 1rem; margin-bottom: 1rem;">
+        <div style="display: flex; justify-content: space-between; padding: 0.5rem 0;"><span>Papas Fritas (Pequeño/Grande/Extra)</span> <span>S/. 6 / 10 / 13</span></div>
+        <div style="display: flex; justify-content: space-between; padding: 0.5rem 0;"><span>Ensalada (Pequeño/Grande/Extra)</span> <span>S/. 6 / 10 / 13</span></div>
+        <div style="display: flex; justify-content: space-between; padding: 0.5rem 0;"><span>Arroz Chaufa (Pequeño/Grande/Extra)</span> <span>S/. 6 / 10 / 15</span></div>
+        <div style="display: flex; justify-content: space-between; padding: 0.5rem 0;"><span>Arroz Blanco (Pequeño/Grande/Extra)</span> <span>S/. 5 / 8 / 13</span></div>
+        <div style="display: flex; justify-content: space-between; padding: 0.5rem 0;"><span>Chorizo (Porción Individual)</span> <span>S/. 8.00</span></div>
+    </div>
+
+</div>
 
                 <div id="contenido-home-bebidas" style="display: none;">
                     <div style="background: #161616; border-left: 3px solid #cda45e; padding: 1.2rem; margin-bottom: 1rem;">
