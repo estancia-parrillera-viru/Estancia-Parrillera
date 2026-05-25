@@ -711,17 +711,81 @@
         </div>
     </section>
 
-    <!-- SECCIÓN: CONTÁCTENOS -->
-    <section id="contacto" class="page-section">
-        <div class="contacto-container">
-            <h2>Envíanos un Mensaje</h2>
-            <p style="color: var(--oro-viejo); margin-bottom: 2rem; font-size: 0.9rem;">Atención al instante - Estancia Parrillera</p>
-            <form onsubmit="event.preventDefault();">
-                <div class="form-grupo"><label>Nombre</label><input type="text" placeholder="Tu nombre"></div>
-                <div class="form-grupo"><label>Correo</label><input type="email" placeholder="ejemplo@correo.com"></div>
-                <div class="form-grupo"><label>Mensaje</label><textarea rows="4" placeholder="¿Qué consulta tienes?"></textarea></div>
-                <button type="submit" class="btn-enviar">Enviar Mensaje</button>
+<!-- SECCIÓN: CONTÁCTENOS ACTUALIZADA CON TELÉFONO Y MAPAS -->
+    <section id="contacto" class="page-section" style="padding: 4rem 1rem; background-color: #0b0b0b;">
+        <div class="contacto-container" style="max-width: 8000px; margin: 0 auto;">
+            
+            <div style="text-align: center; margin-bottom: 2.5rem;">
+                <h2 style="font-family: 'Antonio', sans-serif; font-size: 2.5rem; color: #ffffff; text-transform: uppercase; margin-bottom: 0.5rem; letter-spacing: 1px;">Envíanos un Mensaje</h2>
+                <p style="color: #var(--oro-viejo); color: #cda45e; font-size: 1rem; font-style: italic;">Atención al instante - Estancia Parrillera</p>
+            </div>
+            
+            <!-- Formulario conectado a Formsubmit con estilo oscuro -->
+            <form action="https://formsubmit.co/estanciaparrilleraviru@gmail.com" method="POST" style="max-width: 600px; margin: 0 auto 4rem auto; display: flex; flex-direction: column; gap: 1.5rem;">
+                
+                <!-- Ajustes invisibles de Formsubmit -->
+                <input type="hidden" name="_next" value="https://tuweb.com/menu.html"> 
+                <input type="hidden" name="_subject" value="¡Nuevo mensaje desde la Web - Estancia Parrillera!">
+                <input type="hidden" name="_captcha" value="false">
+
+                <div class="form-grupo" style="display: flex; flex-direction: column; text-align: left;">
+                    <label style="color: #cda45e; font-family: 'Antonio', sans-serif; text-transform: uppercase; font-size: 0.9rem; margin-bottom: 0.5rem; letter-spacing: 0.5px;">Nombre</label>
+                    <input type="text" name="Nombre" placeholder="Tu nombre" required style="background: #161616; border: 1px solid #2a2a2a; padding: 1rem; color: #ffffff; border-radius: 4px; font-size: 1rem;">
+                </div>
+                
+                <div class="form-grupo" style="display: flex; flex-direction: column; text-align: left;">
+                    <label style="color: #cda45e; font-family: 'Antonio', sans-serif; text-transform: uppercase; font-size: 0.9rem; margin-bottom: 0.5rem; letter-spacing: 0.5px;">Correo</label>
+                    <input type="email" name="Correo" placeholder="ejemplo@correo.com" required style="background: #161616; border: 1px solid #2a2a2a; padding: 1rem; color: #ffffff; border-radius: 4px; font-size: 1rem;">
+                </div>
+
+                <!-- NUEVA CASILLA TOTALMENTE INTEGRADA: NÚMERO TELEFÓNICO -->
+                <div class="form-grupo" style="display: flex; flex-direction: column; text-align: left;">
+                    <label style="color: #cda45e; font-family: 'Antonio', sans-serif; text-transform: uppercase; font-size: 0.9rem; margin-bottom: 0.5rem; letter-spacing: 0.5px;">Número telefónico o celular</label>
+                    <input type="tel" name="Telefono" placeholder="Ej. 959181658" required style="background: #161616; border: 1px solid #2a2a2a; padding: 1rem; color: #ffffff; border-radius: 4px; font-size: 1rem;">
+                </div>
+
+                <div class="form-grupo" style="display: flex; flex-direction: column; text-align: left;">
+                    <label style="color: #cda45e; font-family: 'Antonio', sans-serif; text-transform: uppercase; font-size: 0.9rem; margin-bottom: 0.5rem; letter-spacing: 0.5px;">Mensaje</label>
+                    <textarea name="Mensaje" rows="5" placeholder="¿Qué consulta tienes?" required style="background: #161616; border: 1px solid #2a2a2a; padding: 1rem; color: #ffffff; border-radius: 4px; font-size: 1rem; resize: vertical;"></textarea>
+                </div>
+                
+                <button type="submit" class="btn-enviar" style="background: #cda45e; color: #000000; font-family: 'Antonio', sans-serif; font-weight: bold; font-size: 1.1rem; text-transform: uppercase; padding: 1rem; border: none; border-radius: 4px; cursor: pointer; transition: background 0.3s ease; margin-top: 0.5rem;">Enviar Mensaje</button>
             </form>
+
+            <hr style="border: 0; border-top: 1px solid #2a2a2a; margin-bottom: 4rem;">
+
+            <!-- NUEVA SUBSECCIÓN: NUESTRAS UBICACIONES (GOOGLE MAPS) -->
+            <div style="text-align: center; margin-bottom: 2rem;">
+                <h3 style="font-family: 'Antonio', sans-serif; font-size: 2rem; color: #ffffff; text-transform: uppercase; margin-bottom: 0.5rem; letter-spacing: 1px;">Visítanos</h3>
+                <p style="color: #b3b3b3; font-size: 0.95rem;">Te esperamos en cualquiera de nuestras dos sedes</p>
+            </div>
+
+            <!-- Contenedor flexible para los mapas -->
+            <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center;">
+                
+                <!-- Mapa Sede 1: Víctor Raúl -->
+                <div style="flex: 1; min-width: 300px; max-width: 500px; background: #161616; padding: 1rem; border-radius: 8px; border: 1px solid #2a2a2a; text-align: left;">
+                    <h4 style="font-family: 'Antonio', sans-serif; color: #cda45e; text-transform: uppercase; margin-bottom: 0.5rem; font-size: 1.2rem;">📍 Sede Víctor Raúl Haya de la Torre</h4>
+                    <p style="color: #b3b3b3; font-size: 0.85rem; margin-bottom: 1rem;">Virú, La Libertad</p>
+                    <div style="width: 100%; height: 250px; border-radius: 4px; overflow: hidden;">
+                        <!-- Mapa Interactivo Seguro de Google -->
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15783.155577678175!2d-78.761000!3d-8.420000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOMKwMjUnMTIuMCJTIDc4wrA0NSczOS42Ilc!5e0!3m2!1ses-419!2spe!4v1716650000000!5m2!1ses-419!2spe" 
+                                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+
+                <!-- Mapa Sede 2: Nuevo Chao -->
+                <div style="flex: 1; min-width: 300px; max-width: 500px; background: #161616; padding: 1rem; border-radius: 8px; border: 1px solid #2a2a2a; text-align: left;">
+                    <h4 style="font-family: 'Antonio', sans-serif; color: #cda45e; text-transform: uppercase; margin-bottom: 0.5rem; font-size: 1.2rem;">📍 Sede Nuevo Chao</h4>
+                    <p style="color: #b3b3b3; font-size: 0.85rem; margin-bottom: 1rem;">Chao, Virú, La Libertad</p>
+                    <div style="width: 100%; height: 250px; border-radius: 4px; overflow: hidden;">
+                        <!-- Mapa Interactivo Seguro de Google -->
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15780.000000000000!2d-78.680000!3d-8.520000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOMKwMzEnMTIuMCJTIDc4wrA0MCcwMC4wIlc!5e0!3m2!1ses-419!2spe!4v1716651000000!5m2!1ses-419!2spe" 
+                                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </section>
 
