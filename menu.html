@@ -489,163 +489,8 @@
         </button>
     </div>
 </nav>
-<!-- SECCIÓN: CONOCE NUESTRA CARTA -->
-<section id="carta-interactiva" style="background-color: #0b0b0b; padding: 4rem 1rem; text-align: center; color: #ffffff;">
-    <div style="max-width: 1000px; margin: 0 auto;">
-        
-        <!-- Encabezado de la Sección -->
-        <div style="margin-bottom: 3rem;">
-            <h2 style="font-family: 'Antonio', sans-serif; font-size: 2.5rem; text-transform: uppercase; margin-bottom: 0.5rem; letter-spacing: 1px;">Conoce Nuestra Carta</h2>
-            <p style="color: #cda45e; font-size: 1.1rem; font-style: italic;">Selecciona una categoría para descubrir nuestros sabores</p>
-        </div>
 
-        <!-- RECTÁNGULOS DE CATEGORÍAS PRINCIPALES -->
-        <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: center; margin-bottom: 3rem;">
-            
-            <!-- Bloque principal: Carnes -->
-            <div id="btn-cat-carnes" onclick="seleccionarCategoriaPrincipal('carnes')" style="flex: 1; min-width: 280px; max-width: 450px; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('ruta-a-tu-foto-de-carne.jpg') center/cover; bgcolor: #161616; border: 2px solid #cda45e; padding: 2.5rem 1rem; border-radius: 8px; cursor: pointer; transition: all 0.3s ease;">
-                <h3 style="font-family: 'Antonio', sans-serif; font-size: 1.8rem; text-transform: uppercase; color: #ffffff; margin: 0; letter-spacing: 1px;">🔥 Carnes</h3>
-            </div>
-
-            <!-- Bloque principal: Bebidas -->
-            <div id="btn-cat-bebidas" onclick="seleccionarCategoriaPrincipal('bebidas')" style="flex: 1; min-width: 280px; max-width: 450px; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('ruta-a-tu-foto-de-bebida.jpg') center/cover; bgcolor: #161616; border: 1px solid #2a2a2a; padding: 2.5rem 1rem; border-radius: 8px; cursor: pointer; transition: all 0.3s ease;">
-                <h3 style="font-family: 'Antonio', sans-serif; font-size: 1.8rem; text-transform: uppercase; color: #b3b3b3; margin: 0; letter-spacing: 1px;">🍹 Bebidas</h3>
-            </div>
-            
-        </div>
-
-        <!-- ================================================================= -->
-        <!-- CONTENIDO DE CARNES (Se muestra por defecto) -->
-        <!-- ================================================================= -->
-        <div id="contenido-carnes" style="display: block; background: #111111; border: 1px solid #2a2a2a; padding: 2rem 1.5rem; border-radius: 8px; margin-top: 2rem;">
-            
-            <!-- Subpestañas de Carnes -->
-            <div style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 2.5rem; border-bottom: 1px solid #2a2a2a; padding-bottom: 1rem;">
-                <button id="sub-btn-parrillas" onclick="cambiarSubcategoria('parrillas')" style="background: #cda45e; color: #000000; border: none; padding: 0.7rem 1.5rem; font-family: 'Antonio', sans-serif; font-weight: bold; text-transform: uppercase; border-radius: 4px; cursor: pointer; transition: all 0.3s ease;">Nuestras Parrillas</button>
-                <button id="sub-btn-carta" onclick="cambiarSubcategoria('carta')" style="background: transparent; color: #ffffff; border: 1px solid #2a2a2a; padding: 0.7rem 1.5rem; font-family: 'Antonio', sans-serif; font-weight: bold; text-transform: uppercase; border-radius: 4px; cursor: pointer; transition: all 0.3s ease;">Platos a la Carta</button>
-            </div>
-
-            <!-- Subcategoría: Nuestras Parrillas -->
-            <div id="subcat-parrillas" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
-                <!-- Item 1 -->
-                <div style="background: #161616; border-left: 3px solid #cda45e; padding: 1.2rem; border-radius: 4px; text-align: left;">
-                    <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.5rem;">
-                        <h4 style="font-family: 'Antonio', sans-serif; margin: 0; font-size: 1.2rem; text-transform: uppercase; color: #ffffff;">Parrilla Familiar Estancia</h4>
-                        <span style="color: #cda45e; font-weight: bold; font-size: 1.1rem;">S/. 85.00</span>
-                    </div>
-                    <p style="color: #a5a5a5; font-size: 0.85rem; margin: 0;">Bife, chuleta de cerdo, anticuchos, pollo a la parrilla, chorizo, papas fritas y ensalada.</p>
-                </div>
-                <!-- Item 2 -->
-                <div style="background: #161616; border-left: 3px solid #cda45e; padding: 1.2rem; border-radius: 4px; text-align: left;">
-                    <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.5rem;">
-                        <h4 style="font-family: 'Antonio', sans-serif; margin: 0; font-size: 1.2rem; text-transform: uppercase; color: #ffffff;">Bife Angosto Personal</h4>
-                        <span style="color: #cda45e; font-weight: bold; font-size: 1.1rem;">S/. 42.00</span>
-                    </div>
-                    <p style="color: #a5a5a5; font-size: 0.85rem; margin: 0;">300g de bife jugoso acompañado de papas doradas rústicas y crema de la casa.</p>
-                </div>
-            </div>
-
-            <!-- Subcategoría: Platos a la Carta -->
-            <div id="subcat-carta" style="display: none; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
-                <!-- Item 1 -->
-                <div style="background: #161616; border-left: 3px solid #cda45e; padding: 1.2rem; border-radius: 4px; text-align: left;">
-                    <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.5rem;">
-                        <h4 style="font-family: 'Antonio', sans-serif; margin: 0; font-size: 1.2rem; text-transform: uppercase; color: #ffffff;">Lomo Saltado Criollo</h4>
-                        <span style="color: #cda45e; font-weight: bold; font-size: 1.1rem;">S/. 38.00</span>
-                    </div>
-                    <p style="color: #a5a5a5; font-size: 0.85rem; margin: 0;">Finas tiras de lomo fino salteadas al wok con cebolla, tomate, ají amarillo, papas fritas y arroz.</p>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- ================================================================= -->
-        <!-- CONTENIDO DE BEBIDAS (Oculto al inicio) -->
-        <!-- ================================================================= -->
-        <div id="contenido-bebidas" style="display: none; background: #111111; border: 1px solid #2a2a2a; padding: 2rem 1.5rem; border-radius: 8px; margin-top: 2rem;">
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
-                <!-- Item 1 -->
-                <div style="background: #161616; border-left: 3px solid #cda45e; padding: 1.2rem; border-radius: 4px; text-align: left;">
-                    <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.5rem;">
-                        <h4 style="font-family: 'Antonio', sans-serif; margin: 0; font-size: 1.2rem; text-transform: uppercase; color: #ffffff;">Chicha Morada Artesanal (Jarra)</h4>
-                        <span style="color: #cda45e; font-weight: bold; font-size: 1.1rem;">S/. 15.00</span>
-                    </div>
-                    <p style="color: #a5a5a5; font-size: 0.85rem; margin: 0;">Preparada en casa con maíz morado selecto, manzana, piña y toques de limón.</p>
-                </div>
-                <!-- Item 2 -->
-                <div style="background: #161616; border-left: 3px solid #cda45e; padding: 1.2rem; border-radius: 4px; text-align: left;">
-                    <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.5rem;">
-                        <h4 style="font-family: 'Antonio', sans-serif; margin: 0; font-size: 1.2rem; text-transform: uppercase; color: #ffffff;">Pisco Sour de la Casa</h4>
-                        <span style="color: #cda45e; font-weight: bold; font-size: 1.1rem;">S/. 18.00</span>
-                    </div>
-                    <p style="color: #a5a5a5; font-size: 0.85rem; margin: 0;">Nuestra bebida bandera con el balance perfecto de pisco quebranta, limón y jarabe.</p>
-                </div>
-            </div>
-        </div>
-
-    </div>
-</section>
-
-<!-- ================================================================= -->
-<!-- LÓGICA EN JAVASCRIPT PARA HACERLO INTERACTIVO -->
-<!-- ================================================================= -->
-<script>
-    // Control de Categorías Principales (Carnes / Bebidas)
-    function seleccionarCategoriaPrincipal(categoria) {
-        const bloqueCarnes = document.getElementById('contenido-carnes');
-        const bloqueBebidas = document.getElementById('contenido-bebidas');
-        const btnCarnes = document.getElementById('btn-cat-carnes');
-        const btnBebidas = document.getElementById('btn-cat-bebidas');
-
-        if (categoria === 'carnes') {
-            bloqueCarnes.style.display = 'block';
-            bloqueBebidas.style.display = 'none';
-            // Estilos de bordes activos
-            btnCarnes.style.border = '2px solid #cda45e';
-            btnCarnes.querySelector('h3').style.color = '#ffffff';
-            btnBebidas.style.border = '1px solid #2a2a2a';
-            btnBebidas.querySelector('h3').style.color = '#b3b3b3';
-        } else {
-            bloqueCarnes.style.display = 'none';
-            bloqueBebidas.style.display = 'block';
-            // Estilos de bordes activos
-            btnBebidas.style.border = '2px solid #cda45e';
-            btnBebidas.querySelector('h3').style.color = '#ffffff';
-            btnCarnes.style.border = '1px solid #2a2a2a';
-            btnCarnes.querySelector('h3').style.color = '#b3b3b3';
-        }
-    }
-
-    // Control de Subcategorías de Carnes (Parrillas / Platos a la carta)
-    function cambiarSubcategoria(subcat) {
-        const subcatParrillas = document.getElementById('subcat-parrillas');
-        const subcatCarta = document.getElementById('subcat-carta');
-        const btnParrillas = document.getElementById('sub-btn-parrillas');
-        const btnCarta = document.getElementById('sub-btn-carta');
-
-        if (subcat === 'parrillas') {
-            subcatParrillas.style.display = 'grid';
-            subcatCarta.style.display = 'none';
-            // Cambiar aspecto de botones
-            btnParrillas.style.background = '#cda45e';
-            btnParrillas.style.color = '#000000';
-            btnCarta.style.background = 'transparent';
-            btnCarta.style.color = '#ffffff';
-            btnCarta.style.border = '1px solid #2a2a2a';
-        } else {
-            subcatParrillas.style.display = 'none';
-            subcatCarta.style.display = 'grid';
-            // Cambiar aspecto de botones
-            btnCarta.style.background = '#cda45e';
-            btnCarta.style.color = '#000000';
-            btnParrillas.style.background = 'transparent';
-            btnParrillas.style.color = '#ffffff';
-            btnParrillas.style.border = '1px solid #2a2a2a';
-        }
-    }
-</script>
-    
-    <!-- 3. SIDEBAR CON MENÚ DESPLEGABLE INTERACTIVO (ESTILO MUCHIK) -->
+    <!-- 3. SIDEBAR CON MENÚ DESPLEGABLE INTERACTIVO -->
     <div class="sidebar" id="sidebarMenu">
         <button class="sidebar-close" onclick="toggleSidebar()">&times;</button>
         <img src="LogoEstancia.png" class="sidebar-logo" alt="Logo">
@@ -692,7 +537,83 @@
             </div>
         </div>
     </section>
+<section id="carta-home-directa" style="background-color: #0b0b0b; padding: 4rem 1rem; color: #ffffff;">
+        <div style="max-width: 1000px; margin: 0 auto;">
+            
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <h2 style="font-family: 'Antonio', sans-serif; font-size: 2.5rem; text-transform: uppercase; letter-spacing: 2px; margin: 0;">Nuestra Carta en Mesa</h2>
+                <p style="color: #cda45e; font-size: 1.1rem; font-style: italic; margin-top: 0.5rem;">Explora las especialidades de Estancia Parrillera</p>
+            </div>
 
+            <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: center; margin-bottom: 2.5rem;">
+                <div id="btn-home-carnes" onclick="seleccionarCategoriaHome('carnes')" style="flex: 1; min-width: 250px; max-width: 400px; border: 2px solid #cda45e; padding: 2rem; text-align: center; cursor: pointer; background: transparent; transition: all 0.3s ease;">
+                    <h3 style="font-family: 'Antonio', sans-serif; font-size: 1.8rem; text-transform: uppercase; color: #ffffff; margin: 0;">🔥 CARNES</h3>
+                </div>
+                <div id="btn-home-bebidas" onclick="seleccionarCategoriaHome('bebidas')" style="flex: 1; min-width: 250px; max-width: 400px; border: 1px solid #2a2a2a; padding: 2rem; text-align: center; cursor: pointer; background: transparent; transition: all 0.3s ease;">
+                    <h3 style="font-family: 'Antonio', sans-serif; font-size: 1.8rem; text-transform: uppercase; color: #b3b3b3; margin: 0;">🍹 BEBIDAS</h3>
+                </div>
+            </div>
+
+            <div>
+                <div id="contenido-home-carnes" style="display: block;">
+                    <div style="background: #161616; border-left: 3px solid #cda45e; padding: 1.2rem; margin-bottom: 1rem;">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <h4 style="font-family: 'Antonio', sans-serif; margin: 0; font-size: 1.3rem;">LOMO SALTADO CRIOLLO</h4>
+                            <span style="color: #cda45e; font-weight: bold; font-size: 1.1rem;">S/. 38.00</span>
+                        </div>
+                        <p style="color: #a5a5a5; font-size: 0.85rem; margin: 0.5rem 0 0 0;">Finas tiras de lomo fino salteadas al wok con cebolla, tomate, ají amarillo, papas fritas y arroz.</p>
+                    </div>
+                    <div style="background: #161616; border-left: 3px solid #cda45e; padding: 1.2rem; margin-bottom: 1rem;">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <h4 style="font-family: 'Antonio', sans-serif; margin: 0; font-size: 1.3rem;">PARRILLA PARA CUATRO</h4>
+                            <span style="color: #cda45e; font-weight: bold; font-size: 1.1rem;">S/. 100.00</span>
+                        </div>
+                        <p style="color: #a5a5a5; font-size: 0.85rem; margin: 0.5rem 0 0 0;">½ Pollo + 1 Churrasco + 1 Tira de Cerdo + 2 Chorizos + 2 Anticuchos. Acompañado de papas fritas y ensalada.</p>
+                    </div>
+                </div>
+
+                <div id="contenido-home-bebidas" style="display: none;">
+                    <div style="background: #161616; border-left: 3px solid #cda45e; padding: 1.2rem; margin-bottom: 1rem;">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <h4 style="font-family: 'Antonio', sans-serif; margin: 0; font-size: 1.3rem;">SANGRÍA ESTANCIA (JARRA)</h4>
+                            <span style="color: #cda45e; font-weight: bold; font-size: 1.1rem;">S/. 45.00</span>
+                        </div>
+                        <p style="color: #a5a5a5; font-size: 0.85rem; margin: 0.5rem 0 0 0;">Nuestra receta especial de la casa con frutas seleccionadas.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <script>
+        function seleccionarCategoriaHome(categoria) {
+            const bloqueCarnes = document.getElementById('contenido-home-carnes');
+            const bloqueBebidas = document.getElementById('contenido-home-bebidas');
+            const btnCarnes = document.getElementById('btn-home-carnes');
+            const btnBebidas = document.getElementById('btn-home-bebidas');
+            const h3Carnes = btnCarnes.querySelector('h3');
+            const h3Bebidas = btnBebidas.querySelector('h3');
+
+            if (categoria === 'carnes') {
+                bloqueCarnes.style.display = 'block';
+                bloqueBebidas.style.display = 'none';
+                // Cambiar bordes y colores
+                btnCarnes.style.border = '2px solid #cda45e';
+                h3Carnes.style.color = '#ffffff';
+                btnBebidas.style.border = '1px solid #2a2a2a';
+                h3Bebidas.style.color = '#b3b3b3';
+            } else {
+                bloqueCarnes.style.display = 'none';
+                bloqueBebidas.style.display = 'block';
+                // Cambiar bordes y colores
+                btnBebidas.style.border = '2px solid #cda45e';
+                h3Bebidas.style.color = '#ffffff';
+                btnCarnes.style.border = '1px solid #2a2a2a';
+                h3Carnes.style.color = '#b3b3b3';
+            }
+        }
+    </script>
     <!-- SECCIÓN: NUESTRA CARTA -->
     <section id="carta" class="page-section">
         <div class="tabs-contenedor">
