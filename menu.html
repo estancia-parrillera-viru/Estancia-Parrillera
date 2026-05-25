@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Estancia Parrillera - Menú Premium</title>
     
-    <!-- Fuentes Elegantes -->
+    <!-- Fuentes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@700&family=Open+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
@@ -31,7 +31,7 @@
             overflow-x: hidden;
         }
 
-        /* --- PANTALLA DE CARGA (LOADER) --- */
+        /* --- PANTALLA DE CARGA --- */
         #loader {
             position: fixed;
             top: 0;
@@ -55,7 +55,7 @@
             100% { transform: scale(0.95); opacity: 0.6; }
         }
 
-        /* --- BARRA DE NAVEGACIÓN SUPERIOR (NAVBAR) --- */
+        /* --- NAVBAR --- */
         .navbar {
             position: fixed;
             top: 0;
@@ -111,7 +111,7 @@
             transition: 0.3s;
         }
 
-        /* --- MENÚ LATERAL (SIDEBAR) --- */
+        /* --- SIDEBAR --- */
         .sidebar {
             position: fixed;
             top: 0;
@@ -167,7 +167,7 @@
             color: var(--oro-viejo);
         }
 
-        /* --- SECCIONES DE PÁGINA --- */
+        /* --- SECCIONES PRINCIPALES --- */
         .page-section {
             display: none;
             padding-top: 80px;
@@ -177,32 +177,63 @@
             display: block;
         }
 
-        /* --- VISTA DE INICIO (HERO) --- */
-        .hero {
-            height: 85vh;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(15,14,14,1)), url('LogoEstancia.png') no-repeat center center;
-            background-size: contain;
+        /* --- HERO CON TRANSICIÓN DE VIDEOS DE FONDO --- */
+        .hero-video-container {
+            position: relative;
+            height: 90vh;
+            width: 100%;
+            overflow: hidden;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
+        }
+        .bg-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 1.2s ease-in-out;
+        }
+        .bg-video.visible {
+            opacity: 0.45; /* Controla la intensidad del fondo */
+        }
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(15,14,14,1));
+            z-index: 2;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 3;
             padding: 0 1.5rem;
         }
-        .hero h1 {
+        .hero-content h1 {
             font-size: 2.8rem;
             font-family: 'Antonio', sans-serif;
             letter-spacing: 1px;
             text-transform: uppercase;
             margin-bottom: 0.5rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
         }
-        .hero p {
+        .hero-content p {
             font-size: 1.3rem;
             color: var(--oro-viejo);
             font-style: italic;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.8);
         }
 
-        /* --- NAVEGACIÓN POR PESTAÑAS (SUBTÍTULOS SUPERIORES) --- */
+        /* --- TABS NAVEGACIÓN DE LA CARTA --- */
         .tabs-contenedor {
             background-color: var(--pizarra);
             position: sticky;
@@ -214,10 +245,9 @@
             display: flex;
             justify-content: flex-start;
             padding: 0.2rem 1rem;
-            -webkit-overflow-scrolling: touch;
         }
         .tabs-contenedor::-webkit-scrollbar {
-            display: none; /* Oculta barra en móviles */
+            display: none;
         }
         .tab-boton {
             background: none;
@@ -229,14 +259,13 @@
             font-weight: 700;
             cursor: pointer;
             transition: color 0.3s;
-            flex-shrink: 0;
         }
         .tab-boton.active {
             color: var(--oro-viejo);
             border-bottom: 3px solid var(--oro-viejo);
         }
 
-        /* --- CATEGORÍAS Y PLATOS --- */
+        /* --- DISEÑO DE PLATOS --- */
         .categoria-contenido {
             display: none;
             max-width: 600px;
@@ -251,7 +280,7 @@
             font-family: 'Antonio', sans-serif;
             font-size: 1.4rem;
             text-transform: uppercase;
-            margin: 1.5rem 0 1rem 0;
+            margin: 1.8rem 0 1rem 0;
             border-bottom: 1px dashed rgba(197, 160, 89, 0.3);
             padding-bottom: 0.3rem;
         }
@@ -274,7 +303,6 @@
         }
         .item-precio {
             color: var(--oro-viejo);
-            white-space: nowrap;
         }
         .item-descripcion {
             margin-top: 0.4rem;
@@ -282,17 +310,8 @@
             color: #b3b3b3;
             line-height: 1.4;
         }
-        .video-item {
-            width: 100%;
-            max-width: 320px;
-            display: block;
-            margin: 0.5rem auto 1.5rem auto;
-            border-radius: 8px;
-            border: 1px solid rgba(197, 160, 89, 0.2);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-        }
 
-        /* --- SECCIÓN ECO-COMPROMISO --- */
+        /* --- COMPROMISO AMBIENTAL --- */
         .seccion-eco {
             max-width: 650px;
             margin: 2rem auto;
@@ -323,9 +342,8 @@
             background-color: var(--pizarra);
             padding: 1.2rem;
             border-radius: 6px;
-            border-left: 3px solid #4f7942; /* Verde sustentable */
+            border-left: 3px solid #4f7942;
             font-size: 0.9rem;
-            line-height: 1.5;
         }
         .eco-compromisos strong {
             color: var(--oro-viejo);
@@ -333,7 +351,7 @@
             margin-bottom: 0.3rem;
         }
 
-        /* --- VISTA CONTÁCTENOS --- */
+        /* --- CONTÁCTENOS --- */
         .contacto-container {
             max-width: 500px;
             margin: 2rem auto;
@@ -354,7 +372,6 @@
             font-size: 0.85rem;
             color: var(--oro-viejo);
             text-transform: uppercase;
-            font-weight: 700;
         }
         .form-grupo input, .form-grupo textarea {
             width: 100%;
@@ -364,7 +381,6 @@
             color: var(--blanco-hueso);
             border-radius: 4px;
             margin-top: 0.4rem;
-            font-size: 0.9rem;
         }
         .btn-enviar {
             background-color: var(--oro-viejo);
@@ -376,8 +392,6 @@
             text-transform: uppercase;
             border-radius: 4px;
             width: 100%;
-            letter-spacing: 0.5px;
-            font-size: 0.9rem;
         }
     </style>
 </head>
@@ -388,13 +402,12 @@
         <img src="LogoEstancia.png" alt="Cargando...">
     </div>
 
-    <!-- 2. NAVBAR FIJO SUPERIOR -->
+    <!-- 2. NAVBAR -->
     <nav class="navbar">
         <div class="nav-logo" onclick="navegarA('inicio')">
-            <img src="LogoEstancia.png" alt="Logo Estancia Parrillera">
+            <img src="LogoEstancia.png" alt="Logo">
         </div>
         <div class="nav-actions">
-            <!-- WhatsApp de Reservas -->
             <a href="https://wa.me/51959181658?text=Hola,%20deseo%20realizar%20una%20reserva" target="_blank" class="btn-reserva">Reservar</a>
             <button class="menu-toggle" onclick="toggleSidebar()">
                 <span></span>
@@ -404,7 +417,7 @@
         </div>
     </nav>
 
-    <!-- 3. SIDEBAR MENÚ LATERAL -->
+    <!-- 3. SIDEBAR -->
     <div class="sidebar" id="sidebarMenu">
         <button class="sidebar-close" onclick="toggleSidebar()">&times;</button>
         <img src="LogoEstancia.png" class="sidebar-logo" alt="Logo">
@@ -418,71 +431,99 @@
 
     <!-- ================= SECCIONES MODULARES ================= -->
 
-    <!-- SECCIÓN: INICIO -->
+    <!-- SECCIÓN: INICIO (CON TRANSICIÓN INVISIBLES DE FONDO) -->
     <section id="inicio" class="page-section active-section">
-        <div class="hero">
-            <h1>Saborea las Mejores Parrillas</h1>
-            <p>Tradición y sabor en Virú</p>
+        <div class="hero-video-container">
+            <!-- Videos de Fondo (Rotarán de forma automática mediante JS) -->
+            <video id="vid0" class="bg-video visible" autoplay loop muted playsinline><source src="PARRILLA MIXTA2.mp4" type="video/mp4"></video>
+            <video id="vid1" class="bg-video" autoplay loop muted playsinline><source src="salon nuevo chao.mp4" type="video/mp4"></video>
+            <video id="vid2" class="bg-video" autoplay loop muted playsinline><source src="LIMONADA ELECTRICA.mp4" type="video/mp4"></video>
+            <video id="vid3" class="bg-video" autoplay loop muted playsinline><source src="salon victor raul haya de la torre.mp4" type="video/mp4"></video>
+            <video id="vid4" class="bg-video" autoplay loop muted playsinline><source src="PARRILLA MIXTA (2).mp4" type="video/mp4"></video>
+            <video id="vid5" class="bg-video" autoplay loop muted playsinline><source src="MACHU PICHU.mp4" type="video/mp4"></video>
+            <video id="vid6" class="bg-video" autoplay loop muted playsinline><source src="TRES.mp4" type="video/mp4"></video>
+
+            <div class="hero-overlay"></div>
+            
+            <div class="hero-content">
+                <h1>Saborea las Mejores Parrillas</h1>
+                <p>Tradición y sabor en Virú</p>
+            </div>
         </div>
     </section>
 
-    <!-- SECCIÓN: NUESTRA CARTA -->
+    <!-- SECCIÓN: NUESTRA CARTA COMPLETA -->
     <section id="carta" class="page-section">
-        <!-- Subtítulos Superiores Estilo Pestaña (Tabs) -->
         <div class="tabs-contenedor">
             <button class="tab-boton active" onclick="cambiarTab('personales')">Parrillas Personales</button>
             <button class="tab-boton" onclick="cambiarTab('mixtas')">Parrillas Mixtas</button>
-            <button class="tab-boton" onclick="cambiarTab('bebidas')">Bebidas Refrescantes</button>
+            <button class="tab-boton" onclick="cambiarTab('bebidas')">Bebidas y Cócteles</button>
         </div>
 
-        <!-- TAB: PARRILLAS PERSONALES -->
+        <!-- CATEGORÍA: PARRILLAS PERSONALES -->
         <div id="personales" class="categoria-contenido active">
             <div class="subcat-titulo">Cortes Individuales</div>
             <div class="menu-item">
                 <div class="item-encabezado"><span class="item-nombre">Lomo Fino</span><span class="item-precio">S/. 38.00</span></div>
-                <p class="item-descripcion">Jugoso corte de lomo fino a la parrilla, acompañado de papas fritas crocantes y ensalada fresca.</p>
+                <p class="item-descripcion">Jugoso corte de lomo fino seleccionado a la parrilla, servido con crujientes papas fritas y ensalada fresca.</p>
             </div>
-            <!-- Si tienes un video para platos individuales lo pones aquí -->
+            <div class="menu-item">
+                <div class="item-encabezado"><span class="item-nombre">Churrasco</span><span class="item-precio">S/. 28.00</span></div>
+                <p class="item-descripcion">Tradicional corte de carne tierno y con el punto exacto de sal de parrilla.</p>
+            </div>
+            <div class="menu-item">
+                <div class="item-encabezado"><span class="item-nombre">Asado de Tira</span><span class="item-precio">S/. 32.00</span></div>
+                <p class="item-descripcion">Corte con hueso que concentra el máximo sabor del asado parrillero.</p>
+            </div>
+            <div class="menu-item">
+                <div class="item-encabezado"><span class="item-nombre">Chuleta de Cerdo</span><span class="item-precio">S/. 25.00</span></div>
+                <p class="item-descripcion">Tierna chuleta dorada a las brasas aromáticas.</p>
+            </div>
+            <div class="menu-item">
+                <div class="item-encabezado"><span class="item-nombre">Pechuga de Pollo</span><span class="item-precio">S/. 24.00</span></div>
+                <p class="item-descripcion">Filete de pechuga marinado con la receta especial de la casa.</p>
+            </div>
+            <div class="menu-item">
+                <div class="item-encabezado"><span class="item-nombre">Anticuchos (Porción)</span><span class="item-precio">S/. 22.00</span></div>
+                <p class="item-descripcion">Corazón seleccionado marinado en ají panca y especias peruanas.</p>
+            </div>
         </div>
 
-        <!-- TAB: PARRILLAS MIXTAS -->
+        <!-- CATEGORÍA: PARRILLAS MIXTAS -->
         <div id="mixtas" class="categoria-contenido">
-            <div class="subcat-titulo">Para Compartir Familiares</div>
-            
+            <div class="subcat-titulo">Para Compartir</div>
+            <div class="menu-item">
+                <div class="item-encabezado"><span class="item-nombre">Parrilla Estancia (2 Pers.)</span><span class="item-precio">S/. 65.00</span></div>
+                <p class="item-descripcion">1 Churrasco + 1 Chuleta de Cerdo + 1 Recorte de Parrilla + 1 Chorizo + 1 Anticucho.</p>
+            </div>
             <div class="menu-item">
                 <div class="item-encabezado"><span class="item-nombre">Para Cuatro</span><span class="item-precio">S/. 100.00</span></div>
-                <p class="item-descripcion">½ Pollo + 1 Churrasco + 1 Tira de Cerdo + 2 Chorizos + 2 Anticuchos. Acompañado de papas y ensalada.</p>
+                <p class="item-descripcion">½ Pollo + 1 Churrasco + 1 Tira de Cerdo + 2 Chorizos + 2 Anticuchos.</p>
             </div>
-            <video class="video-item" autoplay loop muted playsinline>
-                <source src="PARRILLA MIXTA2.mp4" type="video/mp4">
-            </video>
-
             <div class="menu-item">
                 <div class="item-encabezado"><span class="item-nombre">Para Seis</span><span class="item-precio">S/. 130.00</span></div>
                 <p class="item-descripcion">½ Pollo + 1 Chuleta + 1 Churrasco + 1 Tira de Res + 1 Tira de Cerdo + 2 Chorizos + 2 Anticuchos.</p>
             </div>
-            <video class="video-item" autoplay loop muted playsinline>
-                <source src="PARRILLA MIXTA (2).mp4" type="video/mp4">
-            </video>
         </div>
 
-        <!-- TAB: BEBIDAS -->
+        <!-- CATEGORÍA: BEBIDAS -->
         <div id="bebidas" class="categoria-contenido">
-            <div class="subcat-titulo">Cócteles y Frozen</div>
-            
+            <div class="subcat-titulo">Bebidas del Bar</div>
             <div class="menu-item">
-                <div class="item-encabezado"><span class="item-nombre">Limonada Eléctrica (Frozen)</span><span class="item-precio">Jarra: S/. 18.00</span></div>
+                <div class="item-encabezado"><span class="item-nombre">Limonada Eléctrica (Frozen)</span><span class="item-precio">Vaso: S/. 10.00 / Jarra: S/. 18.00</span></div>
             </div>
-            <video class="video-item" autoplay loop muted playsinline>
-                <source src="LIMONADA ELECTRICA.mp4" type="video/mp4">
-            </video>
-
             <div class="menu-item">
                 <div class="item-encabezado"><span class="item-nombre">Machu Picchu</span><span class="item-precio">S/. 15.00</span></div>
             </div>
-            <video class="video-item" autoplay loop muted playsinline>
-                <source src="MACHU PICHU.mp4" type="video/mp4">
-            </video>
+            <div class="menu-item">
+                <div class="item-encabezado"><span class="item-nombre">Chicha Morada Natural</span><span class="item-precio">Vaso: S/. 6.00 / Jarra: S/. 15.00</span></div>
+            </div>
+            <div class="menu-item">
+                <div class="item-encabezado"><span class="item-nombre">Maracuyá</span><span class="item-precio">Vaso: S/. 6.00 / Jarra: S/. 15.00</span></div>
+            </div>
+            <div class="menu-item">
+                <div class="item-encabezado"><span class="item-nombre">Gaseosas (Inca Kola / Coca Cola)</span><span class="item-precio">S/. 5.00</span></div>
+            </div>
         </div>
     </section>
 
@@ -491,24 +532,13 @@
         <div class="seccion-eco">
             <h2 class="eco-titulo">Nuestro Compromiso Ambiental</h2>
             <p class="eco-parrafo">
-                En<strong>Estancia Parrillera</strong> creemos que el verdadero sabor tradicional nace del respeto a nuestras raíces y a nuestra tierra. Más que una meta alcanzada, la sustentabilidad es para nosotros un camino de mejora constante. Por eso, gestionamos nuestros recursos con transparencia, implementando prácticas reales de economía circular y buscando soluciones para cada uno de nuestros residuos:
+                En <strong>Estancia Parrillera</strong> creemos que el sabor tradicional nace del respeto a nuestra tierra. Por ello, implementamos prácticas honestas de economía circular y buscamos soluciones sustentables para cada residuo:
             </p>
             <ul class="eco-compromisos">
-                <li>
-                    <strong>Segunda Vida al Aceite Usado:</strong> Cuidamos nuestros recursos hídricos evitando arrojar aceite quemado al desagüe. Todo el aceite generado en nuestras cocinas se almacena de forma segura y se entrega a empresas autorizadas para su transformación industrial en biocombustibles o jabones ecológicos.
-                </li>
-                <li>
-                    <strong>Reciclaje Activo de Plásticos:</strong> Clasificamos rigurosamente todas nuestras botellas y envases plásticos para entregárselos directamente a los recicladores locales, apoyando su labor y asegurando que estos materiales se reincorporen a la cadena productiva.
-                </li>
-                <li>
-                    <strong>Destino Orgánico (Hacia el Compostaje):</strong> Aunque hacer compostaje interno es un proceso complejo que requiere condiciones técnicas muy específicas, no nos cruzamos de brazos. Actualmente, estamos buscando alianzas con especialistas o agricultores locales para entregarles nuestras mermas y descartes vegetales y asegurar que se transformen en abono de calidad.
-                </li>
-                <li>
-                    <strong>Desafíos en Marcha (Vidrio y Cartón):</strong> Actuamos con total honestidad: el acopio de cartón y botellas de vidrio de licores es uno de nuestros mayores retos actuales debido a las limitaciones de compra en la zona. Nos encontramos en la búsqueda activa de recolectores o empresas aliadas que puedan trasladar estos materiales y garantizar su correcto reciclaje.
-                </li>
-                <li>
-                    <strong>Visión de Futuro: Valorización Energética:</strong> Con la meta a largo plazo de lograr un "Desperdicio Cero", investigamos alternativas viables para que los restos de alimentos procesados de los platos no sean desperdiciados, sino destinados en el futuro a plantas de biodigestión para la creación de biogás.
-                </li>
+                <li><strong>Segunda Vida al Aceite:</strong> Recolectamos el aceite usado de cocina para transformarlo industrialmente en biocombustibles ecológicos.</li>
+                <li><strong>Reciclaje de Plásticos:</strong> Clasificamos envases para entregárselos directamente a los recicladores de la comunidad.</li>
+                <li><strong>Destino Orgánico:</strong> Buscamos alianzas locales para destinar descartes vegetales al compostaje agrícola.</li>
+                <li><strong>Desafíos de Vidrio y Cartón:</strong> Trabajamos activamente en superar las limitaciones de acopio locales para asegurar su correcto reciclaje.</li>
             </ul>
         </div>
     </section>
@@ -519,26 +549,27 @@
             <h2>Envíanos un Mensaje</h2>
             <p style="color: var(--oro-viejo); margin-bottom: 2rem; font-size: 0.9rem;">Atención al instante - Estancia Parrillera</p>
             <form onsubmit="event.preventDefault();">
-                <div class="form-grupo">
-                    <label>Nombre</label>
-                    <input type="text" placeholder="Tu nombre completo">
-                </div>
-                <div class="form-grupo">
-                    <label>Correo Electrónico</label>
-                    <input type="email" placeholder="ejemplo@correo.com">
-                </div>
-                <div class="form-grupo">
-                    <label>Solicitud Especial / Mensaje</label>
-                    <textarea rows="4" placeholder="Escribe aquí tu consulta o requerimiento..."></textarea>
-                </div>
+                <div class="form-grupo"><label>Nombre</label><input type="text" placeholder="Tu nombre"></div>
+                <div class="form-grupo"><label>Correo</label><input type="email" placeholder="ejemplo@correo.com"></div>
+                <div class="form-grupo"><label>Mensaje</label><textarea rows="4" placeholder="¿Qué consulta tienes?"></textarea></div>
                 <button type="submit" class="btn-enviar">Enviar Mensaje</button>
             </form>
         </div>
     </section>
 
-    <!-- LÓGICA DE INTERACTIVIDAD (JAVASCRIPT) -->
+    <!-- SCRIPT DE INTERACTIVIDAD -->
     <script>
-        // Ocultar loader cuando todo cargue
+        // Transición de videos automática en el fondo del Inicio
+        let videoActual = 0;
+        const totalVideos = 7; // Tus 7 videos listados en el HTML
+
+        setInterval(() => {
+            document.getElementById(`vid${videoActual}`).classList.remove('visible');
+            videoActual = (videoActual + 1) % totalVideos;
+            document.getElementById(`vid${videoActual}`).classList.add('visible');
+        }, 5000); // Cambia de video fluidamente cada 5 segundos
+
+        // Loader
         window.addEventListener('load', () => {
             const loader = document.getElementById('loader');
             setTimeout(() => {
@@ -547,48 +578,36 @@
             }, 500);
         });
 
-        // Alternar Menú Lateral
         function toggleSidebar() {
-            const sidebar = document.getElementById('sidebarMenu');
-            sidebar.classList.toggle('active');
+            document.getElementById('sidebarMenu').classList.toggle('active');
         }
 
-        // Navegación entre secciones principales
         function navegarA(idSeccion) {
             const loader = document.getElementById('loader');
             loader.style.opacity = '1';
             loader.style.visibility = 'visible';
 
             setTimeout(() => {
-                document.querySelectorAll('.page-section').forEach(sec => {
-                    sec.classList.remove('active-section');
-                });
+                document.querySelectorAll('.page-section').forEach(sec => sec.classList.remove('active-section'));
                 document.getElementById(idSeccion).classList.add('active-section');
                 document.getElementById('sidebarMenu').classList.remove('active');
                 window.scrollTo(0, 0);
-
                 loader.style.opacity = '0';
                 loader.style.visibility = 'hidden';
             }, 300);
         }
 
-        // Navegación entre subtítulos (Tabs) de la Carta
         function cambiarTab(idCategoria) {
             document.querySelectorAll('#carta .tab-boton').forEach(btn => btn.classList.remove('active'));
             document.querySelectorAll('#carta .categoria-contenido').forEach(cont => cont.classList.remove('active'));
-
             event.currentTarget.classList.add('active');
             document.getElementById(idCategoria).classList.add('active');
         }
 
-        // Animación Navbar al hacer scroll
         window.addEventListener('scroll', () => {
             const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 40) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
+            if (window.scrollY > 40) navbar.classList.add('scrolled');
+            else navbar.classList.remove('scrolled');
         });
     </script>
 </body>
