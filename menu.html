@@ -475,19 +475,20 @@
     </div>
 
     <!-- 2. NAVBAR -->
-    <nav class="navbar">
-        <div class="nav-logo" onclick="navegarA('inicio')">
-            <img src="LogoEstancia.png" alt="Logo">
-        </div>
-        <div class="nav-actions">
-            <a href="https://wa.me/51959181658?text=Hola,%20deseo%20realizar%20una%20reserva" target="_blank" class="btn-reserva">Reservar</a>
-            <button class="menu-toggle" onclick="toggleSidebar()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-    </nav>
+  <nav class="navbar">
+    <div class="nav-logo" onclick="navegarA('inicio')">
+        <img src="LogoEstancia.png" alt="Logo">
+    </div>
+    <div class="nav-actions">
+        <!-- Este botón abrirá la ventana flotante para elegir el local -->
+        <button class="btn-reserva" onclick="abrirModalReservas()" style="border:none; cursor:pointer;">Reservar</button>
+        <button class="menu-toggle" onclick="toggleSidebar()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+</nav>
 
     <!-- 3. SIDEBAR CON MENÚ DESPLEGABLE INTERACTIVO (ESTILO MUCHIK) -->
     <div class="sidebar" id="sidebarMenu">
@@ -823,5 +824,55 @@
             else navbar.classList.remove('scrolled');
         });
     </script>
+ <!-- VENTANA FLOTANTE DE RESERVAS (SELECCIÓN DE LOCAL) -->
+    <div id="modalReservas" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.8); z-index:9999; justify-content:center; align-items:center;">
+        <div style="background:var(--pizarra); border:1px solid var(--oro-viejo); padding:2rem; border-radius:8px; max-width:340px; width:90%; text-align:center; position:relative; box-shadow:0 10px 25px rgba(0,0,0,0.5);">
+            
+            <button onclick="cerrarModalReservas()" style="position:absolute; top:10px; right:15px; background:none; border:none; color:var(--blanco-hueso); font-size:1.8rem; cursor:pointer;">&times;</button>
+            
+            <h3 style="font-family:'Antonio', sans-serif; color:var(--oro-viejo); text-transform:uppercase; font-size:1.4rem; margin-bottom:0.5rem; letter-spacing:0.5px;">¿Qué local deseas visitar?</h3>
+            <p style="color:#b3b3b3; font-size:0.85rem; margin-bottom:1.5rem;">Selecciona una sucursal para coordinar tu reserva por WhatsApp.</p>
+            
+            <div style="display:flex; flex-direction:column; gap:1rem;">
+                <!-- Opción 1: Víctor Raúl -->
+                <a href="https://wa.me/51959181658?text=Hola%20Estancia%20Parrillera,%20deseo%20realizar%20una%20reserva%20para%20el%20local%20de%20V%C3%ADctor%20Ra%C3%BAl" 
+                   target="_blank" 
+                   onclick="cerrarModalReservas()"
+                   style="background:transparent; border:1px solid rgba(255,255,255,0.2); color:var(--blanco-hueso); text-decoration:none; font-weight:700; font-size:0.9rem; padding:0.9rem; border-radius:4px; text-transform:uppercase; transition:all 0.3s ease; display:block;">
+                   📍 Víctor Raúl
+                </a>
+                
+                <!-- Opción 2: Nuevo Chao -->
+                <a href="https://wa.me/51924235334?text=Hola%20Estancia%20Parrillera,%20deseo%20realizar%20una%20reserva%20para%20el%20local%20de%20Nuevo%20Chao" 
+                   target="_blank" 
+                   onclick="cerrarModalReservas()"
+                   style="background:var(--oro-viejo); color:#000000; text-decoration:none; font-weight:700; font-size:0.9rem; padding:0.9rem; border-radius:4px; text-transform:uppercase; transition:all 0.3s ease; display:block;">
+                   📍 Nuevo Chao
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- FUNCIONES JAVASCRIPT PARA EL MODAL -->
+    <script>
+        function abrirModalReservas() {
+            const modal = document.getElementById('modalReservas');
+            modal.style.display = 'flex';
+        }
+
+        function cerrarModalReservas() {
+            const modal = document.getElementById('modalReservas');
+            modal.style.display = 'none';
+        }
+
+        // Cerrar si el cliente hace clic fuera de la cajita negra
+        window.onclick = function(event) {
+            const modal = document.getElementById('modalReservas');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
+
 </body>
 </html>
