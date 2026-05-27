@@ -554,102 +554,103 @@
                 </div>
             </div>
 
- <!-- CATEGORÍA 1: NUESTRAS PARRILLAS -->
-        <div class="acordeon-item">
-            <button class="acordeon-boton">Parrillas Personales</button>
-            <div class="acordeon-contenido">
-                
-                <div class="menu-item">
-                    <div class="item-encabezado"><span class="item-nombre">Lomo Fino</span><span class="item-precio">S/. 55.00</span></div>
-                    <p class="item-descripcion">Acompañado de papas fritas y ensalada.</p>
-                </div>
-                <div class="menu-item">
-                    <div class="item-encabezado"><span class="item-nombre">Tira de Res</span><span class="item-precio">S/. 30.00</span></div>
-                    <p class="item-descripcion">Acompañado de papas fritas y ensalada.</p>
-                </div>
-                <div class="menu-item">
-                    <div class="item-encabezado"><span class="item-nombre">Churrasco</span><span class="item-precio">S/. 30.00</span></div>
-                    <p class="item-descripcion">Acompañado de papas fritas y ensalada.</p>
-                </div>
-                <div class="menu-item">
-                    <div class="item-encabezado"><span class="item-nombre">Tira de Cerdo</span><span class="item-precio">S/. 30.00</span></div>
-                    <p class="item-descripcion">Acompañado de papas fritas y ensalada.</p>
-                </div>
-                <div class="menu-item">
-                    <div class="item-encabezado"><span class="item-nombre">Chuleta de Cerdo</span><span class="item-precio">S/. 30.00</span></div>
-                    <p class="item-descripcion">Acompañado de papas fritas y ensalada.</p>
-                </div>
-                <div class="menu-item">
-                    <div class="item-encabezado"><span class="item-nombre">¼ Pollo</span><span class="item-precio">S/. 25.00</span></div>
-                    <p class="item-descripcion">Acompañado de papas fritas y ensalada.</p>
-                </div>
-                <div class="menu-item">
-                    <div class="item-encabezado"><span class="item-nombre">⅛ Pollo</span><span class="item-precio">S/. 15.00</span></div>
-                    <p class="item-descripcion">Acompañado de papas fritas y ensalada.</p>
-                </div>
-                
-        <div class="acordeon-item">
-            <button class="acordeon-boton">Parrillas Mixtas o para Compartir</button>
-            <div class="acordeon-contenido">
+<style>
+    /* Estilos del Acordeón */
+    .acordeon-contenido { display: none; padding: 10px; background-color: #181615; }
+    .acordeon-boton { width: 100%; padding: 15px; background-color: #c5a059; color: #0f0e0e; border: none; text-align: left; font-weight: bold; cursor: pointer; margin-top: 5px; text-transform: uppercase; }
+    .acordeon-boton:after { content: '+'; float: right; }
+    .active .acordeon-boton:after { content: '-'; }
+    .active .acordeon-contenido { display: block; }
+    .menu-item { border-bottom: 1px solid #333; padding: 10px 0; }
+    .item-encabezado { display: flex; justify-content: space-between; font-weight: bold; }
+    .item-descripcion { font-size: 0.85rem; color: #a3a3a3; margin-top: 5px; }
+    .tabla-guarniciones { width: 100%; border-collapse: collapse; margin-top: 10px; }
+    .tabla-guarniciones th, .tabla-guarniciones td { padding: 8px; text-align: left; border-bottom: 1px solid #333; font-size: 0.9rem; }
+</style>
 
-                <div class="menu-item">
-                    <div class="item-encabezado"><span class="item-nombre">Para Cuatro</span><span class="item-precio">S/. 100.00</span></div>
-                    <p class="item-descripcion">½ Pollo + 1 Churrasco + 1 Tira de Cerdo + 2 Chorizos + 2 Anticuchos. Acompañado de papas fritas y ensalada.</p>
-                </div>
-                <div class="menu-item">
-                    <div class="item-encabezado"><span class="item-nombre">Para Seis</span><span class="item-precio">S/. 130.00</span></div>
-                    <p class="item-descripcion">½ Pollo + 1 Chuleta + 1 Churrasco + 1 Tira de Res + 1 Tira de Cerdo + 2 Chorizos + 2 Anticuchos. Acompañado de papas fritas y ensalada.</p>
-                </div>
-                <div class="menu-item">
-                    <div class="item-encabezado"><span class="item-nombre">1 Pollo</span><span class="item-precio">S/. 85.00</span></div>
-                    <p class="item-descripcion">Acompañado de papas fritas y ensalada.</p>
-                </div>
-                <div class="menu-item">
-                    <div class="item-encabezado"><span class="item-nombre">½ Pollo</span><span class="item-precio">S/. 45.00</span></div>
-                    <p class="item-descripcion">Acompañado de papas fritas y ensalada.</p>
-                </div>
+<div id="contenedor-menu">
 
-        <div class="acordeon-item">
-            <button class="acordeon-boton">Anticuchos</button>
-            <div class="acordeon-contenido">
-                <div class="menu-item"><div class="item-encabezado"><span class="item-nombre">Pollo</span><span class="item-precio">S/. 16.00</span></div></div>
-                <div class="menu-item"><div class="item-encabezado"><span class="item-nombre">Corazón de Res</span><span class="item-precio">S/. 16.00</span></div></div>
-                <div class="menu-item"><div class="item-encabezado"><span class="item-nombre">Cerdo</span><span class="item-precio">S/. 16.00</span></div></div>
-                <div class="menu-item"><div class="item-encabezado"><span class="item-nombre">Mollejas</span><span class="item-precio">S/. 16.00</span></div></div>
-
-        <div class="acordeon-item">
-            <button class="acordeon-boton">Alitas</button>
-            <div class="acordeon-contenido">
-                <div class="menu-item"><div class="item-encabezado"><span class="item-nombre">Broaster</span><span class="item-precio">S/. 20.00</span></div></div>
-                <div class="menu-item"><div class="item-encabezado"><span class="item-nombre">Acevichadas</span><span class="item-precio">S/. 20.00</span></div></div>
-                <div class="menu-item"><div class="item-encabezado"><span class="item-nombre">BBQ</span><span class="item-precio">S/. 20.00</span></div></div>
-                <div class="menu-item"><div class="item-encabezado"><span class="item-nombre">Mixto</span><span class="item-precio">S/. 25.00</span></div></div>
-            </div>
+    <!-- Parrillas Personales -->
+    <div class="acordeon-item">
+        <button class="acordeon-boton" onclick="toggleAcordeon(this)">Parrillas Personales</button>
+        <div class="acordeon-contenido">
+            <div class="menu-item"><div class="item-encabezado"><span>Lomo Fino</span><span>S/. 55.00</span></div><p class="item-descripcion">Acompañado de papas fritas y ensalada.</p></div>
+            <div class="menu-item"><div class="item-encabezado"><span>Tira de Res</span><span>S/. 30.00</span></div><p class="item-descripcion">Acompañado de papas fritas y ensalada.</p></div>
+            <div class="menu-item"><div class="item-encabezado"><span>Churrasco</span><span>S/. 30.00</span></div><p class="item-descripcion">Acompañado de papas fritas y ensalada.</p></div>
+            <div class="menu-item"><div class="item-encabezado"><span>Tira de Cerdo</span><span>S/. 30.00</span></div><p class="item-descripcion">Acompañado de papas fritas y ensalada.</p></div>
+            <div class="menu-item"><div class="item-encabezado"><span>Chuleta de Cerdo</span><span>S/. 30.00</span></div><p class="item-descripcion">Acompañado de papas fritas y ensalada.</p></div>
+            <div class="menu-item"><div class="item-encabezado"><span>¼ Pollo</span><span>S/. 25.00</span></div><p class="item-descripcion">Acompañado de papas fritas y ensalada.</p></div>
+            <div class="menu-item"><div class="item-encabezado"><span>⅛ Pollo</span><span>S/. 15.00</span></div><p class="item-descripcion">Acompañado de papas fritas y ensalada.</p></div>
         </div>
+    </div>
 
-        <div class="acordeon-item">
-            <button class="acordeon-boton">Platos a la Carta</button>
-            <div class="acordeon-contenido">
-                <div class="menu-item"><div class="item-encabezado"><span class="item-nombre">Lomo Saltado</span><span class="item-precio">S/. 28.00</span></div></div>
-                <div class="menu-item"><div class="item-encabezado"><span class="item-nombre">Arroz Chaufa de Carne</span><span class="item-precio">S/. 30.00</span></div></div>
-                <div class="menu-item"><div class="item-encabezado"><span class="item-nombre">Arroz Chaufa Especial</span><span class="item-precio">S/. 25.00</span></div></div>
-                <div class="menu-item"><div class="item-encabezado"><span class="item-nombre">Arroz Chaufa de Pollo</span><span class="item-precio">S/. 18.00</span></div></div>
-
-        <div class="acordeon-item">
-            <button class="acordeon-boton">Guarniciones</button>
-            <div class="acordeon-contenido">
-                <table class="tabla-guarniciones">
-                    <thead><tr><th>Acompañamiento</th><th>Pequeño</th><th>Grande</th><th>Extra</th></tr></thead>
-                    <tbody>
-                        <tr><td>Papas Fritas</td><td class="precio-celda">S/. 6.00</td><td class="precio-celda">S/. 10.00</td><td class="precio-celda">S/. 13.00</td></tr>
-                        <tr><td>Ensalada</td><td class="precio-celda">S/. 6.00</td><td class="precio-celda">S/. 10.00</td><td class="precio-celda">S/. 13.00</td></tr>
-                        <tr><td>Arroz Chaufa</td><td class="precio-celda">S/. 6.00</td><td class="precio-celda">S/. 10.00</td><td class="precio-celda">S/. 15.00</td></tr>
-                        <tr><td>Arroz Blanco</td><td class="precio-celda">S/. 5.00</td><td class="precio-celda">S/. 8.00</td><td class="precio-celda">S/. 13.00</td></tr>
-                        <tr><td>Chorizo (Individual)</td><td colspan="2">-</td><td class="precio-celda">S/. 8.00</td></tr>
-                    </tbody>
-                </table>
-            </div>
+    <!-- Parrillas Mixtas -->
+    <div class="acordeon-item">
+        <button class="acordeon-boton" onclick="toggleAcordeon(this)">Parrillas Mixtas o para Compartir</button>
+        <div class="acordeon-contenido">
+            <div class="menu-item"><div class="item-encabezado"><span>Para Cuatro</span><span>S/. 100.00</span></div><p class="item-descripcion">½ Pollo + 1 Churrasco + 1 Tira de Cerdo + 2 Chorizos + 2 Anticuchos.</p></div>
+            <div class="menu-item"><div class="item-encabezado"><span>Para Seis</span><span>S/. 130.00</span></div><p class="item-descripcion">½ Pollo + 1 Chuleta + 1 Churrasco + 1 Tira de Res + 1 Tira de Cerdo + 2 Chorizos + 2 Anticuchos.</p></div>
+            <div class="menu-item"><div class="item-encabezado"><span>1 Pollo</span><span>S/. 85.00</span></div></div>
+            <div class="menu-item"><div class="item-encabezado"><span>½ Pollo</span><span>S/. 45.00</span></div></div>
         </div>
+    </div>
+
+    <!-- Anticuchos -->
+    <div class="acordeon-item">
+        <button class="acordeon-boton" onclick="toggleAcordeon(this)">Anticuchos</button>
+        <div class="acordeon-contenido">
+            <div class="menu-item"><div class="item-encabezado"><span>Pollo</span><span>S/. 16.00</span></div></div>
+            <div class="menu-item"><div class="item-encabezado"><span>Corazón de Res</span><span>S/. 16.00</span></div></div>
+            <div class="menu-item"><div class="item-encabezado"><span>Cerdo</span><span>S/. 16.00</span></div></div>
+            <div class="menu-item"><div class="item-encabezado"><span>Mollejas</span><span>S/. 16.00</span></div></div>
+        </div>
+    </div>
+
+    <!-- Alitas -->
+    <div class="acordeon-item">
+        <button class="acordeon-boton" onclick="toggleAcordeon(this)">Alitas</button>
+        <div class="acordeon-contenido">
+            <div class="menu-item"><div class="item-encabezado"><span>Broaster</span><span>S/. 20.00</span></div></div>
+            <div class="menu-item"><div class="item-encabezado"><span>Acevichadas</span><span>S/. 20.00</span></div></div>
+            <div class="menu-item"><div class="item-encabezado"><span>BBQ</span><span>S/. 20.00</span></div></div>
+            <div class="menu-item"><div class="item-encabezado"><span>Mixto</span><span>S/. 25.00</span></div></div>
+        </div>
+    </div>
+
+    <!-- Platos a la Carta -->
+    <div class="acordeon-item">
+        <button class="acordeon-boton" onclick="toggleAcordeon(this)">Platos a la Carta</button>
+        <div class="acordeon-contenido">
+            <div class="menu-item"><div class="item-encabezado"><span>Lomo Saltado</span><span>S/. 28.00</span></div></div>
+            <div class="menu-item"><div class="item-encabezado"><span>Arroz Chaufa de Carne</span><span>S/. 30.00</span></div></div>
+            <div class="menu-item"><div class="item-encabezado"><span>Arroz Chaufa Especial</span><span>S/. 25.00</span></div></div>
+            <div class="menu-item"><div class="item-encabezado"><span>Arroz Chaufa de Pollo</span><span>S/. 18.00</span></div></div>
+        </div>
+    </div>
+
+    <!-- Guarniciones -->
+    <div class="acordeon-item">
+        <button class="acordeon-boton" onclick="toggleAcordeon(this)">Guarniciones</button>
+        <div class="acordeon-contenido">
+            <table class="tabla-guarniciones">
+                <thead><tr><th>Acompañamiento</th><th>Peq.</th><th>Gde.</th><th>Ext.</th></tr></thead>
+                <tbody>
+                    <tr><td>Papas Fritas</td><td>6</td><td>10</td><td>13</td></tr>
+                    <tr><td>Ensalada</td><td>6</td><td>10</td><td>13</td></tr>
+                    <tr><td>Arroz Chaufa</td><td>6</td><td>10</td><td>15</td></tr>
+                    <tr><td>Arroz Blanco</td><td>5</td><td>8</td><td>13</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    function toggleAcordeon(boton) {
+        boton.parentElement.classList.toggle('active');
+    }
+</script>
                 <div id="contenido-home-bebidas" style="display: none;">
                     <div style="background: #161616; border-left: 3px solid #cda45e; padding: 1.2rem; margin-bottom: 1rem;">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
