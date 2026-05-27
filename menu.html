@@ -648,7 +648,18 @@
 
 <script>
     function toggleAcordeon(boton) {
-        boton.parentElement.classList.toggle('active');
+        // Obtenemos el contenedor padre del botón actual
+        const itemActual = boton.parentElement;
+        
+        // Cerramos todos los demás elementos que estén activos
+        document.querySelectorAll('.acordeon-item').forEach(item => {
+            if (item !== itemActual) {
+                item.classList.remove('active');
+            }
+        });
+
+        // Alternamos el estado del elemento actual
+        itemActual.classList.toggle('active');
     }
 </script>
                 <div id="contenido-home-bebidas" style="display: none;">
