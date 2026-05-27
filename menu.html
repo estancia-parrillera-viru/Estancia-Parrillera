@@ -662,19 +662,35 @@
         itemActual.classList.toggle('active');
     }
 </script>
-                <div id="contenido-home-bebidas" style="display: none;">
-                    <div style="background: #161616; border-left: 3px solid #cda45e; padding: 1.2rem; margin-bottom: 1rem;">
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <h4 style="font-family: 'Antonio', sans-serif; margin: 0; font-size: 1.3rem;">SANGRÍA ESTANCIA (JARRA)</h4>
-                            <span style="color: #cda45e; font-weight: bold; font-size: 1.1rem;">S/. 45.00</span>
-                        </div>
-                        <p style="color: #a5a5a5; font-size: 0.85rem; margin: 0.5rem 0 0 0;">Nuestra receta especial de la casa con frutas seleccionadas.</p>
-                    </div>
-                </div>
-            </div>
+<!-- Categoría Bebidas (Acordeón) -->
+<div class="acordeon-item">
+    <button class="acordeon-boton" onclick="toggleAcordeon(this)">Bebidas</button>
+    <div class="acordeon-contenido">
+        
+        <div class="subcat-titulo" style="color: #c5a059; font-weight: bold; margin-top: 10px;">Bebidas Refrescantes</div>
+        <div class="menu-item"><div class="item-encabezado"><span class="item-nombre">MARACUYÁ (HELADA / FROZEN)</span><span class="item-precio">Jarra 1L: S/. 18.00<br>Vaso ½ L: S/. 10.00</span></div></div>
+        <div class="menu-item"><div class="item-encabezado"><span class="item-nombre">LIMONADA (HELADA / FROZEN)</span><span class="item-precio">Jarra 1L: S/. 18.00<br>Vaso ½ L: S/. 10.00</span></div></div>
+        <div class="menu-item"><div class="item-encabezado"><span class="item-nombre">LIMONADA ELÉCTRICA (HELADA / FROZEN)</span><span class="item-precio">Jarra 1L: S/. 18.00<br>Vaso ½ L: S/. 10.00</span></div></div>
+        <div class="menu-item"><div class="item-encabezado"><span class="item-nombre">INFUSIÓN / CAFÉ</span><span class="item-precio">Taza: S/. 4.00</span></div></div>
+        <div class="menu-item"><div class="item-encabezado"><span class="item-nombre">AGUA SAN LUIS (S/G - C/G)</span><span class="item-precio">Bot. Personal: S/. 4.00</span></div></div>
 
+        <div class="subcat-titulo" style="color: #c5a059; font-weight: bold; margin-top: 10px;">Gaseosas</div>
+        <div class="menu-item">
+            <div class="item-encabezado"><span class="item-nombre">INCA KOLA / COCA COLA</span><span class="item-precio">3L: S/. 17.00 | 1.5L: S/. 12.00 | 1L: S/. 10.00</span></div>
+            <p class="item-descripcion">Gordita: S/. 7.00 | 600ml: S/. 5.00 | 500ml: S/. 4.00</p>
         </div>
-    </section>
+
+        <div class="subcat-titulo" style="color: #c5a059; font-weight: bold; margin-top: 10px;">Cervezas</div>
+        <div class="menu-item"><div class="item-encabezado"><span class="item-nombre">CUSQUEÑA 620 ML</span><span class="item-precio">S/. 12.00</span></div></div>
+        <div class="menu-item"><div class="item-encabezado"><span class="item-nombre">PILSEN 620 ML</span><span class="item-precio">S/. 10.00</span></div></div>
+
+        <div class="subcat-titulo" style="color: #c5a059; font-weight: bold; margin-top: 10px;">Vinos, Licores y Cócteles</div>
+        <!-- Aquí puedes seguir añadiendo los items de bodega, whisky, ron y cócteles -->
+        <div class="menu-item"><div class="item-encabezado"><span class="item-nombre">SANGRÍA ESTANCIA</span><span class="item-precio">Jarra: S/. 45.00 | Copa: S/. 15.00</span></div></div>
+        <div class="menu-item"><div class="item-encabezado"><span class="item-nombre">PISCO SOUR / CHILCANO</span><span class="item-precio">S/. 15.00</span></div></div>
+
+    </div>
+</div>
 
     <script>
         function seleccionarCategoriaHome(categoria) {
