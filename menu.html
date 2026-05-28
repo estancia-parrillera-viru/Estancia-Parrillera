@@ -497,21 +497,6 @@
         <ul class="sidebar-links">
             <li><a href="#" onclick="navegarA('inicio')">✦ Inicio</a></li>
             
-            <!-- Botón Desplegable para la Carta -->
-            <li>
-                <button class="submenu-trigger" onclick="toggleSubmenu(this)">✦ Nuestra Carta</button>
-                <ul class="submenu-items" id="cartaSubmenu">
-                    <li><a href="#" onclick="navegarACategoria('carta', 'parrillas')">» Parrillas Personales</a></li>
-                    <li><a href="#" onclick="navegarACategoria('carta', 'parrillas')">» Parrillas Mixtas</a></li>
-                    <li><a href="#" onclick="navegarACategoria('carta', 'parrillas')">» Nuestros Anticuchos</a></li>
-                    <li><a href="#" onclick="navegarACategoria('carta', 'parrillas')">» Alitas a la Parrilla</a></li>
-                    <li><a href="#" onclick="navegarACategoria('carta', 'al-carta')">» Platos a la Carta</a></li>
-                    <li><a href="#" onclick="navegarACategoria('carta', 'guarniciones')">» Guarniciones</a></li>
-                    <li><a href="#" onclick="navegarACategoria('carta', 'bebidas')">» Bar y Bebidas</a></li>
-                </ul>
-            </li>
-            
-            <li><a href="#" onclick="navegarA('compromiso')">✦ Compromiso Ambiental</a></li>
             <li><a href="#" onclick="navegarA('contacto')">✦ Contáctenos</a></li>
         </ul>
     </div>
@@ -545,26 +530,17 @@
                 <p style="color: #cda45e; font-size: 1.1rem; font-style: italic; margin-top: 0.5rem;">Explora las especialidades de Estancia Parrillera</p>
             </div>
 
-            <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: center; margin-bottom: 2.5rem;">
-                <div id="btn-home-carnes" onclick="seleccionarCategoriaHome('carnes')" style="flex: 1; min-width: 250px; max-width: 400px; border: 2px solid #cda45e; padding: 2rem; text-align: center; cursor: pointer; background: transparent; transition: all 0.3s ease;">
-                    <h3 style="font-family: 'Antonio', sans-serif; font-size: 1.8rem; text-transform: uppercase; color: #ffffff; margin: 0;">🔥 NUESTRAS CARNES</h3>
-                </div>
-                
-<style>
-    /* Estilos del Acordeón */
-    .acordeon-contenido { display: none; padding: 10px; background-color: #181615; }
-    .acordeon-boton { width: 100%; padding: 15px; background-color: #c5a059; color: #0f0e0e; border: none; text-align: left; font-weight: bold; cursor: pointer; margin-top: 5px; text-transform: uppercase; }
-    .acordeon-boton:after { content: '+'; float: right; }
-    .active .acordeon-boton:after { content: '-'; }
-    .active .acordeon-contenido { display: block; }
-    .menu-item { border-bottom: 1px solid #333; padding: 10px 0; }
-    .item-encabezado { display: flex; justify-content: space-between; font-weight: bold; }
-    .item-descripcion { font-size: 0.85rem; color: #a3a3a3; margin-top: 5px; }
-    .tabla-guarniciones { width: 100%; border-collapse: collapse; margin-top: 10px; }
-    .tabla-guarniciones th, .tabla-guarniciones td { padding: 8px; text-align: left; border-bottom: 1px solid #333; font-size: 0.9rem; }
-</style>
+ <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: center; margin-bottom: 2.5rem;">
+    <div id="btn-home-carnes" onclick="seleccionarCategoriaHome('carnes')" style="...">
+        <h3>🔥 NUESTRAS CARNES</h3>
+    </div>
+    <div id="btn-home-bebidas" onclick="seleccionarCategoriaHome('bebidas')" style="...">
+        <h3>🍹 NUESTRAS BEBIDAS</h3>
+    </div>
+</div>
 
-<div id="contenedor-menu">
+<div id="contenido-home-carnes" style="display: none;">
+   <div id="contenedor-menu">
 
     <!-- Parrillas Personales -->
     <div class="acordeon-item">
@@ -642,56 +618,8 @@
 
 </div>
 
-<script>
-    function toggleAcordeon(boton) {
-        // Obtenemos el contenedor padre del botón actual
-        const itemActual = boton.parentElement;
-        
-        // Cerramos todos los demás elementos que estén activos
-        document.querySelectorAll('.acordeon-item').forEach(item => {
-            if (item !== itemActual) {
-                item.classList.remove('active');
-            }
-        });
-
-        // Alternamos el estado del elemento actual
-        itemActual.classList.toggle('active');
-    }
-</script>
 <div id="contenido-home-bebidas" style="display: none;">
-    <div style="background: #161616; border-left: 3px solid #cda45e; padding: 1.2rem; margin-bottom: 1rem;">
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <h4 style="font-family: 'Antonio', sans-serif; margin: 0; font-size: 1.3rem;">SANGRÍA ESTANCIA (JARRA)</h4>
-                            <span style="color: #cda45e; font-weight: bold; font-size: 1.1rem;">S/. 45.00</span>
-                        </div>
-                        <p style="color: #a5a5a5; font-size: 0.85rem; margin: 0.5rem 0 0 0;">Nuestra receta especial de la casa con frutas seleccionadas.</p>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-    <style>
-    /* Estilos del Acordeón */
-    .acordeon-contenido { display: none; padding: 10px; background-color: #181615; }
-    .acordeon-boton { width: 100%; padding: 15px; background-color: #c5a059; color: #0f0e0e; border: none; text-align: left; font-weight: bold; cursor: pointer; margin-top: 5px; text-transform: uppercase; }
-    .acordeon-boton:after { content: '+'; float: right; }
-    .active .acordeon-boton:after { content: '-'; }
-    .active .acordeon-contenido { display: block; }
-    .menu-item { border-bottom: 1px solid #333; padding: 10px 0; }
-    .item-encabezado { display: flex; justify-content: space-between; font-weight: bold; }
-    .item-descripcion { font-size: 0.85rem; color: #a3a3a3; margin-top: 5px; }
-    .tabla-guarniciones { width: 100%; border-collapse: collapse; margin-top: 10px; }
-    .tabla-guarniciones th, .tabla-guarniciones td { padding: 8px; text-align: left; border-bottom: 1px solid #333; font-size: 0.9rem; }
-</style>
-
-<div id="contenedor-menu">
-     <div id="btn-home-bebidas" onclick="seleccionarCategoriaHome('bebidas')" style="flex: 1; min-width: 250px; max-width: 400px; border: 1px solid #2a2a2a; padding: 2rem; text-align: center; cursor: pointer; background: transparent; transition: all 0.3s ease;">
-                    <h3 style="font-family: 'Antonio', sans-serif; font-size: 1.8rem; text-transform: uppercase; color: #b3b3b3; margin: 0;">🍹 NUESTRAS BEBIDAS</h3>
-                </div>
-            </div>
-
-    <!-- Bebidas refrescantes -->
+  <!-- Bebidas refrescantes -->
     <div class="acordeon-item">
         <button class="acordeon-boton" onclick="toggleAcordeon(this)">Bebidas Refrescantes</button>
         <div class="acordeon-contenido">
@@ -787,8 +715,64 @@
             <div class="menu-item"><div class="item-encabezado"><span>Mimosa</span><span>S/. 10.00</span></div></div>
         </div>
     </div>
-    
 </div>
+</div><style>
+    /* Estilos del Acordeón */
+    .acordeon-contenido { display: none; padding: 10px; background-color: #181615; }
+    .acordeon-boton { width: 100%; padding: 15px; background-color: #c5a059; color: #0f0e0e; border: none; text-align: left; font-weight: bold; cursor: pointer; margin-top: 5px; text-transform: uppercase; }
+    .acordeon-boton:after { content: '+'; float: right; }
+    .active .acordeon-boton:after { content: '-'; }
+    .active .acordeon-contenido { display: block; }
+    .menu-item { border-bottom: 1px solid #333; padding: 10px 0; }
+    .item-encabezado { display: flex; justify-content: space-between; font-weight: bold; }
+    .item-descripcion { font-size: 0.85rem; color: #a3a3a3; margin-top: 5px; }
+    .tabla-guarniciones { width: 100%; border-collapse: collapse; margin-top: 10px; }
+    .tabla-guarniciones th, .tabla-guarniciones td { padding: 8px; text-align: left; border-bottom: 1px solid #333; font-size: 0.9rem; }
+</style>
+            
+</div>
+
+<script>
+    function toggleAcordeon(boton) {
+        // Obtenemos el contenedor padre del botón actual
+        const itemActual = boton.parentElement;
+        
+        // Cerramos todos los demás elementos que estén activos
+        document.querySelectorAll('.acordeon-item').forEach(item => {
+            if (item !== itemActual) {
+                item.classList.remove('active');
+            }
+        });
+
+        // Alternamos el estado del elemento actual
+        itemActual.classList.toggle('active');
+    }
+</script>
+<div id="contenido-home-bebidas" style="display: none;">
+    <div style="background: #161616; border-left: 3px solid #cda45e; padding: 1.2rem; margin-bottom: 1rem;">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <h4 style="font-family: 'Antonio', sans-serif; margin: 0; font-size: 1.3rem;">SANGRÍA ESTANCIA (JARRA)</h4>
+                            <span style="color: #cda45e; font-weight: bold; font-size: 1.1rem;">S/. 45.00</span>
+                        </div>
+                        <p style="color: #a5a5a5; font-size: 0.85rem; margin: 0.5rem 0 0 0;">Nuestra receta especial de la casa con frutas seleccionadas.</p>
+                    </div>
+                </div>
+            </div>
+    
+    </section>
+    <style>
+    /* Estilos del Acordeón */
+    .acordeon-contenido { display: none; padding: 10px; background-color: #181615; }
+    .acordeon-boton { width: 100%; padding: 15px; background-color: #c5a059; color: #0f0e0e; border: none; text-align: left; font-weight: bold; cursor: pointer; margin-top: 5px; text-transform: uppercase; }
+    .acordeon-boton:after { content: '+'; float: right; }
+    .active .acordeon-boton:after { content: '-'; }
+    .active .acordeon-contenido { display: block; }
+    .menu-item { border-bottom: 1px solid #333; padding: 10px 0; }
+    .item-encabezado { display: flex; justify-content: space-between; font-weight: bold; }
+    .item-descripcion { font-size: 0.85rem; color: #a3a3a3; margin-top: 5px; }
+    .tabla-guarniciones { width: 100%; border-collapse: collapse; margin-top: 10px; }
+    .tabla-guarniciones th, .tabla-guarniciones td { padding: 8px; text-align: left; border-bottom: 1px solid #333; font-size: 0.9rem; }
+</style>
 
 <script>
     function toggleAcordeon(boton) {
