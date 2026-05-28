@@ -549,10 +549,7 @@
                 <div id="btn-home-carnes" onclick="seleccionarCategoriaHome('carnes')" style="flex: 1; min-width: 250px; max-width: 400px; border: 2px solid #cda45e; padding: 2rem; text-align: center; cursor: pointer; background: transparent; transition: all 0.3s ease;">
                     <h3 style="font-family: 'Antonio', sans-serif; font-size: 1.8rem; text-transform: uppercase; color: #ffffff; margin: 0;">🔥 NUESTRAS CARNES</h3>
                 </div>
-                <div id="btn-home-bebidas" onclick="seleccionarCategoriaHome('bebidas')" style="flex: 1; min-width: 250px; max-width: 400px; border: 1px solid #2a2a2a; padding: 2rem; text-align: center; cursor: pointer; background: transparent; transition: all 0.3s ease;">
-                    <h3 style="font-family: 'Antonio', sans-serif; font-size: 1.8rem; text-transform: uppercase; color: #b3b3b3; margin: 0;">🍹 NUESTRAS BEBIDAS</h3>
-                </div>
-            </div>
+                
 <style>
     /* Estilos del Acordeón */
     .acordeon-contenido { display: none; padding: 10px; background-color: #181615; }
@@ -689,6 +686,10 @@
 </style>
 
 <div id="contenedor-menu">
+     <div id="btn-home-bebidas" onclick="seleccionarCategoriaHome('bebidas')" style="flex: 1; min-width: 250px; max-width: 400px; border: 1px solid #2a2a2a; padding: 2rem; text-align: center; cursor: pointer; background: transparent; transition: all 0.3s ease;">
+                    <h3 style="font-family: 'Antonio', sans-serif; font-size: 1.8rem; text-transform: uppercase; color: #b3b3b3; margin: 0;">🍹 NUESTRAS BEBIDAS</h3>
+                </div>
+            </div>
 
     <!-- Bebidas refrescantes -->
     <div class="acordeon-item">
@@ -805,222 +806,8 @@
         itemActual.classList.toggle('active');
     }
 </script>
-<div id="contenido-home-bebidas" style="display: none;">
-    <div style="background: #161616; border-left: 3px solid #cda45e; padding: 1.2rem; margin-bottom: 1rem;">
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <h4 style="font-family: 'Antonio', sans-serif; margin: 0; font-size: 1.3rem;">SANGRÍA ESTANCIA (JARRA)</h4>
-                            <span style="color: #cda45e; font-weight: bold; font-size: 1.1rem;">S/. 45.00</span>
-                        </div>
-                        <p style="color: #a5a5a5; font-size: 0.85rem; margin: 0.5rem 0 0 0;">Nuestra receta especial de la casa con frutas seleccionadas.</p>
-                    </div>
-                </div>
-            </div>
 
-        </div>
-    </section>
-
-    <script>
-        function seleccionarCategoriaHome(categoria) {
-            const bloqueCarnes = document.getElementById('contenido-home-carnes');
-            const bloqueBebidas = document.getElementById('contenido-home-bebidas');
-            const btnCarnes = document.getElementById('btn-home-carnes');
-            const btnBebidas = document.getElementById('btn-home-bebidas');
-            const h3Carnes = btnCarnes.querySelector('h3');
-            const h3Bebidas = btnBebidas.querySelector('h3');
-
-            if (categoria === 'carnes') {
-                bloqueCarnes.style.display = 'block';
-                bloqueBebidas.style.display = 'none';
-                // Cambiar bordes y colores
-                btnCarnes.style.border = '2px solid #cda45e';
-                h3Carnes.style.color = '#ffffff';
-                btnBebidas.style.border = '1px solid #2a2a2a';
-                h3Bebidas.style.color = '#b3b3b3';
-            } else {
-                bloqueCarnes.style.display = 'none';
-                bloqueBebidas.style.display = 'block';
-                // Cambiar bordes y colores
-                btnBebidas.style.border = '2px solid #cda45e';
-                h3Bebidas.style.color = '#ffffff';
-                btnCarnes.style.border = '1px solid #2a2a2a';
-                h3Carnes.style.color = '#b3b3b3';
-            }
-        }
-    </script>
-    <!-- SECCIÓN: NUESTRA CARTA -->
-    <section id="carta" class="page-section">
-        <div class="tabs-contenedor">
-            <button class="tab-boton active" id="btn-parrillas" onclick="cambiarTab('parrillas')">Nuestras Parrillas</button>
-            <button class="tab-boton" id="btn-al-carta" onclick="cambiarTab('al-carta')">Platos a la Carta</button>
-            <button class="tab-boton" id="btn-guarniciones" onclick="cambiarTab('guarniciones')">Guarniciones</button>
-            <button class="tab-boton" id="btn-bebidas" onclick="cambiarTab('bebidas')">Bebidas y Bar</button>
-        </div>
-
-        <!-- TAB: NUESTRAS PARRILLAS -->
-        <div id="parrillas" class="categoria-contenido active">
-            <div class="subcat-titulo">Parrillas Personales</div>
-            <div class="menu-item">
-                <div class="item-encabezado"><span class="item-nombre">LOMO FINO</span><span class="item-precio">S/. 55.00</span></div>
-                <p class="item-descripcion">Acompañado de papas fritas y ensalada.</p>
-            </div>
-            <div class="menu-item">
-                <div class="item-encabezado"><span class="item-nombre">TIRA DE RES</span><span class="item-precio">S/. 30.00</span></div>
-                <p class="item-descripcion">Acompañado de papas fritas y ensalada.</p>
-            </div>
-            <div class="menu-item">
-                <div class="item-encabezado"><span class="item-nombre">CHURRASCO</span><span class="item-precio">S/. 30.00</span></div>
-                <p class="item-descripcion">Acompañado de papas fritas y ensalada.</p>
-            </div>
-            <div class="menu-item">
-                <div class="item-encabezado"><span class="item-nombre">TIRA DE CERDO</span><span class="item-precio">S/. 30.00</span></div>
-                <p class="item-descripcion">Acompañado de papas fritas y ensalada.</p>
-            </div>
-            <div class="menu-item">
-                <div class="item-encabezado"><span class="item-nombre">CHULETA DE CERDO</span><span class="item-precio">S/. 30.00</span></div>
-                <p class="item-descripcion">Acompañado de papas fritas y ensalada.</p>
-            </div>
-            <div class="menu-item">
-                <div class="item-encabezado"><span class="item-nombre">1/4 POLLO</span><span class="item-precio">S/. 25.00</span></div>
-                <p class="item-descripcion">Acompañado de papas fritas y ensalada.</p>
-            </div>
-            <div class="menu-item">
-                <div class="item-encabezado"><span class="item-nombre">1/8 POLLO</span><span class="item-precio">S/. 15.00</span></div>
-                <p class="item-descripcion">Acompañado de papas fritas y ensalada.</p>
-            </div>
-
-            <div class="subcat-titulo">Parrillas Mixtas y Familiares</div>
-            <div class="menu-item">
-                <div class="item-encabezado"><span class="item-nombre">PARA CUATRO</span><span class="item-precio">S/. 100.00</span></div>
-                <p class="item-descripcion">½ Pollo + 1 Churrasco + 1 Tira de Cerdo + 2 Chorizos + 2 Anticuchos. Acompañado de papas fritas y ensalada.</p>
-            </div>
-            <div class="menu-item">
-                <div class="item-encabezado"><span class="item-nombre">PARA SEIS</span><span class="item-precio">S/. 130.00</span></div>
-                <p class="item-descripcion">½ Pollo + 1 Chuleta + 1 Churrasco + 1 Tira de Res + 1 Tira de Cerdo + 2 Chorizos + 2 Anticuchos. Acompañado de papas fritas y ensalada.</p>
-            </div>
-            <div class="menu-item">
-                <div class="item-encabezado"><span class="item-nombre">1 POLLO</span><span class="item-precio">S/. 85.00</span></div>
-                <p class="item-descripcion">Acompañado de papas fritas y ensalada.</p>
-            </div>
-            <div class="menu-item">
-                <div class="item-encabezado"><span class="item-nombre">1/2 POLLO</span><span class="item-precio">S/. 45.00</span></div>
-                <p class="item-descripcion">Acompañado de papas fritas y ensalada.</p>
-            </div>
-
-            <div class="subcat-titulo">Anticuchos (Con papas y ensalada)</div>
-            <div class="menu-item"><div class="item-encabezado"><span class="item-nombre">POLLO</span><span class="item-precio">S/. 16.00</span></div></div>
-            <div class="menu-item"><div class="item-encabezado"><span class="item-nombre">CORAZÓN DE RES</span><span class="item-precio">S/. 16.00</span></div></div>
-            <div class="menu-item"><div class="item-encabezado"><span class="item-nombre">CERDO</span><span class="item-precio">S/. 16.00</span></div></div>
-            <div class="menu-item"><div class="item-encabezado"><span class="item-nombre">MOLLEJAS</span><span class="item-precio">S/. 16.00</span></div></div>
-
-            <div class="subcat-titulo">Alitas (Con papas y ensalada)</div>
-            <div class="menu-item"><div class="item-encabezado"><span class="item-nombre">BROASTER</span><span class="item-precio">S/. 20.00</span></div></div>
-            <div class="menu-item"><div class="item-encabezado"><span class="item-nombre">ACEVICHADAS</span><span class="item-precio">S/. 20.00</span></div></div>
-            <div class="menu-item"><div class="item-encabezado"><span class="item-nombre">BBQ</span><span class="item-precio">S/. 20.00</span></div></div>
-            <div class="menu-item"><div class="item-encabezado"><span class="item-nombre">MIXTO</span><span class="item-precio">S/. 25.00</span></div></div>
-        </div>
-
-        <!-- TAB: PLATOS A LA CARTA -->
-        <div id="al-carta" class="categoria-contenido">
-            <div class="subcat-titulo">Cocina Tradicional</div>
-            <div class="menu-item"><div class="item-encabezado"><span class="item-nombre">LOMO SALTADO</span><span class="item-precio">S/. 28.00</span></div></div>
-            <div class="menu-item"><div class="item-encabezado"><span class="item-nombre">ARROZ CHAUFA DE CARNE</span><span class="item-precio">S/. 30.00</span></div></div>
-            <div class="menu-item"><div class="item-encabezado"><span class="item-nombre">ARROZ CHAUFA ESPECIAL</span><span class="item-precio">S/. 25.00</span></div></div>
-            <div class="menu-item"><div class="item-encabezado"><span class="item-nombre">ARROZ CHAUFA DE POLLO</span><span class="item-precio">S/. 18.00</span></div></div>
-        </div>
-
-        <!-- TAB: GUARNICIONES ADICIONALES -->
-        <div id="guarniciones" class="categoria-contenido">
-            <div class="subcat-titulo">Acompañamientos extras</div>
-            <table class="tabla-guarniciones">
-                <thead>
-                    <tr>
-                        <th>Acompañamiento</th>
-                        <th>Pequeño</th>
-                        <th>Grande</th>
-                        <th>Extra</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr><td><strong>PAPAS FRITAS</strong></td><td>S/. 6.00</td><td>S/. 10.00</td><td>S/. 13.00</td></tr>
-                    <tr><td><strong>ENSALADA</strong></td><td>S/. 6.00</td><td>S/. 10.00</td><td>S/. 13.00</td></tr>
-                    <tr><td><strong>ARROZ CHAUFA</strong></td><td>S/. 6.00</td><td>S/. 10.00</td><td>S/. 15.00</td></tr>
-                    <tr><td><strong>ARROZ BLANCO</strong></td><td>S/. 5.00</td><td>S/. 8.00</td><td>S/. 13.00</td></tr>
-                    <tr><td><strong>CHORIZO</strong></td><td colspan="2" style="color:#a3a3a3; font-style:italic;">Porción Individual</td><td>S/. 8.00</td></tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- TAB: BEBIDAS Y BAR COMPLETÍSIMO -->
-        <div id="bebidas" class="categoria-contenido">
-            <div class="subcat-titulo">Bebidas Refrescantes</div>
-            <div class="menu-item"><div class="item-encabezado"><span class="item-nombre">MARACUYÁ (HELADA / FROZEN)</span><span class="item-precio">Jarra 1L: S/. 18.00<br>Vaso ½ L: S/. 10.00</span></div></div>
-            <div class="menu-item"><div class="item-encabezado"><span class="item-nombre">LIMONADA (HELADA / FROZEN)</span><span class="item-precio">Jarra 1L: S/. 18.00<br>Vaso ½ L: S/. 10.00</span></div></div>
-            <div class="menu-item"><div class="item-encabezado"><span class="item-nombre">LIMONADA ELÉCTRICA (HELADA / FROZEN)</span><span class="item-precio">Jarra 1L: S/. 18.00<br>Vaso ½ L: S/. 10.00</span></div></div>
-            <div class="menu-item"><div class="item-encabezado"><span class="item-nombre">INFUSIÓN (TÉ / MANZANILLA / ANÍS)</span><span class="item-precio">Taza: S/. 4.00</span></div></div>
-            <div class="menu-item"><div class="item-encabezado"><span class="item-nombre">CAFÉ</span><span class="item-precio">Taza: S/. 4.00</span></div></div>
-            <div class="menu-item"><div class="item-encabezado"><span class="item-nombre">AGUA SAN LUIS (SIN GAS / CON GAS)</span><span class="item-precio">Botella Personal: S/. 4.00</span></div></div>
-
-            <div class="subcat-titulo">Gaseosas</div>
-            <div class="menu-item">
-                <div class="item-encabezado"><span class="item-nombre">INCA KOLA / COCA COLA</span><span class="item-precio">3 L: S/. 17.00<br>1.5 L: S/. 12.00<br>1 L: S/. 10.00</span></div>
-                <p class="item-descripcion" style="margin-top:0.5rem; font-style:italic;">También disponibles en formato Gordita (S/. 7.00), 600 ML (S/. 5.00) y 500 ML (S/. 4.00).</p>
-            </div>
-
-            <div class="subcat-titulo">Cervezas</div>
-            <div class="menu-item"><div class="item-encabezado"><span class="item-nombre">CUSQUEÑA 620 ML (NEGRA / TRIGO)</span><span class="item-precio">S/. 12.00</span></div></div>
-            <div class="menu-item"><div class="item-encabezado"><span class="item-nombre">PILSEN 620 ML (TRUJILLO / CALLAO)</span><span class="item-precio">S/. 10.00</span></div></div>
-
-            <div class="subcat-titulo">Nuestra Bodega (Espumantes)</div>
-            <div class="menu-item"><div class="item-encabezado"><span class="item-nombre">TABERNERO (BRUT / DEMI SEC)</span><span class="item-precio">Botella: S/. 50.00<br>Copa 5oz: S/. 15.00</span></div></div>
-            <div class="menu-item"><div class="item-encabezado"><span class="item-nombre">SANTIAGO QUEIROLO (PRIMADO)</span><span class="item-precio">Botella: S/. 45.00<br>Copa 5oz: S/. 14.00</span></div></div>
-            <div class="menu-item"><div class="item-encabezado"><span class="item-nombre">TABERNERO (SEMI SECO ESPECIAL)</span><span class="item-precio">Botella: S/. 40.00<br>Copa 5oz: S/. 13.00</span></div></div>
-
-            <div class="subcat-titulo">Whiskys (750 ML / 700 ML)</div>
-            <div class="menu-item"><div class="item-encabezado"><span class="item-nombre">JACK DANIEL'S</span><span class="item-precio">Botella: S/. 160.00<br>Vaso 2oz: S/. 18.00</span></div></div>
-            <div class="menu-item"><div class="item-encabezado"><span class="item-nombre">OLD PARR 12 AÑOS</span><span class="item-precio">Botella: S/. 150.00<br>Vaso 2oz: S/. 17.00</span></div></div>
-            <div class="menu-item"><div class="item-encabezado"><span class="item-nombre">BALLANTINE'S</span><span class="item-precio">Botella: S/. 105.00<br>Vaso 2oz: S/. 15.00</span></div></div>
-
-            <div class="subcat-titulo">Ron Cartavio 750 ML</div>
-            <div class="menu-item"><div class="item-encabezado"><span class="item-nombre">SOLERA</span><span class="item-precio">Botella: S/. 100.00<br>Vaso: S/. 16.00</span></div></div>
-            <div class="menu-item"><div class="item-encabezado"><span class="item-nombre">RESERVA</span><span class="item-precio">Botella: S/. 70.00<br>Vaso: S/. 15.00</span></div></div>
-            <div class="menu-item"><div class="item-encabezado"><span class="item-nombre">SELECTO</span><span class="item-precio">Botella: S/. 65.00<br>Vaso: S/. 12.00</span></div></div>
-
-            <div class="subcat-titulo">Cava Seleccionada y Especialidades</div>
-            <div class="menu-item"><div class="item-encabezado"><span class="item-nombre">SANGRÍA ESTANCIA (ESPECIALIDAD)</span><span class="item-precio">Jarra: S/. 45.00<br>Copa: S/. 15.00</span></div></div>
-            <div class="menu-item"><div class="item-encabezado"><span class="item-nombre">CASILLERO DEL DIABLO (CHILE)<br><small style="color:#b3b3b3; font-weight:normal;">Malbec / Cabernet / Merlot</small></span><span class="item-precio">Botella: S/. 75.00<br>Copa: S/. 18.00</span></div></div>
-            <div class="menu-item"><div class="item-encabezado"><span class="item-nombre">NAVARRO CORREAS (ARGENTINA) - MALBEC</span><span class="item-precio">Botella: S/. 80.00<br>Copa: S/. 20.00</span></div></div>
-            <div class="menu-item"><div class="item-encabezado"><span class="item-nombre">CONCHA Y TORO RESERVADO / ASTICA / INTIPALKA / QUEIROLO<br><small style="color:#b3b3b3; font-weight:normal;">Tannat / Malbec</small></span><span class="item-precio">Botella: S/. 40.00<br>Copa: S/. 13.00</span></div></div>
-            <div class="menu-item"><div class="item-encabezado"><span class="item-nombre">TABERNERO / QUEIROLO (BORGOÑA / ROSÉ)</span><span class="item-precio">Botella: S/. 30.00<br>Copa: S/. 10.00</span></div></div>
-
-            <div class="subcat-titulo">Nuestros Cócteles</div>
-            <div class="menu-item"><div class="item-encabezado"><span class="item-nombre">ALGARROBINA<br><small style="color:#b3b3b3; font-weight:normal;">Pisco, algarrobina, leche</small></span><span class="item-precio">S/. 18.00</span></div></div>
-            <div class="menu-item"><div class="item-encabezado"><span class="item-nombre">MACHU PICCHU<br><small style="color:#b3b3b3; font-weight:normal;">Pisco, granadina, etc.</small></span><span class="item-precio">S/. 15.00</span></div></div>
-            <div class="menu-item"><div class="item-encabezado"><span class="item-nombre">MOJITO / ARCOÍRIS<br><small style="color:#b3b3b3; font-weight:normal;">Fresa / Mango / Clásico</small></span><span class="item-precio">S/. 17.00 c/u</span></div></div>
-            <div class="menu-item"><div class="item-encabezado"><span class="item-nombre">DAIQUIRI / PIÑA COLADA / CHILCANO / PISCO SOUR / CUBA LIBRE<br><small style="color:#b3b3b3; font-weight:normal;">Mango / Fresa</small></span><span class="item-precio">S/. 15.00 c/u</span></div></div>
-            <div class="menu-item"><div class="item-encabezado"><span class="item-nombre">PERÚ LIBRE</span><span class="item-precio">S/. 14.00</span></div></div>
-            <div class="menu-item"><div class="item-encabezado"><span class="item-nombre">CAIPIRINHA / CAIPIROSKA</span><span class="item-precio">S/. 13.00 c/u</span></div></div>
-            <div class="menu-item"><div class="item-encabezado"><span class="item-nombre">PRIMAVERA</span><span class="item-precio">S/. 12.00</span></div></div>
-            <div class="menu-item"><div class="item-encabezado"><span class="item-nombre">MIMOSA</span><span class="item-precio">S/. 10.00</span></div></div>
-        </div>
-    </section>
-
-    <!-- SECCIÓN: COMPROMISO AMBIENTAL -->
-    <section id="compromiso" class="page-section">
-        <div class="seccion-eco">
-            <h2 class="eco-titulo">Nuestro Compromiso Ambiental</h2>
-            <p class="eco-parrafo">
-                En <strong>Estancia Parrillera</strong> creemos que el sabor tradicional nace del respeto a nuestra tierra. Por ello, implementamos prácticas honestas de economía circular y buscamos soluciones sustentables para cada residuo.
-            </p>
-            <ul class="eco-compromisos">
-                <li><strong>Segunda Vida al Aceite:</strong> Recolectamos el aceite usado de cocina para transformarlo industrialmente en biocombustibles ecológicos.</li>
-                <li><strong>Reciclaje de Plásticos:</strong> Clasificamos envases para entregárselos directamente a los recicladores de la comunidad.</li>
-                <li><strong>Destino Orgánico:</strong> Buscamos alianzas locales para destinar descartes vegetales al compostaje agrícola.</li>
-                <li><strong>Desafíos de Vidrio y Cartón:</strong> Trabajamos activamente en superar las limitaciones de acopio locales para asegurar su correcto reciclaje.</li>
-            </ul>
-        </div>
-    </section>
-
-<!-- SECCIÓN: CONTÁCTENOS ACTUALIZADA CON TELÉFONO Y MAPAS -->
+    <!-- SECCIÓN: CONTÁCTENOS ACTUALIZADA CON TELÉFONO Y MAPAS -->
     <section id="contacto" class="page-section" style="padding: 4rem 1rem; background-color: #0b0b0b;">
         <div class="contacto-container" style="max-width: 8000px; margin: 0 auto;">
             
