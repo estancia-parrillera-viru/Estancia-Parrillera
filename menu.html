@@ -675,50 +675,150 @@
 
         </div>
     </section>
-<!-- Categoría Bebidas (Acordeón) -->
-<div class="acordeon-item">
-    <button class="acordeon-boton" onclick="toggleAcordeon(this)">Bebidas</button>
-    <div class="acordeon-contenido">
-        
-        <div class="subcat-titulo" style="color: #c5a059; font-weight: bold; margin-top: 10px;">Bebidas Refrescantes</div>
-        <div class="menu-item"><div class="item-encabezado"><span>MARACUYÁ (HELADA / FROZEN)</span><span>Jarra 1L: S/. 18.00<br>Vaso ½ L: S/. 10.00</span></div></div>
-        <div class="menu-item"><div class="item-encabezado"><span>LIMONADA (HELADA / FROZEN)</span><span>Jarra 1L: S/. 18.00<br>Vaso ½ L: S/. 10.00</span></div></div>
-        <div class="menu-item"><div class="item-encabezado"><span>LIMONADA ELÉCTRICA (HELADA / FROZEN)</span><span>Jarra 1L: S/. 18.00<br>Vaso ½ L: S/. 10.00</span></div></div>
-        <div class="menu-item"><div class="item-encabezado"><span>INFUSIÓN (TÉ / MANZANILLA / ANÍS)</span><span>Taza: S/. 4.00</span></div></div>
-        <div class="menu-item"><div class="item-encabezado"><span>CAFÉ</span><span>Taza: S/. 4.00</span></div></div>
-        <div class="menu-item"><div class="item-encabezado"><span>AGUA SAN LUIS</span><span>Botella: S/. 4.00</span></div></div>
+    <style>
+    /* Estilos del Acordeón */
+    .acordeon-contenido { display: none; padding: 10px; background-color: #181615; }
+    .acordeon-boton { width: 100%; padding: 15px; background-color: #c5a059; color: #0f0e0e; border: none; text-align: left; font-weight: bold; cursor: pointer; margin-top: 5px; text-transform: uppercase; }
+    .acordeon-boton:after { content: '+'; float: right; }
+    .active .acordeon-boton:after { content: '-'; }
+    .active .acordeon-contenido { display: block; }
+    .menu-item { border-bottom: 1px solid #333; padding: 10px 0; }
+    .item-encabezado { display: flex; justify-content: space-between; font-weight: bold; }
+    .item-descripcion { font-size: 0.85rem; color: #a3a3a3; margin-top: 5px; }
+    .tabla-guarniciones { width: 100%; border-collapse: collapse; margin-top: 10px; }
+    .tabla-guarniciones th, .tabla-guarniciones td { padding: 8px; text-align: left; border-bottom: 1px solid #333; font-size: 0.9rem; }
+</style>
 
-        <div class="subcat-titulo" style="color: #c5a059; font-weight: bold; margin-top: 10px;">Gaseosas</div>
-        <div class="menu-item">
-            <div class="item-encabezado"><span>INCA KOLA / COCA COLA</span><span>3L: S/. 17.00 | 1.5L: S/. 12.00 | 1L: S/. 10.00</span></div>
-            <p class="item-descripcion">Gordita: S/. 7.00 | 600ml: S/. 5.00 | 500ml: S/. 4.00</p>
+<div id="contenedor-menu">
+
+    <!-- Bebidas refrescantes -->
+    <div class="acordeon-item">
+        <button class="acordeon-boton" onclick="toggleAcordeon(this)">Bebidas Refrescantes</button>
+        <div class="acordeon-contenido">
+            <div class="menu-item"><div class="item-encabezado"><span> Maracuyá</span><span>Jarra 1L:S/. 15.00<br>Vaso½L:S/. 8.00</span></div><p class="item-descripcion">(Helada / Frozen)</p></div>
+            <div class="menu-item"><div class="item-encabezado"><span>Limonada</span><span>Jarra 1L:S/. 15.00<br>Vaso½L:S/. 8.00</span></div><p class="item-descripcion">(Helada / Frozen)</p></div>
+            <div class="menu-item"><div class="item-encabezado"><span>Limonada Eléctrica</span><span>Jarra 1L:S/. 15.00<br>Vaso½L:S/. 8.00</span></div><p class="item-descripcion">(Helada / Frozen)</p></div>
+            <div class="menu-item"><div class="item-encabezado"><span>Limonada Cherry</span><span>Jarra 1L:S/. 15.00<br>Vaso½L:S/. 8.00</span></div><p class="item-descripcion">(Helada / Frozen)</p></div>
+            <div class="menu-item"><div class="item-encabezado"><span>Infusión</span><span>Taza: S/. 4.00</span></div><p class="item-descripcion">(Té / Manzanilla / anís)</p></div>
+            <div class="menu-item"><div class="item-encabezado"><span>Café</span><span>Taza: S/. 4.00</span></div><p class="item-descripcion"></p></div>
+            <div class="menu-item"><div class="item-encabezado"><span>Agua personal</span><span>Botella:S/. 4.00</span></div><p class="item-descripcion">(Con Gas / Sin Gas).</p></div>
         </div>
-
-        <div class="subcat-titulo" style="color: #c5a059; font-weight: bold; margin-top: 10px;">Cervezas</div>
-        <div class="menu-item"><div class="item-encabezado"><span>CUSQUEÑA 620 ML (NEGRA/TRIGO)</span><span>S/. 12.00</span></div></div>
-        <div class="menu-item"><div class="item-encabezado"><span>PILSEN 620 ML</span><span>S/. 10.00</span></div></div>
-
-        <div class="subcat-titulo" style="color: #c5a059; font-weight: bold; margin-top: 10px;">Nuestra Bodega (Espumantes)</div>
-        <div class="menu-item"><div class="item-encabezado"><span>TABERNERO (BRUT / DEMI SEC)</span><span>Bot: S/. 50.00 | Copa: S/. 15.00</span></div></div>
-        <div class="menu-item"><div class="item-encabezado"><span>SANTIAGO QUEIROLO</span><span>Bot: S/. 45.00 | Copa: S/. 14.00</span></div></div>
-
-        <div class="subcat-titulo" style="color: #c5a059; font-weight: bold; margin-top: 10px;">Whiskys</div>
-        <div class="menu-item"><div class="item-encabezado"><span>JACK DANIEL'S</span><span>Bot: S/. 160.00 | Vaso: S/. 18.00</span></div></div>
-        <div class="menu-item"><div class="item-encabezado"><span>OLD PARR 12 AÑOS</span><span>Bot: S/. 150.00 | Vaso: S/. 17.00</span></div></div>
-        <div class="menu-item"><div class="item-encabezado"><span>BALLANTINE'S</span><span>Bot: S/. 105.00 | Vaso: S/. 15.00</span></div></div>
-
-        <div class="subcat-titulo" style="color: #c5a059; font-weight: bold; margin-top: 10px;">Ron Cartavio</div>
-        <div class="menu-item"><div class="item-encabezado"><span>SOLERA</span><span>Bot: S/. 100.00 | Vaso: S/. 16.00</span></div></div>
-        <div class="menu-item"><div class="item-encabezado"><span>RESERVA</span><span>Bot: S/. 70.00 | Vaso: S/. 15.00</span></div></div>
-
-        <div class="subcat-titulo" style="color: #c5a059; font-weight: bold; margin-top: 10px;">Nuestros Cócteles</div>
-        <div class="menu-item"><div class="item-encabezado"><span>ALGARROBINA</span><span>S/. 18.00</span></div></div>
-        <div class="menu-item"><div class="item-encabezado"><span>MACHU PICCHU</span><span>S/. 15.00</span></div></div>
-        <div class="menu-item"><div class="item-encabezado"><span>PISCO SOUR / CHILCANO</span><span>S/. 15.00</span></div></div>
-        <div class="menu-item"><div class="item-encabezado"><span>MIMOSA</span><span>S/. 10.00</span></div></div>
-
     </div>
+
+    <!-- Gaseosas -->
+    <div class="acordeon-item">
+        <button class="acordeon-boton" onclick="toggleAcordeon(this)">Gaseosas</button>
+        <div class="acordeon-contenido">
+            <div class="menu-item"><div class="item-encabezado"><span>Inca Kola</span><span>3L: S/. 17.00 | 1.5L: S/. 12.00 | 1L: S/. 10.00</span></div><p class="item-descripcion">Gordita: S/. 7.00 | 600ml: S/. 5.00 | 400ml: S/. 4.00</p></div>
+            <div class="menu-item"><div class="item-encabezado"><span>Coca Cola</span><span>S/. 130.00</span></div><p class="item-descripcion">½ Pollo + 1 Chuleta + 1 Churrasco + 1 Tira de Res + 1 Tira de Cerdo + 2 Chorizos + 2 Anticuchos.</p></div>
+        </div>
+    </div>
+
+    <!-- Cervezas -->
+    <div class="acordeon-item">
+        <button class="acordeon-boton" onclick="toggleAcordeon(this)">Cervezas</button>
+        <div class="acordeon-contenido">
+            <div class="menu-item"><div class="item-encabezado"><span>Cusqueña 620 ml (Negra / Trigo)</span><span>S/. 12.00</span></div></div>
+            <div class="menu-item"><div class="item-encabezado"><span>Pilsen 620 ml (Trujillo / Callao)</span><span>S/. 10.00</span></div></div>
+        </div>
+    </div>
+
+        <!-- Espumantes -->
+    <div class="acordeon-item">
+        <button class="acordeon-boton" onclick="toggleAcordeon(this)">Espumantes</button>
+        <div class="acordeon-contenido">
+            <div class="menu-item"><div class="item-encabezado"><span>Tabernero (Brut / Demi Sec)</span><span>Botella: S/. 50.00 | Copa 5 oz: S/. 15.00</span></div></div>
+            <div class="menu-item"><div class="item-encabezado"><span>Santiago Queirolo Primado</span><span>Botella: S/. 45.00 | Copa 5 oz: S/. 14.00</span></div></div>
+            <div class="menu-item"><div class="item-encabezado"><span>Taberneron Semi Seco Especial</span><span>Botella: S/. 40.00 | Copa 5 oz: S/. 13.00</span></div></div>
+        </div>
+    </div>
+
+     <!-- Whiskys -->
+    <div class="acordeon-item">
+        <button class="acordeon-boton" onclick="toggleAcordeon(this)">Whisky</button>
+        <div class="acordeon-contenido">
+            <div class="menu-item"><div class="item-encabezado"><span>Jack Daniel's</span><span>Botella: S/. 160.00 | Vaso 2 oz: S/. 18.00</span></div></div>
+            <div class="menu-item"><div class="item-encabezado"><span>Old Parr 12 años</span><span>Botella: S/. 150.00 | Vaso 2 oz: S/. 17.00</span></div></div>
+            <div class="menu-item"><div class="item-encabezado"><span>Ballantine's</span><span>Botella: S/. 105.00 | Vaso 2 oz: S/. 15.00</span></div></div>
+        </div>
+    </div>
+    
+    <!-- Ron Cartavio -->
+    <div class="acordeon-item">
+        <button class="acordeon-boton" onclick="toggleAcordeon(this)">Ron Rubio</button>
+        <div class="acordeon-contenido">
+            <div class="menu-item"><div class="item-encabezado"><span>Solera</span><span>Botella: S/. 100.00 | Vaso: S/. 16.00</span></div></div>
+            <div class="menu-item"><div class="item-encabezado"><span>Reserva</span><span>Botella: S/. 70.00 | Vaso: S/. 15.00</span></div></div>
+            <div class="menu-item"><div class="item-encabezado"><span>Selecto</span><span>Botella: S/. 65.00 | Vaso: S/. 12.00</span></div></div>
+        </div>
+    </div>
+    
+   <!-- Cava seleccionada -->
+    <div class="acordeon-item">
+        <button class="acordeon-boton" onclick="toggleAcordeon(this)">Cava Seleccionada y Especialidades</button>
+        <div class="acordeon-contenido">
+            <div class="menu-item"><div class="item-encabezado"><span>Sangría</span><span>Jarra: S/. 45.00 | Copa: S/. 15.00</span></div></div>
+            <div class="menu-item"><div class="item-encabezado"><span>Casillero del Diablo(Chile)- Malbec / Cabernet / Merlot</span><span>Botella: S/. 75.00 | Copa: S/. 18.00</span></div></div>
+            <div class="menu-item"><div class="item-encabezado"><span>Navarro Correas(Argentina)- Malbec</span><span>Botella: S/. 80.00 | Copa: S/. 20.00</span></div></div>
+            <div class="menu-item"><div class="item-encabezado"><span>Concha y Toro Reservado</span><span>Botella: S/. 40.00 | Copa: S/. 13.00</span></div></div>
+            <div class="menu-item"><div class="item-encabezado"><span>Astica</span><span>Botella: S/. 40.00 | Copa: S/. 13.00</span></div></div>
+            <div class="menu-item"><div class="item-encabezado"><span>Intipalka</span><span>Botella: S/. 40.00 | Copa: S/. 13.00</span></div></div>
+            <div class="menu-item"><div class="item-encabezado"><span>Queirolo - Tannat / Malbec</span><span>Botella: S/. 40.00 | Copa: S/. 13.00</span></div></div>
+            <div class="menu-item"><div class="item-encabezado"><span>Queirolo - Borgoña / Rosé</span><span>Botella: S/. 30.00 | Copa: S/. 10.00</span></div></div>
+        </div>
+    </div>
+
+     <!-- Nuestros Cócteles -->
+    <div class="acordeon-item">
+        <button class="acordeon-boton" onclick="toggleAcordeon(this)">Nuestros cócteles</button>
+        <div class="acordeon-contenido">
+            <div class="menu-item"><div class="item-encabezado"><span>Algarrobina</span><span>S/. 18.00</span></div></div>
+            <div class="menu-item"><div class="item-encabezado"><span>Mojito (Fresa / Mango / Clásico)</span><span>S/. 17.00</span></div></div>
+            <div class="menu-item"><div class="item-encabezado"><span>Arcoiris</span><span>S/. 17.00</span></div></div>
+            <div class="menu-item"><div class="item-encabezado"><span>Machu Pichu</span><span>S/. 15.00</span></div></div>
+            <div class="menu-item"><div class="item-encabezado"><span>Daiquiri (Mango / Fresa)</span><span>S/. 15.00</span></div></div>
+            <div class="menu-item"><div class="item-encabezado"><span>Piña Colada</span><span>S/. 15.00</span></div></div>
+            <div class="menu-item"><div class="item-encabezado"><span>Chilcano de Pisco</span><span>S/. 15.00</span></div></div>
+            <div class="menu-item"><div class="item-encabezado"><span>Pisco Sour</span><span>S/. 15.00</span></div></div>
+            <div class="menu-item"><div class="item-encabezado"><span>Cuba Libre</span><span>S/. 15.00</span></div></div>
+            <div class="menu-item"><div class="item-encabezado"><span>Perú Libre</span><span>S/. 14.00</span></div></div>
+            <div class="menu-item"><div class="item-encabezado"><span>Caipirinha / Caipiroska</span><span>S/. 13.00</span></div></div>
+            <div class="menu-item"><div class="item-encabezado"><span>Primavera</span><span>S/. 12.00</span></div></div>
+            <div class="menu-item"><div class="item-encabezado"><span>Mimosa</span><span>S/. 10.00</span></div></div>
+        </div>
+    </div>
+    
 </div>
+
+<script>
+    function toggleAcordeon(boton) {
+        // Obtenemos el contenedor padre del botón actual
+        const itemActual = boton.parentElement;
+        
+        // Cerramos todos los demás elementos que estén activos
+        document.querySelectorAll('.acordeon-item').forEach(item => {
+            if (item !== itemActual) {
+                item.classList.remove('active');
+            }
+        });
+
+        // Alternamos el estado del elemento actual
+        itemActual.classList.toggle('active');
+    }
+</script>
+<div id="contenido-home-bebidas" style="display: none;">
+    <div style="background: #161616; border-left: 3px solid #cda45e; padding: 1.2rem; margin-bottom: 1rem;">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <h4 style="font-family: 'Antonio', sans-serif; margin: 0; font-size: 1.3rem;">SANGRÍA ESTANCIA (JARRA)</h4>
+                            <span style="color: #cda45e; font-weight: bold; font-size: 1.1rem;">S/. 45.00</span>
+                        </div>
+                        <p style="color: #a5a5a5; font-size: 0.85rem; margin: 0.5rem 0 0 0;">Nuestra receta especial de la casa con frutas seleccionadas.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
 
     <script>
         function seleccionarCategoriaHome(categoria) {
