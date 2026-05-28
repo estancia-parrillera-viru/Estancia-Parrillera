@@ -730,19 +730,32 @@
 </div>
 
 <script>
+    // 1. FUNCIÓN PARA EL ACORDEÓN (La que ya tenías)
     function toggleAcordeon(boton) {
-        // Obtenemos el contenedor padre del botón actual
         const itemActual = boton.parentElement;
-        
-        // Cerramos todos los demás elementos que estén activos
         document.querySelectorAll('.acordeon-item').forEach(item => {
             if (item !== itemActual) {
                 item.classList.remove('active');
             }
         });
-
-        // Alternamos el estado del elemento actual
         itemActual.classList.toggle('active');
+    }
+
+    // 2. FUNCIÓN PARA CAMBIAR ENTRE CARNES Y BEBIDAS (La nueva)
+    function seleccionarCategoriaHome(categoria) {
+        const carnes = document.getElementById('contenido-home-carnes');
+        const bebidas = document.getElementById('contenido-home-bebidas');
+
+        if (categoria === 'carnes') {
+            carnes.style.display = 'block';
+            bebidas.style.display = 'none';
+        } else {
+            carnes.style.display = 'block'; // Opcional: si quieres que se vean ambas
+            bebidas.style.display = 'block';
+            // Si prefieres que se oculten, usa:
+            // carnes.style.display = 'none';
+            // bebidas.style.display = 'block';
+        }
     }
 </script>
 <div id="contenido-home-bebidas" style="display: none;">
