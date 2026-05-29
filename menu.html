@@ -742,23 +742,18 @@
     }
 
     // 2. FUNCIÓN PARA CAMBIAR ENTRE CARNES Y BEBIDAS (La nueva)
-   function seleccionarCategoriaHome(categoria) {
-        const carnes = document.getElementById('contenido-home-carnes');
-        const bebidas = document.getElementById('contenido-home-bebidas');
+ function seleccionarCategoriaHome(categoria) {
+    const carnes = document.getElementById('contenido-home-carnes');
+    const bebidas = document.getElementById('contenido-home-bebidas');
 
-        if (categoria === 'carnes') {
-        function seleccionarCategoriaHome(categoria) {
-        const carnes = document.getElementById('contenido-home-carnes');
-        const bebidas = document.getElementById('contenido-home-bebidas');
-
-        if (categoria === 'carnes') {
-            carnes.style.display = 'block';
-            bebidas.style.display = 'none';
-        } else {
-            carnes.style.display = 'none';
-            bebidas.style.display = 'block';
-        }
+    if (categoria === 'carnes') {
+        carnes.style.display = 'block';
+        bebidas.style.display = 'none';
+    } else {
+        carnes.style.display = 'none';
+        bebidas.style.display = 'block';
     }
+}
                     </div>
                 </div>
             </div>
