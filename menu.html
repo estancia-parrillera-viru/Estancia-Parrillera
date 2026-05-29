@@ -747,6 +747,11 @@
         const bebidas = document.getElementById('contenido-home-bebidas');
 
         if (categoria === 'carnes') {
+        function seleccionarCategoriaHome(categoria) {
+        const carnes = document.getElementById('contenido-home-carnes');
+        const bebidas = document.getElementById('contenido-home-bebidas');
+
+        if (categoria === 'carnes') {
             carnes.style.display = 'block';
             bebidas.style.display = 'none';
         } else {
@@ -754,15 +759,6 @@
             bebidas.style.display = 'block';
         }
     }
-    }
-</script>
-<div id="contenido-home-bebidas" style="display: none;">
-    <div style="background: #161616; border-left: 3px solid #cda45e; padding: 1.2rem; margin-bottom: 1rem;">
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <h4 style="font-family: 'Antonio', sans-serif; margin: 0; font-size: 1.3rem;">SANGRÍA ESTANCIA (JARRA)</h4>
-                            <span style="color: #cda45e; font-weight: bold; font-size: 1.1rem;">S/. 45.00</span>
-                        </div>
-                        <p style="color: #a5a5a5; font-size: 0.85rem; margin: 0.5rem 0 0 0;">Nuestra receta especial de la casa con frutas seleccionadas.</p>
                     </div>
                 </div>
             </div>
